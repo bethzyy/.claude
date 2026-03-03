@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(*)",
+      "Bash(mv:*)",
+      "Bash(rm:*)",
+      "Bash(file:*)",
+      "Bash(ls:*)",
+      "Bash(done)",
+      "Bash(python:*)",
+      "Bash(where skill:*)",
+      "Bash(xargs grep:*)",
+      "Bash(mkdir:*)",
+      "Bash(cp:*)",
+      "mcp__web-search-prime__webSearchPrime",
+      "WebSearch",
+      "Bash(curl:*)",
+      "Bash(pip install:*)",
+      "Bash(do:*)",
+      "mcp__web-reader__webReader"
+    ]
+  }
+}
