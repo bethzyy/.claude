@@ -19,5 +19,49 @@
       "Bash(do:*)",
       "mcp__web-reader__webReader"
     ]
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "os == 'windows'",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"C:\\Users\\yingy\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\D\\CAIE_tool\\MyAIProduct\\claude_notify.py\" \"【会话结束】可以继续了\""
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "os == 'windows'",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"C:\\Users\\yingy\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\D\\CAIE_tool\\MyAIProduct\\claude_notify.py\" \"【任务完成】已完成操作\""
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "matcher": "idle_prompt",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"C:\\Users\\yingy\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\D\\CAIE_tool\\MyAIProduct\\claude_notify.py\" \"【等待输入】请告诉我下一步做什么\""
+          }
+        ]
+      },
+      {
+        "matcher": "message contains 'Do you want to proceed?' || message contains '请选择' || message contains '是否继续'",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"C:\\Users\\yingy\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\D\\CAIE_tool\\MyAIProduct\\claude_notify.py\" \"【权限确认】需要您批准才能继续\""
+          }
+        ]
+      }
+    ]
   }
 }
