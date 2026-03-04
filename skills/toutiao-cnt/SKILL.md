@@ -1,7 +1,7 @@
 ---
 name: toutiao-cnt
-description: This skill should be used when the user asks to "create Toutiao article", "generate article", "write article about [topic]", "integrate content to article", "add content to existing article", "merge content with article", "update article with new content", "生成头条文章", "写一篇文章", "创作文章", "生成HTML文章", "生成头条html文章", "研究并生成文章", "写一篇关于...的文章", or discusses creating or updating 今日头条 articles. Supports both creating new articles from topics and intelligently integrating content into existing articles. Automatically recognizes composite tasks (research + generation) and handles the article creation portion.
-version: 3.1.0
+description: Create, generate, or convert content into 今日头条 (Toutiao) articles. ALWAYS use this skill when user wants to "create article", "generate article", "write article about [topic]", "生成一篇头条文章", "写一篇头条文章", "创作一篇头条文章", "帮我生成头条文章", "帮我写头条文章", "生成头条文章", "写一篇文章", "创作文章", "把 [内容] 写成头条文章", "把 [文件] 转换成头条文章", "将 [文档] 变成HTML文章", "把 [内容] 转成今日头条文章", "把...变成文章", "把...转成文章", "把...写成文章", "将...转换为文章", "生成HTML文章", "生成头条html文章", "研究并生成文章", "写一篇关于...的文章", or discusses creating/updating 今日头条 articles. Supports creating from topics AND converting existing files (Markdown, HTML, Text) into Toutiao-compatible HTML format. Automatically handles research (uses web-search for fact accuracy), content generation, and file conversion. Includes article structure best practices to ensure logical flow and avoid redundancy. MUST trigger for ANY Toutiao article creation or content transformation task including "把 [file] 写成/转成/变成 [format]" patterns.
+version: 3.6.0
 ---
 
 # Toutiao Article Content Manager
@@ -13,6 +13,16 @@ Generate complete articles from user-specified topics using AI, with automatic r
 
 ## 2. Content Integration
 Intelligently integrate new content into existing Toutiao articles with automatic duplicate detection, flexible positioning, and support for multiple content formats (Markdown/HTML/Text).
+
+## What's New in v3.6.0
+
+- **Automatic ASCII Diagram Formatting**: All generated articles now include optimized `.diagram` CSS style
+  - Fixes alignment issues in ASCII art/architecture diagrams
+  - Uses monospace font (`Courier New`, `Consolas`) for proper character alignment
+  - Compact line-height (1.2) for tight spacing between diagram lines
+  - `white-space: pre` preserves ASCII formatting exactly as written
+  - When integrating content, the system automatically injects `.diagram` style if missing
+  - Example use case: Architecture diagrams, flowcharts, system structure visualization
 
 ## When This Skill Applies
 
@@ -212,6 +222,21 @@ li {
     margin-right: 5px;
 }
 
+/* ASCII Diagram styles */
+.diagram {
+    background: #f0f7ff;
+    border: 1px dashed #90caf9;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+    font-family: 'Courier New', 'Consolas', monospace;
+    font-size: 14px;
+    line-height: 1.2;
+    text-align: center;
+    white-space: pre;
+    overflow-x: auto;
+}
+
 hr {
     margin: 40px 0;
     border: none;
@@ -339,6 +364,28 @@ hr {
 </table>
 ```
 
+### 5. ASCII Architecture Diagram
+```html
+<div class="diagram">
+┌─────────────────────────────────────┐<br>
+│           主系统              │<br>
+│  ┌───────────────────────────────┐  │<br>
+│  │      沙箱环境       │  │<br>
+│  │  ┌─────────┐  ┌─────────┐     │  │<br>
+│  │  │ 程序 A  │  │ 程序 B  │     │  │<br>
+│  │  └─────────┘  └─────────┘     │  │<br>
+│  └───────────────────────────────┘  │<br>
+│         ↕️ 受限的通信                 │<br>
+└─────────────────────────────────────┘
+</div>
+```
+
+**Note**: The `.diagram` class automatically ensures:
+- Monospace font for proper alignment
+- Compact line-height (1.2) for tight spacing
+- `white-space: pre` to preserve ASCII formatting
+- Centered display with professional styling
+
 ## Publishing Workflow
 
 1. Create HTML file using the template above
@@ -444,6 +491,79 @@ Articles are automatically structured with:
 - `casual`: Lifestyle, culture, food
 - `academic`: Research, analysis
 - `storytelling`: Narratives, history
+
+## Article Structure Best Practices
+
+### Optimal Logical Flow
+
+A well-structured article should follow this progression:
+
+```
+1. Hook/Introduction (What)
+   └─ Grab attention, establish topic relevance
+
+2. Core Concept/Philosophy (Why) ⭐ KEY
+   └─ Build cognitive framework BEFORE diving into details
+   └─ Example: "Agent Teams" concept before introducing individual agents
+
+3. Detailed Content (How)
+   └─ Specific features, components, or implementations
+   └─ Based on the framework established in step 2
+
+4. Comparison/Selection (When)
+   └─ Help readers choose between options
+   └─ Use tables for quick reference
+
+5. Practical Examples (Application)
+   └─ Real-world use cases
+   └─ Demonstrate how concepts apply in practice
+
+6. Advanced Tips (Depth)
+   └─ Power user techniques
+   └─ Avoid redundancy with previous sections
+
+7. Summary (Recap)
+   └─ Key takeaways
+   └─ Actionable next steps
+```
+
+### Common Structure Mistakes to Avoid
+
+❌ **Don't:**
+- Put core concepts at the end (readers lose context)
+- Have overlapping sections (comparison table + examples covering same ground)
+- Jump between abstraction levels (concept → details → back to concept)
+- Use vague section titles that don't reflect content
+
+✅ **Do:**
+- Start with why/philosophy, then what/details
+- Ensure each section has a unique purpose
+- Use progressive disclosure (simple → complex)
+- Make section titles descriptive and accurate
+
+### Section Title Guidelines
+
+**Bad titles:**
+- "How to use" (too generic)
+- "More information" (doesn't indicate content)
+- "Overview" (could mean anything)
+
+**Good titles:**
+- "Agent Combination: Real-World Workflow" (specific)
+- "Direct Dialog vs Agent: When to Choose Which" (clear comparison)
+- "Traditional vs Agent Teams: Architecture Comparison" (descriptive)
+
+### Redundancy Checklist
+
+Before finalizing an article, check for:
+- [ ] Do any sections repeat information?
+- [ ] Are examples distinct from comparison tables?
+- [ ] Does each section add unique value?
+- [ ] Can any overlapping content be merged?
+
+**Example of redundancy elimination:**
+- Before: Section on "Choosing the right approach" + Section on "Use cases" (overlap)
+- After: Section on "When to use each" (comparison table) + Section on "Combination examples" (unique workflows)
 
 ---
 
