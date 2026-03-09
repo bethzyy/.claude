@@ -1,0 +1,181 @@
+{
+  "test_name": "飞书文档下载质量测试用例",
+  "version": "1.0.0",
+  "created": "2026-03-06",
+  "description": "测试飞书文档下载的完整性和交互功能",
+
+  "test_cases": [
+    {
+      "id": "TC001",
+      "name": "test_sidebar_scrolling",
+      "description": "侧边栏可滚动到底部",
+      "severity": "P0",
+      "category": "dynamic_test",
+      "test_config": {
+        "selector": ".wiki-ssr-sidebar__wrapper",
+        "test_type": "scrolling"
+      },
+      "expected": {
+        "scrollable": true,
+        "content_at_bottom_accessible": true
+      },
+      "remediation": "如果测试失败，检查是否修改了overflow样式或添加了height限制"
+    },
+    {
+      "id": "TC002",
+      "name": "test_no_custom_css",
+      "description": "无危险的自定义CSS",
+      "severity": "P0",
+      "category": "static_test",
+      "test_config": {
+        "test_type": "custom_css_check"
+      },
+      "expected": {
+        "no_height_100vh": true,
+        "no_overflow_important": true
+      },
+      "forbidden_patterns": [
+        "height: 100vh",
+        "overflow-y: auto !important",
+        "max-height: 100vh"
+      ],
+      "remediation": "移除所有自定义CSS，保留原始样式"
+    },
+    {
+      "id": "TC003",
+      "name": "test_content_completeness",
+      "description": "文本内容完整度≥90%",
+      "severity": "P1",
+      "category": "comparison_test",
+      "test_config": {
+        "test_type": "text_similarity",
+        "min_similarity": 0.90
+      },
+      "expected": {
+        "similarity": 0.90
+      },
+      "remediation": "增加等待时间或使用CDP模式获取完整内容"
+    },
+    {
+      "id": "TC004",
+      "name": "test_resource_completeness",
+      "description": "资源文件下载完整",
+      "severity": "P1",
+      "category": "static_test",
+      "test_config": {
+        "test_type": "resource_completeness"
+      },
+      "expected": {
+        "css_completeness": 0.80,
+        "image_completeness": 0.70,
+        "js_completeness": 0.80
+      },
+      "remediation": "完善资源下载逻辑，处理CORS限制"
+    },
+    {
+      "id": "TC005",
+      "name": "test_page_scrolling",
+      "description": "主页面可滚动到底部",
+      "severity": "P1",
+      "category": "dynamic_test",
+      "test_config": {
+        "test_type": "page_scrolling"
+      },
+      "expected": {
+        "scrollable": true,
+        "bottom_accessible": true
+      },
+      "remediation": "检查body高度限制"
+    },
+    {
+      "id": "TC006",
+      "name": "test_click_interactions",
+      "description": "交互元素可点击",
+      "severity": "P2",
+      "category": "dynamic_test",
+      "test_config": {
+        "test_type": "click_interactions"
+      },
+      "expected": {
+        "links_present": true,
+        "buttons_clickable": true
+      },
+      "remediation": "确保JavaScript正确加载"
+    },
+    {
+      "id": "TC007",
+      "name": "test_html_structure",
+      "description": "HTML结构完整",
+      "severity": "P2",
+      "category": "static_test",
+      "test_config": {
+        "test_type": "html_structure"
+      },
+      "expected": {
+        "has_html_tag": true,
+        "has_body_tag": true,
+        "has_title_tag": true,
+        "min_text_length": 100
+      },
+      "remediation": "确保HTML基本结构完整"
+    }
+  ],
+
+  "test_scenarios": {
+    "scenario_1_basic_download": {
+      "name": "基础下载测试",
+      "description": "测试飞书文档的基本下载功能",
+      "test_cases": ["TC001", "TC002", "TC007"],
+      "pass_criteria": "所有P0测试必须通过"
+    },
+    "scenario_2_quality_check": {
+      "name": "质量检查测试",
+      "description": "测试下载内容的质量",
+      "test_cases": ["TC002", "TC003", "TC004"],
+      "pass_criteria": "内容相似度≥90%，资源完整度≥70%"
+    },
+    "scenario_3_full_test": {
+      "name": "完整功能测试",
+      "description": "全面测试所有功能",
+      "test_cases": ["TC001", "TC002", "TC003", "TC004", "TC005", "TC006", "TC007"],
+      "pass_criteria": "总分≥70分，无P0问题"
+    }
+  },
+
+  "known_issues": {
+    "issue_1下半截空白": {
+      "description": "侧边栏下半部分内容无法访问",
+      "root_cause": "添加了自定义CSS (height: 100vh)",
+      "detection": "TC002",
+      "fix": "移除自定义CSS"
+    },
+    "issue_2滚动失效": {
+      "description": "滚动条无法操作",
+      "root_cause": "overflow-y: auto !important 覆盖原始样式",
+      "detection": "TC001",
+      "fix": "不修改overflow样式"
+    },
+    "issue_3内容不完整": {
+      "description": "下载的内容与原网页不一致",
+      "root_cause": "等待时间不足或未使用CDP模式",
+      "detection": "TC003",
+      "fix": "增加等待时间或使用CDP模式"
+    }
+  },
+
+  "reference_urls": {
+    "feishu_wiki_example": "https://ocnzldtvkztt.feishu.cn/wiki/Xr1XwMQlzizvV2k6W1RcLxgtnfs",
+    "generic_public_page": "https://example.com"
+  },
+
+  "dependencies": {
+    "required": [
+      "playwright>=1.40.0",
+      "beautifulsoup4>=4.12.0",
+      "lxml>=5.0.0"
+    ],
+    "optional": [
+      "pytest>=7.0.0"
+    ]
+  }
+}

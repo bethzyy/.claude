@@ -1,0 +1,193 @@
+[���Agent] ��ʼ���: web-download
+[���Agent] ��ʼ�����ҳ��������
+[���Agent] ���ж�̬����: C:/D/CAIE_tool/MyAIProduct/gethtml/downloads/meetchances.feishu.cn/index.html
+[���Agent] ��֤����: cdp
+[���Agent] ԭ��: �����ĵ���Ҫ��¼̬���ܻ�ȡ׼ȷbaseline��CDP�����ṩ�ѵ�¼��Chrome�Ự
+[���Agent] ���Ŷ�: 0.95
+[���Agent] ʹ��CDP��ȡ׼ȷbaseline...
+[���Agent] [OK] CDP�Աȳɹ�: 104.8%������
+[���Agent] �÷����� (v2.1.0 �����֪):
+  - static: 25/40
+  - dynamic: 10/30
+  - comparison: 10/35
+  - lessons: 0/10
+[���Agent] �ܷ�: 45/100
+[����] ��鱨���ѱ���: test\skill-evals\quality-reviewer\test\review_report.json
+{
+  "task_id": "test",
+  "timestamp": "2026-03-07T17:25:46.205593",
+  "review_type": "web_download_review",
+  "overall_score": 45,
+  "approved": false,
+  "suggestions": [
+    "[P0-CRITICAL] ����Ƿ��޸���overflow��ʽ",
+    "�޸�HTML�ṹ����",
+    "�޸�ҳ���������",
+    "�޸��������������",
+    "������������� (��ǰ���ƶ�: 0.0%)"
+  ],
+  "issues": [
+    {
+      "category": "html_structure",
+      "severity": "unknown",
+      "description": "HTML����Ϊ��"
+    },
+    {
+      "category": "dynamic_scrolling",
+      "severity": "P1",
+      "description": "scrolling����ʧ��"
+    },
+    {
+      "category": "dynamic_sidebar",
+      "severity": "P1",
+      "description": "sidebar����ʧ��"
+    },
+    {
+      "category": "lessons_learned",
+      "severity": "P0",
+      "description": "������޷���������",
+      "fix": "����Ƿ��޸���overflow��ʽ"
+    },
+    {
+      "category": "lessons_learned",
+      "severity": "P1",
+      "description": "ҳ����������쳣",
+      "fix": "���height��overflow����"
+    }
+  ],
+  "checks": {
+    "static_checks": {
+      "html_structure": {
+        "passed": false,
+        "issues": [
+          "HTML����Ϊ��"
+        ]
+      },
+      "custom_css": {
+        "passed": true,
+        "issues": [],
+        "p0_count": 0,
+        "total_count": 0
+      },
+      "resources": {
+        "passed": true,
+        "css": {
+          "expected": 0,
+          "downloaded": 0,
+          "completeness": 1.0
+        },
+        "images": {
+          "expected": 0,
+          "downloaded": 0,
+          "completeness": 1.0
+        },
+        "js": {
+          "expected": 0,
+          "downloaded": 0,
+          "completeness": 1.0
+        }
+      }
+    },
+    "dynamic_checks": {
+      "scrolling": {
+        "passed": false,
+        "scrollable": false,
+        "reached_bottom": false,
+        "scroll_height": 1080,
+        "client_height": 1080,
+        "bottom_text_accessible": false,
+        "bottom_text_sample": ""
+      },
+      "sidebar": {
+        "passed": false,
+        "results": [
+          {
+            "selector": ".wiki-ssr-sidebar__wrapper",
+            "found": true,
+            "scrollable": false,
+            "can_scroll_to_bottom": false,
+            "scroll_height": 0,
+            "client_height": 0,
+            "initial_scroll_top": 0,
+            "final_scroll_top": 0
+          },
+          {
+            "selector": ".wiki-sidebar",
+            "found": false,
+            "reason": "Element not found"
+          },
+          {
+            "selector": "[role='navigation']",
+            "found": false,
+            "reason": "Element not found"
+          }
+        ],
+        "working_selector": null
+      },
+      "click_interactions": {
+        "passed": true,
+        "total_tests": 3,
+        "passed_tests": 2,
+        "tests": [
+          {
+            "test": "links_present",
+            "passed": true,
+            "count": 23,
+            "description": "Found 23 links"
+          },
+          {
+            "test": "buttons_present",
+            "passed": true,
+            "count": 17,
+            "description": "Found 17 buttons"
+          },
+          {
+            "test": "sidebar_item_clickable",
+            "passed": false,
+            "reason": "No sidebar item found"
+          }
+        ]
+      },
+      "screenshot": "test\\screenshots\\index_test.png"
+    },
+    "comparison": {
+      "completeness": 104.8,
+      "met_target": false,
+      "baseline_length": 1002,
+      "downloaded_length": 1050,
+      "html_source_length": 1221,
+      "html_source_completeness": 121.9,
+      "rendered_completeness": 104.8,
+      "rendering_check": {
+        "render_success": true,
+        "main_content_empty": true,
+        "main_content_status": "NO_MAIN_CONTENT_AREA",
+        "js_errors": []
+      },
+      "rendering_issue": true,
+      "gap": -48,
+      "success": true,
+      "method": "cdp",
+      "diagnosis": "SPAӦ����Ⱦʧ�ܣ�������ĵ�����HTMLԴ������ʾ�����ݣ�121.9%������ʵ����Ⱦ��������Ϊ�գ�104.8%����ԭ�����ݴ洢��data-string�����У���ҪJavaScript��Ⱦ����JavaScript������������API����֤token��"
+    },
+    "lessons": {
+      "critical_issues": [
+        {
+          "lesson": "LESSONS_LEARNED.md #2",
+          "issue": "������޷���������",
+          "fix": "����Ƿ��޸���overflow��ʽ",
+          "severity": "P0"
+        }
+      ],
+      "warnings": [
+        {
+          "lesson": "LESSONS_LEARNED.md #2",
+          "issue": "ҳ����������쳣",
+          "fix": "���height��overflow����",
+          "severity": "P1"
+        }
+      ],
+      "total_issues": 2
+    }
+  }
+}

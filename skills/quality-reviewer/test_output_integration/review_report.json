@@ -1,0 +1,171 @@
+{
+  "task_id": "test_integration",
+  "timestamp": "2026-03-06T10:34:05.352646",
+  "review_type": "web_download_review",
+  "overall_score": 45,
+  "approved": false,
+  "suggestions": [
+    "🔴 检查是否修改了overflow样式",
+    "修复页面滚动功能",
+    "修复侧边栏滚动功能",
+    "提高内容完整度 (当前相似度: 2.2%)"
+  ],
+  "issues": [
+    {
+      "category": "dynamic_scrolling",
+      "severity": "P1",
+      "description": "scrolling测试失败"
+    },
+    {
+      "category": "dynamic_sidebar",
+      "severity": "P1",
+      "description": "sidebar测试失败"
+    },
+    {
+      "category": "lessons_learned",
+      "severity": "P0",
+      "description": "侧边栏无法正常滚动",
+      "fix": "检查是否修改了overflow样式"
+    },
+    {
+      "category": "lessons_learned",
+      "severity": "P1",
+      "description": "页面滚动功能异常",
+      "fix": "检查height和overflow设置"
+    }
+  ],
+  "checks": {
+    "static_checks": {
+      "html_structure": {
+        "passed": true,
+        "issues": [],
+        "text_length": 167,
+        "has_title": true,
+        "title": "Test Page"
+      },
+      "custom_css": {
+        "passed": true,
+        "issues": [],
+        "p0_count": 0,
+        "total_count": 0
+      },
+      "resources": {
+        "passed": false,
+        "css": {
+          "expected": 1,
+          "downloaded": 0,
+          "completeness": 0.0
+        },
+        "images": {
+          "expected": 1,
+          "downloaded": 0,
+          "completeness": 0.0
+        },
+        "js": {
+          "expected": 0,
+          "downloaded": 0,
+          "completeness": 1.0
+        }
+      }
+    },
+    "dynamic_checks": {
+      "scrolling": {
+        "passed": false,
+        "scrollable": false,
+        "reached_bottom": false,
+        "scroll_height": 201,
+        "client_height": 1080,
+        "bottom_text_accessible": true,
+        "bottom_text_sample": "Section 3"
+      },
+      "sidebar": {
+        "passed": false,
+        "results": [
+          {
+            "selector": ".wiki-ssr-sidebar__wrapper",
+            "found": true,
+            "scrollable": false,
+            "can_scroll_to_bottom": false,
+            "scroll_height": 21,
+            "client_height": 21,
+            "initial_scroll_top": 0,
+            "final_scroll_top": 0
+          },
+          {
+            "selector": ".wiki-sidebar",
+            "found": false,
+            "reason": "Element not found"
+          },
+          {
+            "selector": "[role='navigation']",
+            "found": false,
+            "reason": "Element not found"
+          }
+        ],
+        "working_selector": null
+      },
+      "click_interactions": {
+        "passed": true,
+        "total_tests": 3,
+        "passed_tests": 2,
+        "tests": [
+          {
+            "test": "links_present",
+            "passed": true,
+            "count": 3,
+            "description": "Found 3 links"
+          },
+          {
+            "test": "buttons_present",
+            "passed": false,
+            "count": 0,
+            "description": "Found 0 buttons"
+          },
+          {
+            "test": "sidebar_item_clickable",
+            "passed": true,
+            "href": "#section1",
+            "description": "Sidebar item is clickable and visible"
+          }
+        ]
+      },
+      "screenshot": "test\\screenshots\\test_temp_test.png"
+    },
+    "comparison": {
+      "success": true,
+      "original_url": "https://example.com/test",
+      "downloaded_html": "C:\\D\\CAIE_tool\\MyAIProduct\\.claude\\skills\\quality-reviewer\\test_temp.html",
+      "text_similarity": 0.02159827213822894,
+      "original_length": 126,
+      "downloaded_length": 337,
+      "acceptable": false,
+      "image_count": {
+        "original": 0,
+        "downloaded": 1
+      },
+      "screenshots": {
+        "original": "test\\screenshots\\test_temp_original.png",
+        "downloaded": "test\\screenshots\\test_temp_downloaded.png"
+      }
+    },
+    "lessons": {
+      "critical_issues": [
+        {
+          "lesson": "LESSONS_LEARNED.md #2",
+          "issue": "侧边栏无法正常滚动",
+          "fix": "检查是否修改了overflow样式",
+          "severity": "P0"
+        }
+      ],
+      "warnings": [
+        {
+          "lesson": "LESSONS_LEARNED.md #2",
+          "issue": "页面滚动功能异常",
+          "fix": "检查height和overflow设置",
+          "severity": "P1"
+        }
+      ],
+      "total_issues": 2
+    }
+  }
+}

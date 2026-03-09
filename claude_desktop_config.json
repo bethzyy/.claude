@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "xiaohongshu": {
+      "command": "C:\\D\\CAIE_tool\\MyAIProduct\\mcp-servers\\xiaohongshu\\xiaohongshu-mcp-wrapper.bat",
+      "args": ["--config", "C:\\D\\CAIE_tool\\MyAIProduct\\mcp-servers\\xiaohongshu\\config.json"]
+    }
+  }
+}

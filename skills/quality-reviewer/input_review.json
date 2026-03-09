@@ -1,0 +1,11 @@
+{
+  "task_id": "feishu_html_review",
+  "result": {
+    "type": "web-download",
+    "html_path": "C:\\D\\CAIE_tool\\MyAIProduct\\gethtml\\downloads\\meetchances.feishu.cn\\index_final.html",
+    "original_url": "https://meetchances.feishu.cn/wiki/WiKVwhPjYiGL3nksfldc94V3n8b"
+  },
+  "task": {
+    "description": "审查飞书文档提取质量。检查：1）HTML格式是否清晰 2）表格结构是否正确 3）关键词匹配度 4）内容完整性。目标：达到90%以上质量分数。"
+  }
+}

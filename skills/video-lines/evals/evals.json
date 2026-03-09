@@ -1,0 +1,65 @@
+{
+  "skill_name": "video-lines",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "把这个视频的台词提取出来",
+      "expected_output": "Skill should trigger and provide instructions for extracting dialogue from the video file",
+      "assertions": []
+    },
+    {
+      "id": 2,
+      "prompt": "我有一个课程录像 video.mp4，需要把里面的语音转成文字",
+      "expected_output": "Skill should trigger and guide the user to use the video-lines tool with the video file",
+      "assertions": []
+    },
+    {
+      "id": 3,
+      "prompt": "transcribe the meeting recording at C:\\Recordings\\meeting.mp4",
+      "expected_output": "Skill should trigger and provide the command to transcribe the specified video file",
+      "assertions": []
+    },
+    {
+      "id": 4,
+      "prompt": "帮我把这个2小时的视频转成文字",
+      "expected_output": "Skill should trigger and explain the video-to-text transcription process",
+      "assertions": []
+    },
+    {
+      "id": 5,
+      "prompt": "extract the dialogue from courseware.mp4",
+      "expected_output": "Skill should trigger and provide transcription instructions",
+      "assertions": []
+    },
+    {
+      "id": 6,
+      "prompt": "视频语音转文本",
+      "expected_output": "Skill should trigger for Chinese query about video speech to text",
+      "assertions": []
+    },
+    {
+      "id": 7,
+      "prompt": "把MP4转成txt",
+      "expected_output": "Skill should trigger for MP4 to text conversion request",
+      "assertions": []
+    },
+    {
+      "id": 8,
+      "prompt": "生成一张猫咪的图片",
+      "expected_output": "Skill should NOT trigger - this is for image generation, not video transcription",
+      "assertions": []
+    },
+    {
+      "id": 9,
+      "prompt": "帮我下载这个网页的内容",
+      "expected_output": "Skill should NOT trigger - this is for webpage downloading, not video transcription",
+      "assertions": []
+    },
+    {
+      "id": 10,
+      "prompt": "把这篇文章转成头条文章",
+      "expected_output": "Skill should NOT trigger - this is for article conversion, not video transcription",
+      "assertions": []
+    }
+  ]
+}

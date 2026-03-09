@@ -1,0 +1,40 @@
+{
+  "task_id": "benchmark_comparison",
+  "timestamp": "2026-03-07T19:57:28.339454",
+  "review_type": "content_review",
+  "overall_score": 87.5,
+  "approved": true,
+  "suggestions": [
+    "内容过短"
+  ],
+  "issues": [
+    {
+      "category": "length",
+      "description": "内容过短"
+    }
+  ],
+  "checks": {
+    "grammar": {
+      "passed": true,
+      "issues": [],
+      "score": 100
+    },
+    "originality": {
+      "passed": true,
+      "score": 100
+    },
+    "compliance": {
+      "passed": true,
+      "found": [],
+      "score": 100
+    },
+    "length": {
+      "passed": false,
+      "length": 0,
+      "issues": [
+        "内容过短"
+      ],
+      "score": 50
+    }
+  }
+}

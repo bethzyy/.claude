@@ -1,0 +1,11 @@
+{
+  "task_id": "feishu_generic_cdp_final",
+  "result": {
+    "type": "web-download",
+    "html_path": "C:\\D\\CAIE_tool\\MyAIProduct\\gethtml\\downloads\\meetchances.feishu.cn\\index.html",
+    "original_url": "https://meetchances.feishu.cn/wiki/WiKVwhPjYiGL3nksfldc94V3n8b"
+  },
+  "task": {
+    "description": "飞书文档下载质量审查，要求95%内容完整度"
+  }
+}

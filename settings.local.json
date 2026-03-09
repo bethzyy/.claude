@@ -1,0 +1,120 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(*)",
+      "Bash(mv:*)",
+      "Bash(rm:*)",
+      "Bash(file:*)",
+      "Bash(ls:*)",
+      "Bash(done)",
+      "Bash(python:*)",
+      "Bash(where skill:*)",
+      "Bash(xargs grep:*)",
+      "Bash(mkdir:*)",
+      "Bash(cp:*)",
+      "mcp__web-search-prime__webSearchPrime",
+      "WebSearch",
+      "Bash(curl:*)",
+      "Bash(pip install:*)",
+      "Bash(do:*)",
+      "mcp__web-reader__webReader",
+      "mcp__zread__get_repo_structure",
+      "mcp__zread__read_file",
+      "Bash(mv xiaohongshu-mcp:*)",
+      "Bash(cmd.exe:*)",
+      "Bash(explorer.exe:*)",
+      "Bash(test:*)",
+      "Bash(start:*)",
+      "Bash(powershell:*)",
+      "Bash(wget:*)",
+      "Bash(grep:*)",
+      "Bash(cmd:*)",
+      "Bash(sed:*)",
+      "Bash(python3:*)",
+      "Bash(./xiaohongshu-mcp.exe:*)",
+      "Bash(findstr:*)",
+      "Bash(xiaohongshu-mcp.exe:*)",
+      "Bash(where chromedriver:*)",
+      "Bash(start_chrome_debug.bat:*)",
+      "Bash(netstat:*)",
+      "Bash(taskkill:*)",
+      "Bash(tasklist:*)",
+      "Bash(wmic process:*)",
+      "mcp__zread__search_doc",
+      "Bash(\"C:\\\\D\\\\CAIE_tool\\\\MyAIProduct\\\\mcp-servers\\\\xiaohongshu\\\\xiaohongshu-mcp-windows-amd64.exe\":*)",
+      "Bash(unzip:*)",
+      "Bash(xargs -I {} cmd.exe /C \"taskkill /F /PID {}\")",
+      "Bash(tasklist.exe:*)",
+      "Bash(xargs -r kill -9)",
+      "Bash(powershell.exe:*)",
+      "Bash(dir C:\\\\D\\\\CAIE_tool\\\\MyAIProduct\\\\mcp-servers\\\\xiaohongshu\\\\images:*)",
+      "Bash(dir:*)",
+      "mcp__zai-mcp-server__analyze_image",
+      "Bash(xcopy:*)",
+      "Bash(robocopy C:\\\\D\\\\CAIE_tool\\\\MyAIProduct\\\\skills\\\\xiaohongshu-pub:*)",
+      "Bash(do taskkill:*)",
+      "Bash(cat:*)",
+      "Bash(\"C:\\\\Program:*)",
+      "Bash($env:FEISHU_APP_ID=\"cli_a920c3986db89cce\":*)",
+      "Bash(export:*)",
+      "Bash(feishu-docx config:*)",
+      "Bash(\"/c/Users/yingy/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0/LocalCache/local-packages/Python311/Scripts/feishu-docx.exe\" config:*)",
+      "Bash(\"/c/Users/yingy/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0/LocalCache/local-packages/Python311/Scripts/feishu-docx.exe\" auth:*)",
+      "Bash(\"/c/Users/yingy/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0/LocalCache/local-packages/Python311/Scripts/feishu-docx.exe\" export:*)",
+      "Bash(echo:*)",
+      "Bash(SKILL_CALL=1 CLAUDE_CODE_SESSION_ID=test python:*)",
+      "Bash(\"%LOCALAPPDATA%\\\\Obsidian\\\\Obsidian.exe\":*)",
+      "Bash(where obsidian)",
+      "Read(//c/Users/yingy/AppData/Local/Programs//**)",
+      "mcp__zai-mcp-server__diagnose_error_screenshot",
+      "Bash(mv md_transcript.txt \"/c/Users/yingy/Desktop/tmp/\")",
+      "Read(//c/Users/yingy/Desktop/tmp/**)",
+      "mcp__web-search-prime__web_search_prime",
+      "Bash(xargs wc:*)"
+    ]
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "os == 'windows'",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"C:\\Users\\yingy\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\D\\CAIE_tool\\MyAIProduct\\.claude\\scripts\\notify.py\" \"【会话结束】可以继续了\""
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "os == 'windows'",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"C:\\Users\\yingy\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\D\\CAIE_tool\\MyAIProduct\\.claude\\scripts\\notify.py\" \"【任务完成】已完成操作\""
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "matcher": "idle_prompt",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"C:\\Users\\yingy\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\D\\CAIE_tool\\MyAIProduct\\.claude\\scripts\\notify.py\" \"【等待输入】请告诉我下一步做什么\""
+          }
+        ]
+      },
+      {
+        "matcher": "message contains 'Do you want to proceed?' || message contains '请选择' || message contains '是否继续'",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"C:\\Users\\yingy\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\D\\CAIE_tool\\MyAIProduct\\.claude\\scripts\\notify.py\" \"【权限确认】需要您批准才能继续\""
+          }
+        ]
+      }
+    ]
+  }
+}

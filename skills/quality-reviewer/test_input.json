@@ -1,0 +1,9 @@
+{
+  "task_id": "feishu_download_review_001",
+  "result": {
+    "type": "web-download",
+    "html_path": "C:\\D\\CAIE_tool\\MyAIProduct\\gethtml\\downloads\\meetchances.feishu.cn\\index.html",
+    "original_url": "https://meetchances.feishu.cn/wiki/HM9bwYKMZizqwbkY2DbcEGzrn8e",
+    "assets_dir": "C:\\D\\CAIE_tool\\MyAIProduct\\gethtml\\downloads\\meetchances.feishu.cn\\assets"
+  }
+}

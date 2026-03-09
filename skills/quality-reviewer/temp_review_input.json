@@ -1,0 +1,14 @@
+{
+  "task_id": "feishu_download_v2_review",
+  "result": {
+    "type": "content",
+    "content": "# ⁢​﻿‍⁡⁡‬‍﻿‍⁤​​‍‬​⁢﻿⁣​⁤⁡⁡⁣​‬‍⁡​​​​‍‬‍⁡⁢⁢‬﻿⁣⁢​⁢什么是评分表（Rubrics）？\n\n![](assets/img_001.jpg)\n- 什么是评分表（Rubrics）？\n- 定义\n- 举个例子🌰\n- 没有评分表的打分\n- 有评分表的打分\n- 评分表在日常生活中的应用\n- 考试中主观题得分的评判\n- 场景描述\n- 现实中的做法：评分细则（Rubrics）\n- 总结\n- 法律判决时的裁决\n- 场景描述\n- 现实中的做法：量刑指导与裁量基准\n- 总结\n- 评分表在AI训练中的应用\n- 在AI训练中的作用\n- 什么是好的评分表\n- 好的 Rubrics，通常满足这四点\n- Good Case：好的 Rubrics 是什么样的\n- 🌰 场景：给 AI 的「餐厅点评回答」打分\n- ✅ Good Case（好 Rubrics 示例）\n- 为什么这是一个好 Rubrics？\n- Good vs Bad 的正面对照表\n\n\n# 什么是评分表（Rubrics）？​\n\n![image](assets/img_002.jpg)\n![飞书文档 - 图片](https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/v2/cover/G5K5bo3RMobuGUxUFCYcsNmJnVd/?fallback_source=1&height=1280&mount_node_token=HxU1dwHgJouYkexhLEucTPkEn3d&mount_point=docx_image&policy=equal&width=1280)",
+    "original_url": "https://meetchances.feishu.cn/wiki/WiKVwhPjYiGL3nksfldc94V3n8b",
+    "html_path": "C:/D/CAIE_tool/MyAIProduct/gethtml/downloads/meetchances.feishu.cn/index.html",
+    "markdown_path": "C:/D/CAIE_tool/MyAIProduct/gethtml/downloads/meetchances.feishu.cn/index.md"
+  },
+  "task": {
+    "description": "飞书文档下载质量审查，要求95%内容完整度",
+    "requirements": "使用FeishuDownloaderV2提取纯文本内容"
+  }
+}
