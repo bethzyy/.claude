@@ -1,15 +1,21 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Toutiao Content Manager - 统一入口
-===============================
+Toutiao Content Manager - v5.0.0 统一入口
+=========================================
 支持两种模式：
-1. 创建新文章：根据主题生成今日头条文章
+1. 创建新文章：根据主题生成今日头条文章（基于事实，杜绝编造）
 2. 整合内容：向现有文章添加新内容
 
 Usage:
     # 创建新文章
     python toutiao_content.py create "元宵节风俗"
+
+    # 使用用户内容创建
+    python toutiao_content.py create "Claude Code Agent" --content article.html
+
+    # 严格模式创建
+    python toutiao_content.py create "主题" --content source.md --strict
 
     # 整合内容
     python toutiao_content.py integrate article.html "新内容"
@@ -28,11 +34,29 @@ script_dir = Path(__file__).parent
 sys.path.insert(0, str(script_dir))
 sys.path.insert(0, str(script_dir.parent.parent / 'post'))
 
-def create_article(theme, output_dir=None, style=None):
-    """创建新文章"""
+
+def create_article(theme: str, output_dir: str = None, style: str = None,
+                   content: str = None, strict: bool = False,
+                   min_words: int = 500, max_words: int = 2000):
+    """创建新文章
+
+    Args:
+        theme: 文章主题
+        output_dir: 输出目录
+        style: 写作风格
+        content: 用户提供的内容（文件路径或直接文本）
+        strict: 严格模式，无事实材料则拒绝生成
+        min_words: 最小字数
+        max_words: 最大字数
+    """
     print(f"\n{'='*60}")
     print(f"[创建模式] 主题: {theme}")
-    print(f"{'='*60}\n")
+    print(f"{'='*60}")
+    if strict:
+        print(f"[模式] 严格模式 - 无事实材料将拒绝生成")
+    if content:
+        print(f"[内容源] {content}")
+    print()
 
     try:
         # 导入文章创建模块
@@ -44,7 +68,9 @@ def create_article(theme, output_dir=None, style=None):
             style = "专业"
 
         # 调用创建函数
-        return create_article_module(theme, output_dir, style)
+        return create_article_module(
+            theme, output_dir, style, content, strict, min_words, max_words
+        )
 
     except Exception as e:
         print(f"[错误] 创建文章失败: {e}")
@@ -53,7 +79,7 @@ def create_article(theme, output_dir=None, style=None):
         return None
 
 
-def integrate_content(html_file, content, **kwargs):
+def integrate_content(html_file: str, content: str, **kwargs):
     """整合内容到现有文章"""
     print(f"\n{'='*60}")
     print(f"[整合模式] 源文件: {html_file}")
@@ -114,7 +140,7 @@ def integrate_content(html_file, content, **kwargs):
 
 def main():
     parser = argparse.ArgumentParser(
-        description='Toutiao Content Manager - 创建新文章或整合内容',
+        description='Toutiao Content Manager - 创建新文章或整合内容（v5.0.0 基于事实生成）',
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 示例：
@@ -123,13 +149,24 @@ def main():
    python toutiao_content.py create "元宵节风俗"
    python toutiao_content.py create "RPA自动化" --style professional
 
-2. 整合内容：
+2. 使用用户内容创建（推荐）：
+   python toutiao_content.py create "Claude Code Agent" --content article.html
+   python toutiao_content.py create "主题" --content "直接提供的文本内容..."
+
+3. 严格模式创建（无事实则拒绝）：
+   python toutiao_content.py create "主题" --content source.md --strict
+
+4. 整合内容：
    python toutiao_content.py integrate article.html "新内容"
    python toutiao_content.py integrate article.html content.md --merge
    python toutiao_content.py integrate article.html --list-sections
 
-3. 指定输出目录：
+5. 指定输出目录：
    python toutiao_content.py create "主题" --output-dir "/path/to/dir"
+
+版本历史：
+  v5.0.0 - 基于事实生成，杜绝编造，新增 --content, --strict 参数
+  v4.0.0 - 迁移到 Anthropic 官方标准架构
         """
     )
 
@@ -140,6 +177,13 @@ def main():
     create_parser.add_argument('theme', help='文章主题')
     create_parser.add_argument('--output-dir', help='输出目录')
     create_parser.add_argument('--style', help='文风风格 (professional/casual/academic等)')
+    create_parser.add_argument('--content', help='用户提供的内容（文件路径或直接文本）')
+    create_parser.add_argument('--strict', action='store_true',
+                               help='严格模式：无事实材料则拒绝生成')
+    create_parser.add_argument('--min-words', type=int, default=500,
+                               help='最小字数（默认 500）')
+    create_parser.add_argument('--max-words', type=int, default=2000,
+                               help='最大字数（默认 2000）')
 
     # 整合模式
     integrate_parser = subparsers.add_parser('integrate', help='整合内容到现有文章')
@@ -163,7 +207,17 @@ def main():
         sys.exit(1)
 
     if args.mode == 'create':
-        create_article(args.theme, args.output_dir, args.style)
+        result = create_article(
+            args.theme,
+            args.output_dir,
+            args.style,
+            getattr(args, 'content', None),
+            getattr(args, 'strict', False),
+            getattr(args, 'min_words', 500),
+            getattr(args, 'max_words', 2000)
+        )
+        if result is None:
+            sys.exit(1)
     elif args.mode == 'integrate':
         if not args.content and not args.list_sections:
             print("[错误] 整合模式需要提供内容或使用 --list-sections")

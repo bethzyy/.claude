@@ -1,7 +1,7 @@
 ---
 name: toutiao-cnt
 description: Create, generate, or convert content into 今日头条 (Toutiao) articles. ALWAYS use this skill when user wants to "create article", "generate article", "write article about [topic]", "生成一篇头条文章", "写一篇头条文章", "创作一篇头条文章", "帮我生成头条文章", "帮我写头条文章", "生成头条文章", "写一篇文章", "创作文章", "把 [内容] 写成头条文章", "把 [文件] 转换成头条文章", "将 [文档] 变成HTML文章", "把 [内容] 转成今日头条文章", "把...变成文章", "把...转成文章", "把...写成文章", "将...转换为文章", "生成HTML文章", "生成头条html文章", "研究并生成文章", "写一篇关于...的文章", or discusses creating/updating 今日头条 articles. Supports creating from topics AND converting existing files (Markdown, HTML, Text) into Toutiao-compatible HTML format. Automatically handles research (uses web-search for fact accuracy), content generation, and file conversion. Includes article structure best practices to ensure logical flow and avoid redundancy. MUST trigger for ANY Toutiao article creation or content transformation task including "把 [file] 写成/转成/变成 [format]" patterns.
-version: 4.0.0
+version: 5.1.0
 ---
 
 # Toutiao Article Content Manager
@@ -13,6 +13,26 @@ Generate complete articles from user-specified topics using AI, with automatic r
 
 ## 2. Content Integration
 Intelligently integrate new content into existing Toutiao articles with automatic duplicate detection, flexible positioning, and support for multiple content formats (Markdown/HTML/Text).
+
+## What's New in v5.1.0
+
+- **🔍 明确"适当扩展"边界**：解决扩展与编造的模糊地带
+  - **明确允许的扩展**：重组顺序、过渡句（基于事实）、简化术语、添加段落标题
+  - **明确禁止的扩展**：未提及的案例/数据/版本号、预测假设、技术细节编造、过度推断
+  - **严格模式阈值提高**：从 100 字符提高到 300 字符，避免技术内容触发过于宽松
+  - **增强验证机制**：检查扩展内容是否有事实依据，新增"扩展内容验证"规则
+  - **新高严重度问题**：技术细节编造、过度推断、"补充背景"式编造
+
+## What's New in v5.0.0
+
+- **🎯 基于事实生成，杜绝编造**：重大改进，解决 AI 编造问题
+  - **修复搜索路径**：从 `skills/web-search` 修正为 `.claude/skills/web-search`
+  - **新增 `--content` 参数**：支持传入用户已有的专业内容（文件或直接文本）
+  - **新增 `--strict` 参数**：严格模式，无事实材料则拒绝生成
+  - **自适应字数**：根据事实材料量自动调整建议字数（不再硬性 1500-2000 字）
+  - **增强验证**：全文验证（不只是前 1000 字），更严格的验证标准
+  - **信息来源标注**：文章末尾自动添加"参考来源"部分
+  - **保守策略**：无事实材料时使用限定词和免责声明，宁可简短也不编造
 
 ## What's New in v4.0.0
 
@@ -432,20 +452,45 @@ python C:/D/CAIE_tool/MyAIProduct/.claude/skills/toutiao-cnt/main.py create <top
 | `topic` (required) | Article topic/theme |
 | `--output-dir` | Output directory (default: current directory) |
 | `--style` | Writing style (professional/casual/academic/etc.) |
+| `--content` | **NEW** User-provided content (file path or direct text) |
+| `--strict` | **NEW** Strict mode: reject generation without fact materials |
+| `--min-words` | **NEW** Minimum word count (default: 500) |
+| `--max-words` | **NEW** Maximum word count (default: 2000) |
 
 ## Usage Examples
 
-### 1. Create Article from Topic
+### 1. Create Article from Topic (with web search)
 ```bash
 python .claude/skills/toutiao-cnt/main.py create "元宵节风俗"
 ```
 
-### 2. Create with Specific Output Directory
+### 2. Create with User Content (Recommended for accuracy)
+```bash
+# Using a file as fact source
+python .claude/skills/toutiao-cnt/main.py create "Claude Code Agent 使用指南" \
+    --content "post/article/他山之石/Claude-Code原生Agent完全指南-头条版.html"
+
+# Using direct text as fact source
+python .claude/skills/toutiao-cnt/main.py create "Python 装饰器详解" \
+    --content "装饰器是 Python 的一个重要特性，它允许在不修改函数代码的情况下扩展函数功能..."
+```
+
+### 3. Create with Strict Mode (Reject if no facts)
+```bash
+# This will fail if no web search results or user content
+python .claude/skills/toutiao-cnt/main.py create "不存在的主题xyz123" --strict
+
+# This will succeed because user content is provided
+python .claude/skills/toutiao-cnt/main.py create "自定义主题" \
+    --content "这里是用户提供的专业内容..." --strict
+```
+
+### 4. Create with Specific Output Directory
 ```bash
 python .claude/skills/toutiao-cnt/main.py create "RPA自动化" --output-dir "C:/D/CAIE_tool/MyAIProduct/post/article/他山之石"
 ```
 
-### 3. Create with Custom Style
+### 5. Create with Custom Style
 ```bash
 python .claude/skills/toutiao-cnt/main.py create "人工智能发展" --style academic
 ```

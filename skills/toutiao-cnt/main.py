@@ -3,10 +3,15 @@
 """
 Toutiao Content Skill - Wrapper script for Toutiao article management
 
-Part of toutiao-cnt skill v4.0.0 - Anthropic official standard architecture
+Part of toutiao-cnt skill v5.0.0 - 基于事实生成，杜绝编造
 
 This wrapper delegates to the main implementation in scripts/toutiao_content.py
 (Follows Anthropic's official single-location architecture)
+
+New in v5.0.0:
+- --content parameter for user-provided facts
+- --strict mode to reject generation without facts
+- Adaptive word count based on fact materials
 """
 
 import os
