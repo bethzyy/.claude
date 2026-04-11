@@ -26,5 +26,13 @@ Thumbs.db
 dist/
 build/
 
+# 安全 — 防止敏感文件被提交
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+credentials.json
+
 #其它
 *.wav
