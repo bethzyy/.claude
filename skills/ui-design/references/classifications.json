@@ -1,0 +1,1119 @@
+{
+  "airbnb": {
+    "industries": [
+      "e-commerce",
+      "travel-hospitality"
+    ],
+    "color_temperature": "warm",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "warm",
+      "approachable",
+      "clean",
+      "friendly"
+    ],
+    "geometric_language": "mixed",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Warm, photography-first marketplace with custom Cereal font, generous rounding, and three-layer warm shadows on a pure white canvas."
+  },
+  "airtable": {
+    "industries": [
+      "saas",
+      "productivity",
+      "enterprise"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "professional",
+      "clean",
+      "precise",
+      "modern"
+    ],
+    "geometric_language": "moderate",
+    "complexity": "low",
+    "typography_style": "custom-font",
+    "one_line": "Swiss-precision enterprise platform with Haas font, blue-tinted shadows, positive letter-spacing, and a clean white navy-blue binary."
+  },
+  "apple": {
+    "industries": [
+      "consumer-electronics",
+      "technology"
+    ],
+    "color_temperature": "neutral",
+    "mode_preference": "dual-mode",
+    "brand_personality": [
+      "precise",
+      "minimal",
+      "luxurious",
+      "confident"
+    ],
+    "geometric_language": "mixed",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Cinematic product-as-sculpture gallery with SF Pro optical sizing, black/gray alternation, pill CTAs, and translucent glass navigation."
+  },
+  "bmw": {
+    "industries": [
+      "automotive",
+      "luxury"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "dual-mode",
+    "brand_personality": [
+      "serious",
+      "precise",
+      "technical",
+      "dramatic"
+    ],
+    "geometric_language": "sharp",
+    "complexity": "low",
+    "typography_style": "custom-font",
+    "one_line": "Angular, zero-radius German engineering aesthetic with BMWTypeNext Light uppercase display, showroom photography rhythm, and blue-only interactive accents."
+  },
+  "cal": {
+    "industries": [
+      "productivity",
+      "saas",
+      "developer-tools"
+    ],
+    "color_temperature": "neutral",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "minimal",
+      "precise",
+      "clean",
+      "professional"
+    ],
+    "geometric_language": "mixed",
+    "complexity": "high",
+    "typography_style": "custom-font",
+    "one_line": "Monochromatic grayscale confidence with Cal Sans geometric display, 11-definition multi-layer shadow system, and zero brand color."
+  },
+  "claude": {
+    "industries": [
+      "ai-ml",
+      "developer-tools"
+    ],
+    "color_temperature": "warm",
+    "mode_preference": "dual-mode",
+    "brand_personality": [
+      "editorial",
+      "warm",
+      "approachable",
+      "immersive"
+    ],
+    "geometric_language": "rounded",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Literary salon aesthetic with Anthropic Serif headlines, parchment canvas, terracotta accent, organic hand-drawn illustrations, and ring-shadow depth.",
+    "user_scenarios": ["professional_growth", "self_improvement"],
+    "emotional_goals": ["trust", "calm", "clarity"],
+    "domain_tags": ["ai", "assistant", "chat", "intelligent", "writing"]
+  },
+  "clay": {
+    "industries": [
+      "saas",
+      "enterprise",
+      "developer-tools"
+    ],
+    "color_temperature": "warm",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "playful",
+      "warm",
+      "approachable",
+      "friendly"
+    ],
+    "geometric_language": "rounded",
+    "complexity": "high",
+    "typography_style": "custom-font",
+    "one_line": "Artisanal B2B warmth with named swatch palette, Roobert font with 5 OpenType sets, rotateZ hover animations, and cream-canvas craft aesthetic."
+  },
+  "clickhouse": {
+    "industries": [
+      "infrastructure",
+      "developer-tools",
+      "database"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "dark-first",
+    "brand_personality": [
+      "technical",
+      "dramatic",
+      "precise",
+      "confident"
+    ],
+    "geometric_language": "sharp",
+    "complexity": "medium",
+    "typography_style": "system-font",
+    "one_line": "Neon yellow-green on obsidian black terminal cockpit with Inter Black 900 at 96px, inset pressed-shadows, and maximum-contrast performance data."
+  },
+  "cohere": {
+    "industries": [
+      "ai-ml",
+      "enterprise",
+      "infrastructure"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "professional",
+      "precise",
+      "modern",
+      "confident"
+    ],
+    "geometric_language": "rounded",
+    "complexity": "low",
+    "typography_style": "custom-font",
+    "one_line": "Enterprise command deck with CohereText serif display, 22px signature card radius, chromatic restraint, and deep purple hero bands.",
+    "user_scenarios": ["professional_growth"],
+    "emotional_goals": ["trust", "clarity"],
+    "domain_tags": ["ai", "enterprise", "nlp", "intelligent", "automation"]
+  },
+  "coinbase": {
+    "industries": [
+      "fintech",
+      "cryptocurrency"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "dual-mode",
+    "brand_personality": [
+      "professional",
+      "trustworthy",
+      "clean",
+      "modern"
+    ],
+    "geometric_language": "pill",
+    "complexity": "low",
+    "typography_style": "custom-font",
+    "one_line": "Trustworthy crypto exchange with deep blue accent, four-font proprietary family, 56px pill buttons, and white-dark binary with minimal shadows."
+  },
+  "composio": {
+    "industries": [
+      "developer-tools",
+      "ai-ml",
+      "infrastructure"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "dark-first",
+    "brand_personality": [
+      "technical",
+      "precise",
+      "modern",
+      "minimal"
+    ],
+    "geometric_language": "sharp",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Nocturnal command center with near-invisible borders, bioluminescent cyan glows, dual abcDiatype/JetBrains Mono typography, and brutalist hard-offset shadows."
+  },
+  "cursor": {
+    "industries": [
+      "developer-tools",
+      "ai-ml"
+    ],
+    "color_temperature": "warm",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "technical",
+      "warm",
+      "precise",
+      "editorial"
+    ],
+    "geometric_language": "mixed",
+    "complexity": "high",
+    "typography_style": "custom-font",
+    "one_line": "Warm code-editor elegance with CursorGothic display, jjannon serif body, berkeleyMono code, oklab perceptual borders, and warm cream canvas.",
+    "user_scenarios": ["professional_growth", "self_improvement"],
+    "emotional_goals": ["trust", "clarity"],
+    "domain_tags": ["ai", "coding", "development", "assistant", "intelligent"]
+  },
+  "elevenlabs": {
+    "industries": [
+      "ai-ml",
+      "entertainment",
+      "developer-tools"
+    ],
+    "color_temperature": "warm",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "minimal",
+      "clean",
+      "premium",
+      "immersive"
+    ],
+    "geometric_language": "pill",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Premium audio brochure with whisper-thin Waldenburg 300 display, sub-0.1 opacity shadow stacks, warm stone pill buttons, and Apple-like whitespace."
+  },
+  "expo": {
+    "industries": [
+      "developer-tools",
+      "mobile"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "clean",
+      "minimal",
+      "friendly",
+      "modern"
+    ],
+    "geometric_language": "pill",
+    "complexity": "medium",
+    "typography_style": "system-font",
+    "one_line": "Luminous developer gallery with monochrome palette, pill-shaped everything, extreme negative tracking at display, and product screenshots as sole color source."
+  },
+  "ferrari": {
+    "industries": [
+      "automotive",
+      "luxury"
+    ],
+    "color_temperature": "neutral",
+    "mode_preference": "dual-mode",
+    "brand_personality": [
+      "dramatic",
+      "editorial",
+      "luxurious",
+      "serious"
+    ],
+    "geometric_language": "sharp",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Digital editorial magazine with chiaroscuro dark/light alternation, surgically sparse Ferrari Red, FerrariSans proprietary type, and photo-journalism imagery."
+  },
+  "figma": {
+    "industries": [
+      "design",
+      "developer-tools",
+      "saas"
+    ],
+    "color_temperature": "neutral",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "minimal",
+      "precise",
+      "modern",
+      "clean"
+    ],
+    "geometric_language": "pill",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Design tool that designed itself with variable font figmaSans at unusual weight stops, black-and-white chrome, vibrant hero gradients, and dashed editor-style focus indicators."
+  },
+  "framer": {
+    "industries": [
+      "design",
+      "developer-tools",
+      "saas"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "dark-first",
+    "brand_personality": [
+      "modern",
+      "precise",
+      "immersive",
+      "confident"
+    ],
+    "geometric_language": "pill",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Cinematic dark canvas with GT Walsheim extreme -5.5px tracking, Framer Blue electric accent, frosted glass buttons, and product screenshots as hero art."
+  },
+  "hashicorp": {
+    "industries": [
+      "infrastructure",
+      "enterprise",
+      "developer-tools"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "dual-mode",
+    "brand_personality": [
+      "professional",
+      "technical",
+      "serious",
+      "modern"
+    ],
+    "geometric_language": "sharp",
+    "complexity": "low",
+    "typography_style": "custom-font",
+    "one_line": "Enterprise infrastructure with multi-product color system, HashiCorp Sans 600-700 headings, micro-shadow whisper depth, and dark hero/product duality."
+  },
+  "ibm": {
+    "industries": [
+      "enterprise",
+      "technology",
+      "infrastructure"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "dual-mode",
+    "brand_personality": [
+      "professional",
+      "technical",
+      "precise",
+      "serious"
+    ],
+    "geometric_language": "sharp",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Carbon Design System engineering spec with IBM Plex Light display, token-driven --cds-* architecture, 0px button radius, and blue-only interactive accent."
+  },
+  "intercom": {
+    "industries": [
+      "saas",
+      "enterprise",
+      "ai-ml"
+    ],
+    "color_temperature": "warm",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "warm",
+      "precise",
+      "modern",
+      "confident"
+    ],
+    "geometric_language": "sharp",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "AI-first helpdesk with Saans extreme negative tracking, Fin Orange accent, sharp 4px buttons with scale(1.1) hover, and warm oat-toned borders.",
+    "user_scenarios": ["professional_growth"],
+    "emotional_goals": ["trust", "clarity"],
+    "domain_tags": ["ai", "assistant", "support", "chat", "automation"]
+  },
+  "kraken": {
+    "industries": [
+      "fintech",
+      "cryptocurrency"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "professional",
+      "trustworthy",
+      "modern",
+      "clean"
+    ],
+    "geometric_language": "moderate",
+    "complexity": "low",
+    "typography_style": "custom-font",
+    "one_line": "Trustworthy crypto exchange with commanding purple brand, Kraken-Brand display font, 12px rounded buttons, and whisper-level shadow system."
+  },
+  "lamborghini": {
+    "industries": [
+      "automotive",
+      "luxury"
+    ],
+    "color_temperature": "warm",
+    "mode_preference": "dark-first",
+    "brand_personality": [
+      "dramatic",
+      "luxurious",
+      "confident",
+      "serious"
+    ],
+    "geometric_language": "sharp",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Cathedral of darkness with LamboType 12-degree angled terminals, gold CTA exclusivity, hexagonal brand DNA, and all-caps 120px display headlines."
+  },
+  "linear.app": {
+    "industries": [
+      "developer-tools",
+      "productivity",
+      "saas"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "dark-first",
+    "brand_personality": [
+      "minimal",
+      "precise",
+      "technical",
+      "modern"
+    ],
+    "geometric_language": "moderate",
+    "complexity": "high",
+    "typography_style": "system-font",
+    "one_line": "Dark-mode-native precision instrument with Inter Variable cv01/ss03, signature weight 510, semi-transparent white borders, and indigo-violet as sole chromatic accent.",
+    "user_scenarios": ["professional_growth", "self_improvement"],
+    "emotional_goals": ["clarity", "trust"],
+    "domain_tags": ["productivity", "progress", "workflow", "task"]
+  },
+  "lovable": {
+    "industries": [
+      "developer-tools",
+      "ai-ml"
+    ],
+    "color_temperature": "warm",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "warm",
+      "approachable",
+      "minimal",
+      "clean"
+    ],
+    "geometric_language": "mixed",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Warm cream notebook with Camera Plain Variable humanist font, opacity-driven color system, inset shadow buttons, and pill-shaped action elements.",
+    "user_scenarios": ["professional_growth", "self_improvement"],
+    "emotional_goals": ["delight", "trust", "clarity"],
+    "domain_tags": ["ai", "assistant", "generation", "intelligent", "automation"]
+  },
+  "minimax": {
+    "industries": [
+      "ai-ml",
+      "entertainment",
+      "consumer"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "friendly",
+      "modern",
+      "vibrant",
+      "approachable"
+    ],
+    "geometric_language": "rounded",
+    "complexity": "medium",
+    "typography_style": "system-font",
+    "one_line": "Apple-meets-playground AI showcase with multi-font system, pill navigation, colorful product cards, and brand blue/pink accents on white canvas.",
+    "user_scenarios": ["playful_learning", "self_improvement"],
+    "emotional_goals": ["delight", "motivation"],
+    "domain_tags": ["ai", "assistant", "creative", "intelligent", "entertainment"]
+  },
+  "mintlify": {
+    "industries": [
+      "developer-tools",
+      "productivity",
+      "saas"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "clean",
+      "minimal",
+      "modern",
+      "precise"
+    ],
+    "geometric_language": "rounded",
+    "complexity": "low",
+    "typography_style": "system-font",
+    "one_line": "Documentation-as-product with Inter tight tracking, Geist Mono uppercase labels, brand green atmospheric gradient hero, and ultra-round 24px card corners.",
+    "user_scenarios": ["calm_focus", "professional_growth"],
+    "emotional_goals": ["clarity", "trust", "calm"],
+    "domain_tags": ["documentation", "learning", "knowledge", "education", "reference"]
+  },
+  "miro": {
+    "industries": [
+      "productivity",
+      "saas",
+      "design"
+    ],
+    "color_temperature": "neutral",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "friendly",
+      "playful",
+      "approachable",
+      "vibrant"
+    ],
+    "geometric_language": "mixed",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Visual thinking platform with Roobert PRO OpenType variants, pastel coral/rose/teal palette, Blue 450 interactive, and generous 8-50px radius range.",
+    "user_scenarios": ["social_collaboration", "professional_growth"],
+    "emotional_goals": ["delight", "clarity"],
+    "domain_tags": ["collaboration", "learning", "visual", "brainstorm", "education"]
+  },
+  "mistral.ai": {
+    "industries": [
+      "ai-ml",
+      "infrastructure"
+    ],
+    "color_temperature": "warm",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "confident",
+      "bold",
+      "warm",
+      "dramatic"
+    ],
+    "geometric_language": "sharp",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Sun-drenched European AI with golden-amber gradient block identity, 82px billboard headlines, warm golden shadows, and dramatic landscape photography."
+  },
+  "mongodb": {
+    "industries": [
+      "infrastructure",
+      "database",
+      "developer-tools"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "dual-mode",
+    "brand_personality": [
+      "technical",
+      "modern",
+      "confident",
+      "editorial"
+    ],
+    "geometric_language": "pill",
+    "complexity": "high",
+    "typography_style": "custom-font",
+    "one_line": "Forest-dark terminal with neon MongoDB Green, Value Serif editorial headlines, Source Code Pro wide-tracked labels, and teal-tinted forest shadows."
+  },
+  "notion": {
+    "industries": [
+      "productivity",
+      "saas",
+      "education"
+    ],
+    "color_temperature": "warm",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "warm",
+      "minimal",
+      "clean",
+      "approachable"
+    ],
+    "geometric_language": "mixed",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Warm blank canvas with NotionInter negative tracking, whisper-weight rgba borders, ultra-thin 0.1 opacity division lines, and Notion Blue singular accent.",
+    "user_scenarios": ["calm_focus", "self_improvement", "professional_growth"],
+    "emotional_goals": ["trust", "calm", "clarity"],
+    "domain_tags": ["education", "learning", "study", "notes", "knowledge", "productivity"]
+  },
+  "nvidia": {
+    "industries": [
+      "technology",
+      "infrastructure",
+      "ai-ml"
+    ],
+    "color_temperature": "neutral",
+    "mode_preference": "dark-first",
+    "brand_personality": [
+      "technical",
+      "precise",
+      "confident",
+      "serious"
+    ],
+    "geometric_language": "sharp",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "GPU-rendered precision with NVIDIA Green signal borders, NVIDIA-EMEA industrial font, 1-2px sharp radius, and Font Awesome 900 sharp iconography."
+  },
+  "ollama": {
+    "industries": [
+      "ai-ml",
+      "developer-tools",
+      "infrastructure"
+    ],
+    "color_temperature": "neutral",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "minimal",
+      "clean",
+      "friendly",
+      "approachable"
+    ],
+    "geometric_language": "pill",
+    "complexity": "low",
+    "typography_style": "system-font",
+    "one_line": "Radical grayscale minimalism with SF Pro Rounded softness, 9999px pill everything, zero shadows, zero chromatic color, and monochrome llama mascot.",
+    "user_scenarios": ["professional_growth"],
+    "emotional_goals": ["clarity", "calm"],
+    "domain_tags": ["ai", "llm", "model", "local", "intelligent"]
+  },
+  "opencode.ai": {
+    "industries": [
+      "developer-tools",
+      "ai-ml"
+    ],
+    "color_temperature": "warm",
+    "mode_preference": "dark-first",
+    "brand_personality": [
+      "technical",
+      "minimal",
+      "precise",
+      "warm"
+    ],
+    "geometric_language": "sharp",
+    "complexity": "low",
+    "typography_style": "custom-font",
+    "one_line": "Terminal-native monospace identity with Berkeley Mono everywhere, warm near-black reddish-brown canvas, 4px sharp radius, and Apple HIG semantic colors."
+  },
+  "pinterest": {
+    "industries": [
+      "social-media",
+      "e-commerce",
+      "entertainment"
+    ],
+    "color_temperature": "warm",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "warm",
+      "approachable",
+      "vibrant",
+      "friendly"
+    ],
+    "geometric_language": "rounded",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Warm inspiration canvas with olive/sand neutrals, Pinterest Red bold accent, Pin Sans global font stack, 16-40px generous radius, and photography-first content."
+  },
+  "posthog": {
+    "industries": [
+      "saas",
+      "developer-tools",
+      "analytics"
+    ],
+    "color_temperature": "warm",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "warm",
+      "approachable",
+      "playful",
+      "irreverent"
+    ],
+    "geometric_language": "moderate",
+    "complexity": "low",
+    "typography_style": "system-font",
+    "one_line": "Anti-corporate startup wiki with sage-olive warmth, IBM Plex Sans bold headings, hidden orange hover surprise, hand-drawn hedgehog illustrations, and content-heavy editorial layout."
+  },
+  "raycast": {
+    "industries": [
+      "productivity",
+      "developer-tools"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "dark-first",
+    "brand_personality": [
+      "precise",
+      "minimal",
+      "technical",
+      "modern"
+    ],
+    "geometric_language": "mixed",
+    "complexity": "high",
+    "typography_style": "system-font",
+    "one_line": "Swiss-watch obsidian instrument with macOS-native inset shadow system, Raycast Red hero stripes, Inter positive tracking, and Radix UI primitives."
+  },
+  "renault": {
+    "industries": [
+      "automotive",
+      "luxury"
+    ],
+    "color_temperature": "warm",
+    "mode_preference": "dual-mode",
+    "brand_personality": [
+      "energetic",
+      "bold",
+      "precise",
+      "modern"
+    ],
+    "geometric_language": "sharp",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Vibrant French automotive showroom with aurora gradient heroes, NouvelR proprietary geometric sans at bold weight, zero-radius buttons, and Renault Yellow super-primary CTAs."
+  },
+  "replicate": {
+    "industries": [
+      "ai-ml",
+      "developer-tools"
+    ],
+    "color_temperature": "warm",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "bold",
+      "playful",
+      "creative",
+      "energetic"
+    ],
+    "geometric_language": "pill",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Explosive developer playground with orange-red-magenta gradient hero, massive 128px display type in rb-freigeist-neue, exclusively pill-shaped geometry, and community-powered creative energy."
+  },
+  "resend": {
+    "industries": [
+      "developer-tools",
+      "infrastructure",
+      "saas"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "dark-first",
+    "brand_personality": [
+      "premium",
+      "precise",
+      "modern",
+      "editorial"
+    ],
+    "geometric_language": "pill",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Cinematic email infrastructure with Domaine Display 96px serif hero, icy blue-tinted borders, multi-color accent system, and pill-shaped transparent buttons."
+  },
+  "revolut": {
+    "industries": [
+      "fintech"
+    ],
+    "color_temperature": "neutral",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "confident",
+      "modern",
+      "professional",
+      "precise"
+    ],
+    "geometric_language": "pill",
+    "complexity": "low",
+    "typography_style": "custom-font",
+    "one_line": "Stadium-scale fintech with Aeonik Pro 136px display, universal 9999px pill buttons, comprehensive --rui-* semantic tokens, and zero shadows."
+  },
+  "runwayml": {
+    "industries": [
+      "ai-ml",
+      "entertainment",
+      "creative-tools"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "dark-first",
+    "brand_personality": [
+      "immersive",
+      "editorial",
+      "dramatic",
+      "modern"
+    ],
+    "geometric_language": "sharp",
+    "complexity": "low",
+    "typography_style": "custom-font",
+    "one_line": "Cinematic AI film reel with full-bleed photography as primary UI, single abcNormal font, zero shadows, invisible interface, and editorial magazine layout."
+  },
+  "sanity": {
+    "industries": [
+      "developer-tools",
+      "infrastructure",
+      "content"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "dark-first",
+    "brand_personality": [
+      "technical",
+      "precise",
+      "modern",
+      "confident"
+    ],
+    "geometric_language": "mixed",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Nocturnal command center with waldenburgNormal extreme -4.48px tracking, pure achromatic grays, neon green and electric blue accent punctuation against the dark field."
+  },
+  "sentry": {
+    "industries": [
+      "developer-tools",
+      "infrastructure",
+      "saas"
+    ],
+    "color_temperature": "warm",
+    "mode_preference": "dark-first",
+    "brand_personality": [
+      "playful",
+      "technical",
+      "vibrant",
+      "irreverent"
+    ],
+    "geometric_language": "mixed",
+    "complexity": "high",
+    "typography_style": "custom-font",
+    "one_line": "Dark purple IDE aesthetic with Dammit Sans personality font, lime-green CTA, warm purple spectrum, frosted glass effects, and inset tactile button depth."
+  },
+  "spacex": {
+    "industries": [
+      "aerospace",
+      "automotive"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "dark-first",
+    "brand_personality": [
+      "dramatic",
+      "precise",
+      "serious",
+      "minimal"
+    ],
+    "geometric_language": "sharp",
+    "complexity": "low",
+    "typography_style": "custom-font",
+    "one_line": "Full-screen cinematic aerospace with pure black canvas, D-DIN universal uppercase + positive tracking, spectral near-white text, and zero UI decoration."
+  },
+  "spotify": {
+    "industries": [
+      "entertainment",
+      "social-media"
+    ],
+    "color_temperature": "neutral",
+    "mode_preference": "dark-first",
+    "brand_personality": [
+      "immersive",
+      "modern",
+      "clean",
+      "friendly"
+    ],
+    "geometric_language": "pill",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Content-first dark theater with Spotify Green play button, CircularSp font family, pill/circle geometry, heavy 0.5-opacity shadows, and album art as primary color."
+  },
+  "stripe": {
+    "industries": [
+      "fintech",
+      "saas",
+      "developer-tools"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "premium",
+      "precise",
+      "technical",
+      "modern"
+    ],
+    "geometric_language": "moderate",
+    "complexity": "high",
+    "typography_style": "custom-font",
+    "one_line": "Gold-standard fintech with sohne-var ss01 at weight 300, blue-tinted multi-layer shadows, deep navy headings, and conservative 4-8px radius."
+  },
+  "supabase": {
+    "industries": [
+      "infrastructure",
+      "developer-tools",
+      "database"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "dark-first",
+    "brand_personality": [
+      "technical",
+      "modern",
+      "clean",
+      "precise"
+    ],
+    "geometric_language": "mixed",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Dark-mode-native code editor with Circular rounded-terminal font, emerald green brand accent, HSL translucent layering, and pill CTAs contrasting 6px secondary radius."
+  },
+  "superhuman": {
+    "industries": [
+      "productivity",
+      "saas"
+    ],
+    "color_temperature": "warm",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "luxurious",
+      "minimal",
+      "precise",
+      "premium"
+    ],
+    "geometric_language": "moderate",
+    "complexity": "low",
+    "typography_style": "custom-font",
+    "one_line": "Luxury envelope with Super Sans VF non-standard weights, 0.96 ultra-tight display, warm cream buttons, lavender accent, and cinematic purple gradient hero."
+  },
+  "tesla": {
+    "industries": [
+      "automotive",
+      "consumer-electronics"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "minimal",
+      "precise",
+      "confident",
+      "dramatic"
+    ],
+    "geometric_language": "sharp",
+    "complexity": "low",
+    "typography_style": "custom-font",
+    "one_line": "Radical subtraction digital showroom with Universal Sans Display, single Electric Blue CTA, full-viewport car photography, and near-zero UI decoration."
+  },
+  "together.ai": {
+    "industries": [
+      "ai-ml",
+      "infrastructure",
+      "enterprise"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "dual-mode",
+    "brand_personality": [
+      "modern",
+      "clean",
+      "precise",
+      "optimistic"
+    ],
+    "geometric_language": "sharp",
+    "complexity": "low",
+    "typography_style": "custom-font",
+    "one_line": "Pastel-gradient AI dreamscape with soft pink-blue-lavender hero, midnight-blue research sections, The Future font aggressive tracking, and sharp 4-8px geometry.",
+    "user_scenarios": ["professional_growth"],
+    "emotional_goals": ["trust", "clarity"],
+    "domain_tags": ["ai", "model", "infrastructure", "research", "intelligent"]
+  },
+  "uber": {
+    "industries": [
+      "saas",
+      "transportation",
+      "logistics"
+    ],
+    "color_temperature": "neutral",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "minimal",
+      "confident",
+      "clean",
+      "modern"
+    ],
+    "geometric_language": "pill",
+    "complexity": "low",
+    "typography_style": "custom-font",
+    "one_line": "Confident black-and-white minimalism with UberMove proprietary font, pill-shaped everything, warm human illustrations, and whisper-soft 0.12 opacity shadows."
+  },
+  "vercel": {
+    "industries": [
+      "infrastructure",
+      "developer-tools"
+    ],
+    "color_temperature": "neutral",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "minimal",
+      "precise",
+      "technical",
+      "modern"
+    ],
+    "geometric_language": "mixed",
+    "complexity": "high",
+    "typography_style": "custom-font",
+    "one_line": "Minimalist-as-engineering-principle with Geist Sans extreme -2.88px tracking, shadow-as-border philosophy, multi-layer shadow stacks, and workflow-specific accent colors."
+  },
+  "voltagent": {
+    "industries": [
+      "ai-ml",
+      "developer-tools",
+      "infrastructure"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "dark-first",
+    "brand_personality": [
+      "technical",
+      "precise",
+      "dramatic",
+      "modern"
+    ],
+    "geometric_language": "sharp",
+    "complexity": "medium",
+    "typography_style": "system-font",
+    "one_line": "Deep-space command terminal with emerald green signal glow, warm-neutral grays preventing clinical coldness, system-ui headings and Inter body, and SFMono code credibility.",
+    "user_scenarios": ["professional_growth"],
+    "emotional_goals": ["trust", "clarity"],
+    "domain_tags": ["ai", "agent", "assistant", "intelligent", "automation"]
+  },
+  "warp": {
+    "industries": [
+      "developer-tools",
+      "infrastructure"
+    ],
+    "color_temperature": "warm",
+    "mode_preference": "dark-first",
+    "brand_personality": [
+      "warm",
+      "approachable",
+      "minimal",
+      "immersive"
+    ],
+    "geometric_language": "mixed",
+    "complexity": "low",
+    "typography_style": "custom-font",
+    "one_line": "Campfire-in-a-forest terminal with Matter geometric font, warm parchment text, nature photography interleaved with product shots, and almost monochromatic warm gray palette."
+  },
+  "webflow": {
+    "industries": [
+      "design",
+      "developer-tools",
+      "saas"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "vibrant",
+      "precise",
+      "modern",
+      "confident"
+    ],
+    "geometric_language": "sharp",
+    "complexity": "high",
+    "typography_style": "custom-font",
+    "one_line": "Tool-forward design platform with WF Visual Sans Variable, signature Webflow Blue, rich six-color secondary palette, 5-layer cascading shadows, and translate(6px) hover animations."
+  },
+  "wise": {
+    "industries": [
+      "fintech"
+    ],
+    "color_temperature": "warm",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "confident",
+      "bold",
+      "friendly",
+      "modern"
+    ],
+    "geometric_language": "pill",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Bold fintech with Wise Sans 900 at 126px and 0.85 ultra-tight line-height, lime-green nature-inspired CTAs, pill buttons, and scale(1.05) growing hover animations."
+  },
+  "x.ai": {
+    "industries": [
+      "ai-ml",
+      "infrastructure"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "dark-first",
+    "brand_personality": [
+      "minimal",
+      "technical",
+      "precise",
+      "dramatic"
+    ],
+    "geometric_language": "sharp",
+    "complexity": "low",
+    "typography_style": "custom-font",
+    "one_line": "Brutalist monospace minimalism with GeistMono at extraordinary 320px display, pure white-on-dark binary, zero decorative elements, and uppercase tracked button labels."
+  },
+  "zapier": {
+    "industries": [
+      "saas",
+      "productivity",
+      "automation"
+    ],
+    "color_temperature": "warm",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "warm",
+      "approachable",
+      "friendly",
+      "confident"
+    ],
+    "geometric_language": "moderate",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Warm paper-notebook with Degular Display 0.90 compressed headlines, cream canvas, Zapier Orange accent, Inter workhorse body, and GT Alpina editorial moments.",
+    "user_scenarios": ["self_improvement", "professional_growth"],
+    "emotional_goals": ["clarity", "motivation"],
+    "domain_tags": ["automation", "workflow", "productivity", "integration"]
+  }
+}

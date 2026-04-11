@@ -5,11 +5,11 @@
 
 ## Statistics
 
-- Total reviews: 6
-- Total issues found: 770
-- Average per review: 128.3
-- Last review: 2026-04-11 11:11
-- Last project: N/A
+- Total reviews: 8
+- Total issues found: 974
+- Average per review: 121.8
+- Last review: 2026-04-11 13:41
+- Last project: hotel
 
 ## Current Baseline
 
@@ -46,7 +46,7 @@
 - [security] 检查 security 类问题: OWASP A02-Cryptographic Failur (since 2026-04-11, 16x)
 - [security] 检查 security 类问题: OWASP A05-Security Misconfigur (since 2026-04-11, 5x)
 - [reliability] 检查 reliability 类问题: Bare except clause (since 2026-04-11, 5x)
-- [reliability] 检查 reliability 类问题: Database operations without er (since 2026-04-11, 3x)
+- [reliability] 检查 reliability 类问题: Database operations without er (since 2026-04-11, 13x)
 - [reliability] 检查 reliability 类问题: missing finally: with open(con (since 2026-04-11, 18x)
 - [reliability] 检查 reliability 类问题: missing finally: with open(env (since 2026-04-11, 5x)
 - [reliability] 检查 reliability 类问题: missing finally: with open(out (since 2026-04-11, 7x)
@@ -61,6 +61,6 @@ _None._
 
 ## Project Knowledge
 
-- project_name: package
+- project_name: hotel
 - test_command: pytest tests/ -v
-- framework: React
+- framework: Flask

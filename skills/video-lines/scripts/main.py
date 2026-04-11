@@ -83,6 +83,7 @@ For more information, see: .claude/skills/video-lines/SKILL.md
 
     parser.add_argument(
         "video",
+        nargs="?",
         help="Path to video file (MP4, AVI, MOV, etc.)"
     )
 
@@ -134,9 +135,51 @@ For more information, see: .claude/skills/video-lines/SKILL.md
         help="LLM model for post-processing (default: glm-4.6)"
     )
 
+    parser.add_argument(
+        "--faithful",
+        action="store_true",
+        default=True,
+        help="Faithful mode: no text modifications, only intelligent segmentation (default: True)"
+    )
+
+    parser.add_argument(
+        "--optimize",
+        action="store_true",
+        help="Optimization mode: enable homophone correction, punctuation fixes, etc. (overrides --faithful)"
+    )
+
+    parser.add_argument(
+        "--accuracy-test",
+        metavar="TEST_ID",
+        help="Run accuracy test (e.g., mcpmark_v1) instead of transcription"
+    )
+
     args = parser.parse_args()
 
+    # Handle --accuracy-test mode
+    if args.accuracy_test:
+        import subprocess
+        script_dir = Path(__file__).parent
+        accuracy_script = script_dir / "run_accuracy_test.py"
+
+        if not accuracy_script.exists():
+            print(f"[ERROR] Accuracy test script not found: {accuracy_script}", file=sys.stderr)
+            return 1
+
+        print(f"[INFO] Running accuracy test: {args.accuracy_test}")
+        result = subprocess.run(
+            [sys.executable, str(accuracy_script), args.accuracy_test],
+            cwd=str(script_dir.parent)  # Run from skill root
+        )
+        return result.returncode
+
     # Validate video file exists
+    if not args.video:
+        print("[ERROR] Video file is required for transcription", file=sys.stderr)
+        print("Usage: python main.py video.mp4", file=sys.stderr)
+        print("       python main.py --accuracy-test mcpmark_v1  # For accuracy testing", file=sys.stderr)
+        return 1
+
     if not os.path.exists(args.video):
         print(f"[ERROR] Video file not found: {args.video}", file=sys.stderr)
         return 1
@@ -212,9 +255,12 @@ For more information, see: .claude/skills/video-lines/SKILL.md
         if args.no_llm:
             print("[INFO] Skipping LLM post-processing (--no-llm)")
         else:
-            print("[INFO] Running LLM post-processing...")
+            # --optimize overrides --faithful (which defaults to True)
+            use_faithful = not args.optimize
+            mode_desc = "faithful (segmentation only)" if use_faithful else "optimize (with enhancements)"
+            print(f"[INFO] Running LLM post-processing ({mode_desc})...")
             try:
-                enhancer = TranscriptEnhancer(model=args.llm_model)
+                enhancer = TranscriptEnhancer(model=args.llm_model, faithful=use_faithful)
                 enhanced_content, enhance_stats = enhancer.enhance(
                     open(output_path, 'r', encoding='utf-8').read()
                 )

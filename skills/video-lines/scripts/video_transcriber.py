@@ -77,6 +77,46 @@ class VideoTranscriber:
 
         return None
 
+    def _trim_end_silence(self, audio_path: str) -> str:
+        """Trim silence from the end of audio file.
+
+        Uses ffmpeg's silenceremove filter to detect and remove trailing silence.
+        This is the most effective way to prevent ASR hallucination on silent segments.
+
+        Args:
+            audio_path: Path to input WAV file
+
+        Returns:
+            Path to trimmed audio file (or original if trimming fails)
+        """
+        trimmed_path = audio_path.replace('.wav', '_trimmed.wav')
+
+        # silenceremove parameters for ffmpeg 8.0+:
+        # - stop_periods=-1: Remove silence from END of audio (negative = from end)
+        # - stop_duration=1: Minimum 1 second of silence to trigger removal
+        # - stop_threshold=-40dB: Silence threshold (-40dB is safe for soft speech)
+        # Note: Using window=0 for whole-file detection, not sliding window
+        cmd = [
+            self.ffmpeg_path,
+            "-i", audio_path,
+            "-af", "silenceremove=stop_periods=-1:stop_duration=1:stop_threshold=-40dB:detection=peak",
+            "-acodec", "pcm_s16le",
+            "-ar", "16000",
+            "-ac", "1",
+            "-y", trimmed_path
+        ]
+
+        try:
+            result = subprocess.run(cmd, capture_output=True, timeout=60)
+            if os.path.exists(trimmed_path) and os.path.getsize(trimmed_path) > 0:
+                print(f"  Trimmed end silence: {os.path.basename(audio_path)}")
+                return trimmed_path
+            else:
+                return audio_path
+        except Exception as e:
+            print(f"  Warning: Failed to trim silence: {e}")
+            return audio_path
+
     def extract_audio(self, video_path, output_wav):
         """Extract audio from video file using ffmpeg.
 
@@ -85,7 +125,7 @@ class VideoTranscriber:
             output_wav: Path to output WAV file
 
         Returns:
-            True if successful
+            Path to the final audio file (may be trimmed version)
 
         Raises:
             RuntimeError: If audio extraction fails
@@ -111,7 +151,9 @@ class VideoTranscriber:
         if result.returncode != 0:
             raise RuntimeError(f"Audio extraction failed: {result.stderr}")
 
-        return True
+        # Trim end silence to prevent ASR hallucination
+        final_audio = self._trim_end_silence(output_wav)
+        return final_audio
 
     def segment_audio(self, audio_path):
         """Segment audio into smaller chunks for API processing.
@@ -125,6 +167,15 @@ class VideoTranscriber:
         Raises:
             RuntimeError: If segmentation fails
         """
+        # CRITICAL: Clean up old segment files before generating new ones
+        # Without this, old segments from previous videos will be mixed with new ones
+        old_segments = glob.glob(f"{self.temp_dir}/audio_segment_*.wav")
+        for old_seg in old_segments:
+            try:
+                os.remove(old_seg)
+            except Exception:
+                pass
+
         cmd = [
             self.ffmpeg_path,
             "-i", audio_path,
@@ -274,12 +325,12 @@ class VideoTranscriber:
         Returns:
             Dictionary with transcription statistics
         """
-        # Step 1: Extract audio
+        # Step 1: Extract audio (with end silence trimmed)
         temp_audio = "transcripts/temp_audio.wav"
-        self.extract_audio(video_path, temp_audio)
+        final_audio = self.extract_audio(video_path, temp_audio)
 
         # Step 2: Segment audio
-        segments = self.segment_audio(temp_audio)
+        segments = self.segment_audio(final_audio)
 
         # Step 3: Transcribe all segments
         results = self.process_all_segments(segments, progress_callback)

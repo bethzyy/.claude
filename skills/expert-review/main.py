@@ -21,7 +21,7 @@ from core._paths import SKILL_DIR, ensure_skill_path
 ensure_skill_path()
 
 SKILL_NAME = "expert-review"
-SKILL_VERSION = "3.1.0"
+SKILL_VERSION = "4.0.0"
 
 # === 兼容性检查 ===
 
@@ -176,7 +176,178 @@ def _add_finding_safe(findings_list, finding_list_obj, **kwargs):
     finding_list_obj.add(finding)
 
 
-def run_review(project_dir: str = ".", mode: str = "full", focus_areas: list = None, no_evolve: bool = False):
+def _run_auto_fix(all_findings, context, project_dir: str, plan_only: bool = False):
+    """
+    Phase 2.7: 自动改进闭环。
+
+    生成改进方案 → 逐批执行修复 → 验证 → 回归审查。
+    """
+    from autofix.llm_client import LLMClient
+    from autofix.plan_generator import PlanGenerator
+    from autofix.fix_executor import FixExecutor
+    from autofix.verifier import Verifier
+
+    print(f"\n{'='*60}")
+    print(f"  Phase 2.7: 自动改进闭环")
+    print(f"{'='*60}")
+
+    # 初始化
+    try:
+        llm = LLMClient()
+    except RuntimeError as e:
+        print(f"  ❌ LLM 初始化失败: {e}")
+        print(f"  请设置 ZHIPU_API_KEY 环境变量")
+        return
+
+    executor = FixExecutor(llm, project_dir)
+    verifier = Verifier(project_dir)
+    generator = PlanGenerator()
+
+    # 2.7.1 生成改进方案
+    print("\n[Phase 2.7.1] 生成改进方案...")
+    findings_list = [f.to_dict() if hasattr(f, "to_dict") else f for f in all_findings.findings]
+
+    plan = generator.generate(
+        findings=findings_list,
+        project_dir=project_dir,
+        project_context={
+            "project_name": context.project_name,
+            "framework": context.framework,
+            "total_files": context.total_files,
+        },
+        use_llm=True,
+        llm_client=llm,
+    )
+
+    if not plan.batches:
+        print("  无可操作的发现（所有发现缺少修复建议）")
+        return
+
+    print(f"  改进方案: {plan.total_batches} 个批次, {plan.total_findings} 个发现")
+    for batch in plan.batches:
+        priority_icon = {"critical": "🔴", "high": "🟠", "medium": "🟡", "low": "🟢"}.get(batch.priority, "⚪")
+        print(f"    {priority_icon} 批次 {batch.id}: {batch.summary} ({batch.complexity})")
+
+    if plan_only:
+        print(f"\n  --plan-only 模式，不执行修复")
+        return
+
+    # 2.7.2 逐批执行
+    print(f"\n[Phase 2.7.2] 逐批执行修复...")
+    success_count = 0
+    fail_count = 0
+
+    for batch in plan.batches:
+        print(f"\n  --- 批次 {batch.id}/{plan.total_batches}: {batch.summary} ---")
+
+        result = executor.execute_batch(batch)
+
+        if not result.success:
+            print(f"  ❌ 失败: {result.error or '未知错误'}")
+            if result.checkpoint_sha:
+                executor.rollback(result.checkpoint_sha)
+            fail_count += 1
+            continue
+
+        # 2.7.3 验证
+        print(f"  修复文件: {result.modified_files}")
+        if result.failed_files:
+            print(f"  跳过文件: {result.failed_files}")
+
+        # 语法检查
+        syntax_ok_files = []
+        for fp in result.modified_files:
+            if verifier.validate_syntax(fp):
+                syntax_ok_files.append(fp)
+            else:
+                print(f"  ⚠️ 语法错误: {fp}")
+
+        if not syntax_ok_files:
+            print(f"  ⚠️ 所有修复文件语法验证失败，回滚")
+            executor.rollback(result.checkpoint_sha)
+            fail_count += 1
+            continue
+
+        # 测试执行
+        test_result = verifier.run_tests()
+        if test_result.passed:
+            print(f"  ✅ 测试通过")
+        elif test_result.total == 0:
+            print(f"  ℹ️ 无测试，跳过测试验证")
+        else:
+            print(f"  ⚠️ 测试失败 ({test_result.failed}/{test_result.total})，回滚")
+            executor.rollback(result.checkpoint_sha)
+            fail_count += 1
+            continue
+
+        success_count += 1
+        print(f"  ✅ 批次 {batch.id} 完成")
+
+    # 2.7.4 回归审查
+    if executor.all_modified_files:
+        print(f"\n[Phase 2.7.4] 回归审查 ({len(executor.all_modified_files)} 个修改文件)...")
+        max_iterations = 5
+
+        for iteration in range(max_iterations):
+            new_findings = verifier.re_review(executor.all_modified_files)
+            if not new_findings:
+                print(f"  ✅ 回归审查通过，无新 Critical/High 问题")
+                break
+
+            print(f"  回归第 {iteration+1} 轮: 发现 {len(new_findings)} 个新问题")
+
+            # 构建修复批次
+            from autofix.plan_generator import FixBatch
+            file_groups = {}
+            for f in new_findings:
+                fp = f.get("file_path", "")
+                if fp not in file_groups:
+                    file_groups[fp] = []
+                file_groups[fp].append(f)
+
+            for fp, fp_findings in file_groups.items():
+                print(f"  修复: {fp} ({len(fp_findings)} 个问题)")
+                checkpoint = executor._checkpoint(f"auto-fix: regression iteration {iteration+1}")
+                if not checkpoint:
+                    continue
+
+                modified = executor._fix_file(fp, fp_findings)
+                if not modified:
+                    executor.rollback(checkpoint)
+                    continue
+
+                if not verifier.validate_syntax(fp):
+                    print(f"  ⚠️ 回归修复语法错误，回滚: {fp}")
+                    executor.rollback(checkpoint)
+                    continue
+
+                test_result = verifier.run_tests()
+                if not test_result.passed and test_result.total > 0:
+                    print(f"  ⚠️ 回归修复测试失败，回滚: {fp}")
+                    executor.rollback(checkpoint)
+                    continue
+
+                print(f"  ✅ 回归修复成功: {fp}")
+        else:
+            print(f"  ⚠️ 达到最大回归轮次 ({max_iterations})")
+
+    # 最终 git commit
+    if executor.all_modified_files:
+        final_sha = executor._checkpoint("auto-fix: all fixes applied")
+        if final_sha:
+            print(f"\n  📦 最终提交: {final_sha}")
+
+    # 汇总
+    print(f"\n{'='*60}")
+    print(f"  自动改进完成")
+    print(f"  成功批次: {success_count}/{plan.total_batches}")
+    print(f"  修改文件: {len(executor.all_modified_files)}")
+    if fail_count:
+        print(f"  失败批次: {fail_count} (已回滚)")
+    print(f"{'='*60}\n")
+
+
+def run_review(project_dir: str = ".", mode: str = "full", focus_areas: list = None, no_evolve: bool = False, auto_fix: bool = False, plan_only: bool = False):
     """
     执行完整审查流程。
 
@@ -533,6 +704,12 @@ def run_review(project_dir: str = ".", mode: str = "full", focus_areas: list = N
     print(f"  报告已保存到 reports/ 目录")
     print()
 
+    # === Phase 2.7: 自动改进闭环（仅 --auto-fix 模式） ===
+    if auto_fix:
+        _run_auto_fix(all_findings, context, project_dir)
+
+    # === Phase 2.5: 反馈收集与反模式校准 ===
+
     # === Phase 2.5: 反馈收集与反模式校准 ===
     from evolution.feedback_collector import FeedbackCollector
     feedback_collector = FeedbackCollector(str(SKILL_DIR))
@@ -794,6 +971,8 @@ def cmd_review(args):
         mode=args.mode or "full",
         focus_areas=args.focus.split(",") if args.focus else None,
         no_evolve=args.no_evolve,
+        auto_fix=args.auto_fix,
+        plan_only=args.plan_only,
     )
 
 
@@ -833,6 +1012,8 @@ def main():
     sub_review.add_argument("--mode", choices=["full", "incremental", "targeted"], default="full", help="审查模式")
     sub_review.add_argument("--focus", help="重点关注领域（逗号分隔）")
     sub_review.add_argument("--no-evolve", action="store_true", help="跳过进化更新")
+    sub_review.add_argument("--auto-fix", action="store_true", help="自动执行改进（审查→修复→验证闭环）")
+    sub_review.add_argument("--plan-only", action="store_true", help="只生成改进方案，不执行修复")
     sub_review.set_defaults(func=cmd_review)
 
     args = parser.parse_args()

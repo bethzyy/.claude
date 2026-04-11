@@ -3,7 +3,7 @@
 """
 Transcript Cleaner - Clean transcription output by removing markers and separators
 
-Part of video-lines skill v2.3.3 - Fixed long text truncation (max_tokens 8192→32768)
+Part of video-lines skill v2.7.0 - Audio-level hallucination prevention
 """
 
 import os
@@ -103,9 +103,19 @@ class TranscriptEnhancer:
     5. Proper noun capitalization fix
 
     Uses Anthropic SDK for GLM Coding Plan compatibility.
+
+    Smart Chunking (v2.4.0):
+    - Auto-detects when content exceeds threshold
+    - Splits at paragraph boundaries (no mid-sentence cuts)
+    - Processes each chunk independently
+    - Merges results seamlessly
     """
 
-    # Prompt template for LLM enhancement
+    # Chunking configuration for ultra-long videos
+    CHUNK_SIZE = 40000  # Max chars per chunk (safe threshold for LLM)
+    OVERLAP_SIZE = 200  # Overlap chars for context continuity
+
+    # Prompt template for LLM enhancement (standard mode with optimizations)
     ENHANCEMENT_PROMPT = """你是一个专业的音频转录文本编辑专家。请对以下从视频中提取的台词文本进行优化。
 
 【优化要求】
@@ -126,13 +136,43 @@ class TranscriptEnhancer:
 
 【优化后的文本】"""
 
-    def __init__(self, model: str = "glm-4.6"):
+    # Prompt template for faithful mode (no modifications, only segmentation)
+    FAITHFUL_ENHANCEMENT_PROMPT = """你是专业的音频转录文本编辑专家。请对以下从视频中提取的台词文本进行智能分段。
+
+【智能分段规则】
+1. 按对话轮次分段：识别不同说话人或对话转换
+2. 按语义主题分段：话题转换时分段
+3. 控制段落长度：
+   - 理想长度：3-5句话（约100-200字）
+   - 最长不超过10句话（约400字）
+4. 自然边界识别：在以下情况分段
+   - 明显的停顿词后（"嗯"、"好"、"OK"等单独成句时）
+   - 话题转换词（"另外"、"说到"、"接下来"、"然后"等）
+   - 问句和答句之间
+   - 总结性语句后
+
+【严格禁止】
+- 不要修改任何文字
+- 不要删除任何内容
+- 不要添加任何内容
+- 不要做同音字校正
+- 不要修改标点符号
+
+【原文】
+{content}
+
+【分段后的文本】"""
+
+    def __init__(self, model: str = "glm-4.6", faithful: bool = True):
         """Initialize the enhancer.
 
         Args:
-            model: LLM model to use (default: glm-4.7)
+            model: LLM model to use (default: glm-4.6)
+            faithful: If True, use faithful mode (no text modifications, only segmentation)
+                      Default is True since v2.6.0
         """
         self.model = model
+        self.faithful = faithful
         self.api_key = self._load_api_key()
 
         if not self.api_key:
@@ -188,8 +228,93 @@ class TranscriptEnhancer:
 
         return None
 
+    def _remove_trailing_asr_hallucination(self, content: str) -> Tuple[str, Dict]:
+        """Remove obvious ASR hallucination patterns from the end of content.
+
+        Detects and removes common ASR hallucination artifacts that appear at the end:
+        - XML-like tags (</tag>, <tag>)
+        - System markers (</persisted-output>, etc.)
+        - Technical artifacts that don't belong in speech
+
+        This is a conservative check - only removes obvious non-speech patterns
+        that appear consecutively at the END of the transcript.
+
+        Args:
+            content: Transcription content
+
+        Returns:
+            Tuple of (cleaned_content, stats)
+        """
+        lines = content.strip().split('\n')
+        if not lines:
+            return content, {"removed": False}
+
+        # Patterns that indicate ASR hallucination (not real speech)
+        hallucination_patterns = [
+            r'^</[a-zA-Z0-9_-]+>$',  # Closing XML-like tags
+            r'^<[a-zA-Z0-9_-]+>$',   # Opening XML-like tags
+        ]
+
+        # Find the last non-empty line as reference point
+        last_content_idx = len(lines) - 1
+        while last_content_idx >= 0 and not lines[last_content_idx].strip():
+            last_content_idx -= 1
+
+        if last_content_idx < 0:
+            return content, {"removed": False}
+
+        # Check if the last content line is a hallucination pattern
+        last_line = lines[last_content_idx].strip()
+        is_hallucination = False
+        for pattern in hallucination_patterns:
+            if re.match(pattern, last_line):
+                is_hallucination = True
+                break
+
+        if not is_hallucination:
+            return content, {"removed": False}
+
+        # Found hallucination at the end - find where it starts
+        # Look backwards for consecutive hallucination lines
+        first_hallucination_idx = last_content_idx
+        for i in range(last_content_idx - 1, max(-1, last_content_idx - 10), -1):
+            line = lines[i].strip()
+            # Skip empty lines
+            if not line:
+                continue
+            # Check if this line is also a hallucination
+            line_is_hallucination = False
+            for pattern in hallucination_patterns:
+                if re.match(pattern, line):
+                    line_is_hallucination = True
+                    break
+            if line_is_hallucination:
+                first_hallucination_idx = i
+            else:
+                # Found a non-hallucination line, stop looking
+                break
+
+        # Remove the hallucination lines
+        removed_lines = lines[first_hallucination_idx:]
+        cleaned_lines = lines[:first_hallucination_idx]
+        removed_content = '\n'.join(removed_lines)
+
+        return '\n'.join(cleaned_lines), {
+            "removed": True,
+            "removed_chars": len(removed_content),
+            "removed_lines": len(removed_lines),
+            "trigger": f"ASR hallucination pattern: {last_line}"
+        }
+
     def enhance(self, content: str) -> Tuple[str, Dict]:
-        """Enhance transcription content using LLM.
+        """Enhance transcription content using LLM with auto-chunking.
+
+        Automatically detects when content exceeds threshold and enables
+        smart chunking for ultra-long videos (4-5 hours, 80K+ chars).
+
+        Note: ASR hallucination is prevented at two levels:
+        1. Audio level: trimming end silence before transcription
+        2. Text level: detecting obvious hallucination patterns
 
         Args:
             content: Raw transcription content (after basic cleaning)
@@ -197,11 +322,34 @@ class TranscriptEnhancer:
         Returns:
             Tuple of (enhanced_content, statistics_dict)
         """
+        # Step 1: Remove obvious ASR hallucination patterns from the end
+        content, hallucination_stats = self._remove_trailing_asr_hallucination(content)
+
+        # Step 2: Auto-detect if chunking is needed
+        if len(content) > self.CHUNK_SIZE:
+            result, stats = self._enhance_with_chunking(content)
+        else:
+            result, stats = self._enhance_single(content)
+
+        # Merge hallucination stats into result stats
+        stats["hallucination_detection"] = hallucination_stats
+        return result, stats
+
+    def _enhance_single(self, content: str) -> Tuple[str, Dict]:
+        """Enhance a single chunk of content.
+
+        Args:
+            content: Single chunk of transcription content
+
+        Returns:
+            Tuple of (enhanced_content, statistics_dict)
+        """
         start_time = time.time()
         original_length = len(content)
 
-        # Build prompt
-        prompt = self.ENHANCEMENT_PROMPT.format(content=content)
+        # Select prompt based on faithful mode
+        prompt_template = self.FAITHFUL_ENHANCEMENT_PROMPT if self.faithful else self.ENHANCEMENT_PROMPT
+        prompt = prompt_template.format(content=content)
 
         # Call LLM
         try:
@@ -228,6 +376,114 @@ class TranscriptEnhancer:
         }
 
         return enhanced, stats
+
+    def _enhance_with_chunking(self, content: str) -> Tuple[str, Dict]:
+        """Process ultra-long content by splitting into chunks.
+
+        Args:
+            content: Ultra-long transcription content
+
+        Returns:
+            Tuple of (enhanced_content, statistics_dict)
+        """
+        start_time = time.time()
+        original_length = len(content)
+
+        # Split content into chunks
+        chunks = self._split_into_chunks(content)
+        total_chunks = len(chunks)
+
+        print(f"  Content too long ({original_length} chars), splitting into {total_chunks} chunks")
+
+        # Process each chunk
+        enhanced_chunks = []
+        total_chunk_time = 0
+        failed_chunks = 0
+
+        for i, chunk in enumerate(chunks):
+            chunk_start = time.time()
+            print(f"  LLM enhancement: chunk {i+1}/{total_chunks} ({len(chunk)} chars)...")
+
+            enhanced, chunk_stats = self._enhance_single(chunk)
+
+            if chunk_stats["success"]:
+                enhanced_chunks.append(enhanced)
+                total_chunk_time += chunk_stats["processing_time_ms"]
+            else:
+                # If a chunk fails, use original content for that chunk
+                print(f"    Warning: Chunk {i+1} failed, using original content")
+                enhanced_chunks.append(chunk)
+                failed_chunks += 1
+
+        # Merge all chunks
+        merged_content = self._merge_chunks(enhanced_chunks)
+
+        processing_time = (time.time() - start_time) * 1000
+
+        stats = {
+            "success": True,
+            "original_length": original_length,
+            "enhanced_length": len(merged_content),
+            "length_diff": len(merged_content) - original_length,
+            "processing_time_ms": round(processing_time, 2),
+            "model_used": self.model,
+            "chunking": {
+                "enabled": True,
+                "total_chunks": total_chunks,
+                "failed_chunks": failed_chunks,
+                "chunk_size": self.CHUNK_SIZE
+            }
+        }
+
+        return merged_content, stats
+
+    def _split_into_chunks(self, content: str) -> List[str]:
+        """Split content into chunks at paragraph boundaries.
+
+        Ensures chunks are split at paragraph boundaries (\\n\\n) to
+        maintain semantic integrity.
+
+        Args:
+            content: Content to split
+
+        Returns:
+            List of content chunks
+        """
+        # Split by paragraph boundaries
+        paragraphs = content.split('\n\n')
+
+        chunks = []
+        current_chunk = []
+        current_length = 0
+
+        for para in paragraphs:
+            para_length = len(para) + 2  # +2 for '\n\n' that will be added back
+
+            # If adding this paragraph would exceed chunk size, start a new chunk
+            if current_length + para_length > self.CHUNK_SIZE and current_chunk:
+                chunks.append('\n\n'.join(current_chunk))
+                current_chunk = [para]
+                current_length = para_length
+            else:
+                current_chunk.append(para)
+                current_length += para_length
+
+        # Add the last chunk
+        if current_chunk:
+            chunks.append('\n\n'.join(current_chunk))
+
+        return chunks
+
+    def _merge_chunks(self, chunks: List[str]) -> str:
+        """Merge processed chunks back into single content.
+
+        Args:
+            chunks: List of enhanced content chunks
+
+        Returns:
+            Merged content string
+        """
+        return '\n\n'.join(chunks)
 
     def _call_llm(self, prompt: str) -> str:
         """Call LLM via Anthropic SDK.

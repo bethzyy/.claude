@@ -1,0 +1,24 @@
+{
+  "accuracy_tests": [
+    {
+      "id": "mcpmark_v1",
+      "name": "MCP Mark 培训视频",
+      "description": "约70分钟的 MCP Mark 培训视频，包含技术术语、中英文混合内容",
+      "video_reference": "benchmarks/mcpmark/video/mcpmark.mp4",
+      "benchmark_file": "benchmarks/mcpmark/benchmark.txt",
+      "metrics": {
+        "min_similarity": 0.85,
+        "target_similarity": 0.88
+      },
+      "metadata": {
+        "duration_minutes": 70,
+        "language": "zh-CN",
+        "content_type": "technical_training",
+        "created_date": "2026-03-13",
+        "last_test_similarity": 0.8759,
+        "last_test_date": "2026-03-13"
+      }
+    }
+  ],
+  "_comment": "Accuracy tests verify transcription quality by comparing output against known benchmarks"
+}

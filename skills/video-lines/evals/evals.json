@@ -60,6 +60,17 @@
       "prompt": "把这篇文章转成头条文章",
       "expected_output": "Skill should NOT trigger - this is for article conversion, not video transcription",
       "assertions": []
+    },
+    {
+      "id": 11,
+      "prompt": "运行 video-lines skill 的准确度测试，使用 mcpmark 测试用例",
+      "expected_output": "准确度测试通过，相似度 >= 85%",
+      "expectations": [
+        "输出包含相似度百分比",
+        "输出包含 PASS 或 FAIL 状态",
+        "相似度 >= 85%"
+      ],
+      "assertions": []
     }
   ]
 }

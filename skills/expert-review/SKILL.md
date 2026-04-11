@@ -1,18 +1,18 @@
 ---
 name: expert-review
-description: 专家复盘 v3.1 - 支持 Python 和 TypeScript/Electron 双分支审查。Python 项目使用六人专家团队+自我进化引擎；TypeScript/Electron 项目使用 Claude Code 驱动的 6 阶段审查（安全、类型安全、Electron最佳实践、React模式、依赖构建）。ALWAYS use this skill when user wants to "专家复盘", "expert review", "代码审查", "code review", "项目复盘", "project review", "全面检查", "整体审查", "代码体检", "code health check", "技术债清理", "tech debt cleanup", or discusses comprehensive project quality assessment.
-version: 3.0.0
+description: 专家复盘 v4.0 - 支持 Python 和 TypeScript/Electron 双分支审查。Python 项目使用六人专家团队+自我进化引擎+全自动改进闭环（--auto-fix）；TypeScript/Electron 项目使用 Claude Code 驱动的 6 阶段审查（安全、类型安全、Electron最佳实践、React模式、依赖构建）。ALWAYS use this skill when user wants to "专家复盘", "expert review", "代码审查", "code review", "项目复盘", "project review", "全面检查", "整体审查", "代码体检", "code health check", "技术债清理", "tech debt cleanup", or discusses comprehensive project quality assessment.
+version: 4.0.0
 entry_point: main.py
 author: Claude Code
 tags: [review, architecture, testing, refactoring, documentation, expert-team, self-evolution, security, devops, typescript, electron]
 ---
 
-# 专家复盘团队 v3.0 (Expert Review Team)
+# 专家复盘团队 v4.0 (Expert Review Team)
 
-**Version**: 3.1.0
+**Version**: 4.0.0
 **Last Updated**: 2026-04-11
-**Role**: 双分支智能审查系统（Python 专家团队 + TypeScript/Electron Claude Code 驱动）
-**Specialty**: 代码质量、架构分析、测试评估、安全扫描、运维审查、类型安全、Electron 安全、React 模式
+**Role**: 双分支智能审查系统（Python 专家团队 + 自动改进闭环 + TypeScript/Electron Claude Code 驱动）
+**Specialty**: 代码质量、架构分析、测试评估、安全扫描、运维审查、类型安全、Electron 安全、React 模式、自动修复
 
 ## Skill Description
 
@@ -416,6 +416,50 @@ experience_dicts = exp_collector.findings_to_experience_dicts(
 written_paths = write_experience_cards(experience_dicts, project_dir)
 ```
 
+### Phase 2.7: 自动改进闭环（🆕 v4.0 核心功能）
+
+当使用 `--auto-fix` 标志时，在生成报告后自动执行改进：
+
+```
+python main.py review <project_dir> --auto-fix           # 全自动：审查→修复→验证
+python main.py review <project_dir> --auto-fix --plan-only  # 只生成改进方案，不执行
+```
+
+**执行流程：**
+
+1. **生成改进方案**（`PlanGenerator`）
+   - 过滤有 `fix_suggestion` 的发现
+   - 按文件分组 + severity 排序
+   - `ast.parse` 分析 import 依赖 → 拓扑排序
+   - 调用 GLM-4-Flash 优化批次划分
+
+2. **逐批执行修复**（`FixExecutor` + `LLMClient`）
+   - 每批次前 `git commit` 创建 checkpoint
+   - 对每个文件：读取 → 构造 prompt → LLM 生成修复 → `ast.parse` 验证 → 写入
+   - 失败时 `git reset --soft` 回滚
+
+3. **验证**（`Verifier`）
+   - `ast.parse()` 语法检查
+   - `pytest tests/ -x` 测试执行
+   - 验证失败 → 回滚批次
+
+4. **回归审查**
+   - 对修改文件重新运行安全专家 + 代码质量专家
+   - 发现新 Critical/High → 自动修复
+   - 最多 5 轮迭代
+
+**安全机制：**
+- L1: Git checkpoint（每批次前 commit）
+- L2: AST 语法验证（写入前 `ast.parse()`）
+- L3: 测试门控（pytest 通过才确认）
+- L4: 回归审查（最多 5 轮防止无限循环）
+- L5: `--plan-only` 模式（只看方案不修改代码）
+
+**LLM 调用：**
+- API Key: `ZHIPU_API_KEY` 环境变量 → `.env` 文件 → fallback 配置文件
+- 模型: GLM-4-Flash（默认）/ GLM-4（复杂修复）
+- 重试: 3 次指数退避
+
 ### Phase 7: Git 提交与推送
 
 **🚨 安全阻断规则（最高优先级）：**
@@ -535,6 +579,7 @@ git push
 7. **基线只能升**: 如果本次审查发现少于基线，保持原基线不变
 8. **反模式过滤**: 不要报告已知噪音
 9. **经验闭环**: Critical/High 发现必须通过 `shared/experience_writer.py` 沉淀为 bug-retro 格式的经验文件，写入项目 memory 目录并更新 MEMORY.md 索引。使用 `findings_to_experience_dicts()` 生成标准化的四维度经验字典，确保可复用洞察是真正的 heuristic 而非简单复制
+10. **自动改进闭环**: `--auto-fix` 模式下，审查完成后自动生成改进方案并逐步执行修复。每批次有 git checkpoint + AST 验证 + 测试门控，失败自动回滚。回归审查最多 5 轮。使用 `--plan-only` 可只看方案不执行
 
 ## CLI Commands
 
@@ -547,12 +592,17 @@ python main.py profile <project_dir>
 
 # 重置进化状态
 python main.py baseline --reset
+
+# 全自动审查+改进（v4.0 新功能）
+python main.py review <project_dir> --auto-fix
+python main.py review <project_dir> --auto-fix --plan-only  # 只生成改进方案
 ```
 
 ## Version History
 
 | Version | Date | Change |
 |---------|------|--------|
+| 4.0.0 | 2026-04-11 | 全自动改进闭环（autofix/）：LLM 修复 + Git checkpoint + AST 验证 + 测试门控 + 回归审查。新增 --auto-fix / --plan-only CLI 标志 |
 | 3.1.0 | 2026-04-11 | 共享经验工具层(shared/)消除与 bug-retro 重复代码 + Phase 6.5 经验沉淀 + MEMORY.md 索引维护 + 四维度分析增强 + 混合项目审查 + free-search CVE 搜索 + FeedbackCollector/RequirementTraceBridge 集成 |
 | 2.1.0 | 2026-04-11 | 数据流审查专家 + Phase 1.5 修复方案安全审查 + finding.py 新增 DATA_FLOW/BEHAVIORAL |
 | 2.2.0 | 2026-04-11 | 项目兼容性检查（不支持的语言/纯 TS 项目自动终止+建议替代方案） |

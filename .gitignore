@@ -40,5 +40,29 @@ skills/*/data/metrics/review-*.json
 skills/*/data/prompt_deltas/
 skills/*/data/trusted_hashes.json
 
+# 大文件 — 视频和媒体
+*.mp4
+*.avi
+*.mov
+*.mkv
+
+# 搜索缓存
+skills/free-search/scripts/search_cache/
+
+# 下载的网页资源
+skills/quality-reviewer/downloads_v2/
+
+# 测试截图和临时数据
+skills/quality-reviewer/test/
+skills/quality-reviewer/temp_*.json
+skills/quality-reviewer/test_*.py
+
+# Benchmark 大文件
+skills/video-lines/evals/benchmarks/
+skills/video-lines/video-lines-workspace/
+
+# Evoluton backup
+*.md.bak
+
 #其它
 *.wav

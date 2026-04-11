@@ -1,0 +1,2389 @@
+[
+  {
+    "name": "airbnb",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\airbnb\\DESIGN.md",
+    "industries": [
+      "e-commerce",
+      "travel-hospitality"
+    ],
+    "color_temperature": "warm",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "warm",
+      "approachable",
+      "clean",
+      "friendly"
+    ],
+    "geometric_language": "mixed",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Warm, photography-first marketplace with custom Cereal font, generous rounding, and three-layer warm shadows on a pure white canvas.",
+    "accent_colors": [
+      "#92174d",
+      "#e00b41",
+      "#c13515",
+      "#b32505",
+      "#3f3f3f",
+      "#000000"
+    ],
+    "primary_colors": [
+      "#ffffff",
+      "#c1c1c1",
+      "#f2f2f2"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\airbnb\\DESIGN.md",
+    "user_scenarios": [],
+    "emotional_goals": [],
+    "domain_tags": []
+  },
+  {
+    "name": "airtable",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\airtable\\DESIGN.md",
+    "industries": [
+      "saas",
+      "productivity",
+      "enterprise"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "professional",
+      "clean",
+      "precise",
+      "modern"
+    ],
+    "geometric_language": "moderate",
+    "complexity": "low",
+    "typography_style": "custom-font",
+    "one_line": "Swiss-precision enterprise platform with Haas font, blue-tinted shadows, positive letter-spacing, and a clean white navy-blue binary.",
+    "accent_colors": [
+      "#181d26",
+      "#1b61c9",
+      "#ffffff",
+      "#333333",
+      "#254fad",
+      "#e0e2e6"
+    ],
+    "primary_colors": [
+      "#f8fafc"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\airtable\\DESIGN.md",
+    "user_scenarios": [],
+    "emotional_goals": [],
+    "domain_tags": []
+  },
+  {
+    "name": "apple",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\apple\\DESIGN.md",
+    "industries": [
+      "consumer-electronics",
+      "technology"
+    ],
+    "color_temperature": "neutral",
+    "mode_preference": "dual-mode",
+    "brand_personality": [
+      "precise",
+      "minimal",
+      "luxurious",
+      "confident"
+    ],
+    "geometric_language": "mixed",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Cinematic product-as-sculpture gallery with SF Pro optical sizing, black/gray alternation, pill CTAs, and translucent glass navigation.",
+    "accent_colors": [
+      "#0071e3",
+      "#ffffff",
+      "#0071E3"
+    ],
+    "primary_colors": [
+      "#000000",
+      "#f5f5f7",
+      "#1d1d1f",
+      "#2997ff",
+      "#272729",
+      "#262628",
+      "#28282a",
+      "#2a2a2d",
+      "#242426",
+      "#ededf2"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\apple\\DESIGN.md",
+    "user_scenarios": [],
+    "emotional_goals": [],
+    "domain_tags": []
+  },
+  {
+    "name": "bmw",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\bmw\\DESIGN.md",
+    "industries": [
+      "automotive",
+      "luxury"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "dual-mode",
+    "brand_personality": [
+      "serious",
+      "precise",
+      "technical",
+      "dramatic"
+    ],
+    "geometric_language": "sharp",
+    "complexity": "low",
+    "typography_style": "custom-font",
+    "one_line": "Angular, zero-radius German engineering aesthetic with BMWTypeNext Light uppercase display, showroom photography rhythm, and blue-only interactive accents.",
+    "accent_colors": [
+      "#757575",
+      "#ffffff",
+      "#262626"
+    ],
+    "primary_colors": [],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\bmw\\DESIGN.md",
+    "user_scenarios": [],
+    "emotional_goals": [],
+    "domain_tags": []
+  },
+  {
+    "name": "cal",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\cal\\DESIGN.md",
+    "industries": [
+      "productivity",
+      "saas",
+      "developer-tools"
+    ],
+    "color_temperature": "neutral",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "minimal",
+      "precise",
+      "clean",
+      "professional"
+    ],
+    "geometric_language": "mixed",
+    "complexity": "high",
+    "typography_style": "custom-font",
+    "one_line": "Monochromatic grayscale confidence with Cal Sans geometric display, 11-definition multi-layer shadow system, and zero brand color.",
+    "accent_colors": [
+      "#ffffff",
+      "#0099ff",
+      "#f5f5f5",
+      "#1e1f23"
+    ],
+    "primary_colors": [
+      "#242424",
+      "#898989"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\cal\\DESIGN.md",
+    "user_scenarios": [],
+    "emotional_goals": [],
+    "domain_tags": []
+  },
+  {
+    "name": "claude",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\claude\\DESIGN.md",
+    "industries": [
+      "ai-ml",
+      "developer-tools"
+    ],
+    "color_temperature": "warm",
+    "mode_preference": "dual-mode",
+    "brand_personality": [
+      "editorial",
+      "warm",
+      "approachable",
+      "immersive"
+    ],
+    "geometric_language": "rounded",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Literary salon aesthetic with Anthropic Serif headlines, parchment canvas, terracotta accent, organic hand-drawn illustrations, and ring-shadow depth.",
+    "accent_colors": [
+      "#d97757",
+      "#b53333"
+    ],
+    "primary_colors": [
+      "#f5f4ed",
+      "#e8e6dc",
+      "#141413",
+      "#30302e",
+      "#faf9f5",
+      "#ffffff",
+      "#b0aea5",
+      "#d1cfc5",
+      "#dedc01",
+      "#c2c0b6"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\claude\\DESIGN.md",
+    "user_scenarios": [
+      "professional_growth",
+      "self_improvement"
+    ],
+    "emotional_goals": [
+      "trust",
+      "calm",
+      "clarity"
+    ],
+    "domain_tags": [
+      "ai",
+      "assistant",
+      "chat",
+      "intelligent",
+      "writing"
+    ]
+  },
+  {
+    "name": "clay",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\clay\\DESIGN.md",
+    "industries": [
+      "saas",
+      "enterprise",
+      "developer-tools"
+    ],
+    "color_temperature": "warm",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "playful",
+      "warm",
+      "approachable",
+      "friendly"
+    ],
+    "geometric_language": "rounded",
+    "complexity": "high",
+    "typography_style": "custom-font",
+    "one_line": "Artisanal B2B warmth with named swatch palette, Roobert font with 5 OpenType sets, rotateZ hover animations, and cream-canvas craft aesthetic.",
+    "accent_colors": [
+      "#000000",
+      "#84e7a5",
+      "#078a52",
+      "#3bd3fd",
+      "#0089ad",
+      "#fbbd41",
+      "#d08a11"
+    ],
+    "primary_colors": [
+      "#faf9f7",
+      "#dad4c8",
+      "#eee9df",
+      "#ffffff",
+      "#333333",
+      "#eff1f3",
+      "#f0f8ff",
+      "#3859f9",
+      "#717989",
+      "#434346"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\clay\\DESIGN.md",
+    "user_scenarios": [],
+    "emotional_goals": [],
+    "domain_tags": []
+  },
+  {
+    "name": "clickhouse",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\clickhouse\\DESIGN.md",
+    "industries": [
+      "infrastructure",
+      "developer-tools",
+      "database"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "dark-first",
+    "brand_personality": [
+      "technical",
+      "dramatic",
+      "precise",
+      "confident"
+    ],
+    "geometric_language": "sharp",
+    "complexity": "medium",
+    "typography_style": "system-font",
+    "one_line": "Neon yellow-green on obsidian black terminal cockpit with Inter Black 900 at 96px, inset pressed-shadows, and maximum-contrast performance data.",
+    "accent_colors": [
+      "#faff69",
+      "#166534",
+      "#14572f",
+      "#161600",
+      "#ffffff",
+      "#a0a0a0",
+      "#151515"
+    ],
+    "primary_colors": [
+      "#000000",
+      "#414141",
+      "#141414",
+      "#3a3a3a"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\clickhouse\\DESIGN.md",
+    "user_scenarios": [],
+    "emotional_goals": [],
+    "domain_tags": []
+  },
+  {
+    "name": "cohere",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\cohere\\DESIGN.md",
+    "industries": [
+      "ai-ml",
+      "enterprise",
+      "infrastructure"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "professional",
+      "precise",
+      "modern",
+      "confident"
+    ],
+    "geometric_language": "rounded",
+    "complexity": "low",
+    "typography_style": "custom-font",
+    "one_line": "Enterprise command deck with CohereText serif display, 22px signature card radius, chromatic restraint, and deep purple hero bands.",
+    "accent_colors": [
+      "#000000",
+      "#212121",
+      "#ffffff",
+      "#fafafa"
+    ],
+    "primary_colors": [
+      "#9b60aa",
+      "#f2f2f2"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\cohere\\DESIGN.md",
+    "user_scenarios": [
+      "professional_growth"
+    ],
+    "emotional_goals": [
+      "trust",
+      "clarity"
+    ],
+    "domain_tags": [
+      "ai",
+      "enterprise",
+      "nlp",
+      "intelligent",
+      "automation"
+    ]
+  },
+  {
+    "name": "coinbase",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\coinbase\\DESIGN.md",
+    "industries": [
+      "fintech",
+      "cryptocurrency"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "dual-mode",
+    "brand_personality": [
+      "professional",
+      "trustworthy",
+      "clean",
+      "modern"
+    ],
+    "geometric_language": "pill",
+    "complexity": "low",
+    "typography_style": "custom-font",
+    "one_line": "Trustworthy crypto exchange with deep blue accent, four-font proprietary family, 56px pill buttons, and white-dark binary with minimal shadows.",
+    "accent_colors": [
+      "#0052ff",
+      "#578bfa",
+      "#ffffff"
+    ],
+    "primary_colors": [
+      "#eef0f3",
+      "#0667d0",
+      "#5b616e"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\coinbase\\DESIGN.md",
+    "user_scenarios": [],
+    "emotional_goals": [],
+    "domain_tags": []
+  },
+  {
+    "name": "composio",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\composio\\DESIGN.md",
+    "industries": [
+      "developer-tools",
+      "ai-ml",
+      "infrastructure"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "dark-first",
+    "brand_personality": [
+      "technical",
+      "precise",
+      "modern",
+      "minimal"
+    ],
+    "geometric_language": "sharp",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Nocturnal command center with near-invisible borders, bioluminescent cyan glows, dual abcDiatype/JetBrains Mono typography, and brutalist hard-offset shadows.",
+    "accent_colors": [
+      "#0007cd",
+      "#00ffff",
+      "#0096ff",
+      "#ffffff"
+    ],
+    "primary_colors": [
+      "#0f0f0f",
+      "#0089ff",
+      "#2c2c2c",
+      "#444444",
+      "#e0e0e0"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\composio\\DESIGN.md",
+    "user_scenarios": [],
+    "emotional_goals": [],
+    "domain_tags": []
+  },
+  {
+    "name": "cursor",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\cursor\\DESIGN.md",
+    "industries": [
+      "developer-tools",
+      "ai-ml"
+    ],
+    "color_temperature": "warm",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "technical",
+      "warm",
+      "precise",
+      "editorial"
+    ],
+    "geometric_language": "mixed",
+    "complexity": "high",
+    "typography_style": "custom-font",
+    "one_line": "Warm code-editor elegance with CursorGothic display, jjannon serif body, berkeleyMono code, oklab perceptual borders, and warm cream canvas.",
+    "accent_colors": [
+      "#f54e00",
+      "#000000",
+      "#c08532"
+    ],
+    "primary_colors": [
+      "#f2f1ed",
+      "#26251e",
+      "#e6e5e0",
+      "#ebeae5",
+      "#ffffff",
+      "#c0a8dd",
+      "#f7f7f4",
+      "#e1e0db"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\cursor\\DESIGN.md",
+    "user_scenarios": [
+      "professional_growth",
+      "self_improvement"
+    ],
+    "emotional_goals": [
+      "trust",
+      "clarity"
+    ],
+    "domain_tags": [
+      "ai",
+      "coding",
+      "development",
+      "assistant",
+      "intelligent"
+    ]
+  },
+  {
+    "name": "elevenlabs",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\elevenlabs\\DESIGN.md",
+    "industries": [
+      "ai-ml",
+      "entertainment",
+      "developer-tools"
+    ],
+    "color_temperature": "warm",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "minimal",
+      "clean",
+      "premium",
+      "immersive"
+    ],
+    "geometric_language": "pill",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Premium audio brochure with whisper-thin Waldenburg 300 display, sub-0.1 opacity shadow stacks, warm stone pill buttons, and Apple-like whitespace.",
+    "accent_colors": [
+      "#000000",
+      "#4e4e4e"
+    ],
+    "primary_colors": [
+      "#ffffff",
+      "#f5f5f5",
+      "#f6f6f6",
+      "#7fffff",
+      "#fff"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\elevenlabs\\DESIGN.md",
+    "user_scenarios": [],
+    "emotional_goals": [],
+    "domain_tags": []
+  },
+  {
+    "name": "expo",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\expo\\DESIGN.md",
+    "industries": [
+      "developer-tools",
+      "mobile"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "clean",
+      "minimal",
+      "friendly",
+      "modern"
+    ],
+    "geometric_language": "pill",
+    "complexity": "medium",
+    "typography_style": "system-font",
+    "one_line": "Luminous developer gallery with monochrome palette, pill-shaped everything, extreme negative tracking at display, and product screenshots as sole color source.",
+    "accent_colors": [
+      "#1c2024",
+      "#0d74ce",
+      "#47c2ff",
+      "#8145b5",
+      "#ab6400"
+    ],
+    "primary_colors": [
+      "#f0f0f3",
+      "#000000",
+      "#60646c",
+      "#b0b4ba",
+      "#555860",
+      "#000",
+      "#ffffff",
+      "#1a1a1a",
+      "#171717",
+      "#363a3f"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\expo\\DESIGN.md",
+    "user_scenarios": [],
+    "emotional_goals": [],
+    "domain_tags": []
+  },
+  {
+    "name": "ferrari",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\ferrari\\DESIGN.md",
+    "industries": [
+      "automotive",
+      "luxury"
+    ],
+    "color_temperature": "neutral",
+    "mode_preference": "dual-mode",
+    "brand_personality": [
+      "dramatic",
+      "editorial",
+      "luxurious",
+      "serious"
+    ],
+    "geometric_language": "sharp",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Digital editorial magazine with chiaroscuro dark/light alternation, surgically sparse Ferrari Red, FerrariSans proprietary type, and photo-journalism imagery.",
+    "accent_colors": [
+      "#DA291C",
+      "#F6E500",
+      "#FFFFFF",
+      "#B01E0A",
+      "#9D2211",
+      "#181818",
+      "#F13A2C",
+      "#03904A"
+    ],
+    "primary_colors": [
+      "#303030",
+      "#8F8F8F",
+      "#D2D2D2",
+      "#000000",
+      "#CCCCCC"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\ferrari\\DESIGN.md",
+    "user_scenarios": [],
+    "emotional_goals": [],
+    "domain_tags": []
+  },
+  {
+    "name": "figma",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\figma\\DESIGN.md",
+    "industries": [
+      "design",
+      "developer-tools",
+      "saas"
+    ],
+    "color_temperature": "neutral",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "minimal",
+      "precise",
+      "modern",
+      "clean"
+    ],
+    "geometric_language": "pill",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Design tool that designed itself with variable font figmaSans at unusual weight stops, black-and-white chrome, vibrant hero gradients, and dashed editor-style focus indicators.",
+    "accent_colors": [],
+    "primary_colors": [],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\figma\\DESIGN.md",
+    "user_scenarios": [],
+    "emotional_goals": [],
+    "domain_tags": []
+  },
+  {
+    "name": "framer",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\framer\\DESIGN.md",
+    "industries": [
+      "design",
+      "developer-tools",
+      "saas"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "dark-first",
+    "brand_personality": [
+      "modern",
+      "precise",
+      "immersive",
+      "confident"
+    ],
+    "geometric_language": "pill",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Cinematic dark canvas with GT Walsheim extreme -5.5px tracking, Framer Blue electric accent, frosted glass buttons, and product screenshots as hero art.",
+    "accent_colors": [
+      "#0099ff",
+      "#ffffff",
+      "#a6a6a6"
+    ],
+    "primary_colors": [
+      "#090909",
+      "#1a1a1a",
+      "#2d2d2d"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\framer\\DESIGN.md",
+    "user_scenarios": [],
+    "emotional_goals": [],
+    "domain_tags": []
+  },
+  {
+    "name": "hashicorp",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\hashicorp\\DESIGN.md",
+    "industries": [
+      "infrastructure",
+      "enterprise",
+      "developer-tools"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "dual-mode",
+    "brand_personality": [
+      "professional",
+      "technical",
+      "serious",
+      "modern"
+    ],
+    "geometric_language": "sharp",
+    "complexity": "low",
+    "typography_style": "custom-font",
+    "one_line": "Enterprise infrastructure with multi-product color system, HashiCorp Sans 600-700 headings, micro-shadow whisper depth, and dark hero/product duality.",
+    "accent_colors": [
+      "#7b42bc",
+      "#ffcf25",
+      "#1868f2",
+      "#000000",
+      "#b2b6bd",
+      "#656a76",
+      "#efeff1",
+      "#911ced",
+      "#a737ff",
+      "#1060ff"
+    ],
+    "primary_colors": [
+      "#f1f2f3",
+      "#d5d7db",
+      "#12b6bb",
+      "#fbeabf",
+      "#fff9cf",
+      "#ffffff"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\hashicorp\\DESIGN.md",
+    "user_scenarios": [],
+    "emotional_goals": [],
+    "domain_tags": []
+  },
+  {
+    "name": "ibm",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\ibm\\DESIGN.md",
+    "industries": [
+      "enterprise",
+      "technology",
+      "infrastructure"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "dual-mode",
+    "brand_personality": [
+      "professional",
+      "technical",
+      "precise",
+      "serious"
+    ],
+    "geometric_language": "sharp",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Carbon Design System engineering spec with IBM Plex Light display, token-driven --cds-* architecture, 0px button radius, and blue-only interactive accent.",
+    "accent_colors": [
+      "#161616",
+      "#0f62fe",
+      "#262626",
+      "#0043ce",
+      "#002d9c",
+      "#0353e9"
+    ],
+    "primary_colors": [
+      "#ffffff",
+      "#f4f4f4",
+      "#393939",
+      "#e8e8e8",
+      "#edf5ff",
+      "#da1e28",
+      "#4c4c4c",
+      "#b81921"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\ibm\\DESIGN.md",
+    "user_scenarios": [],
+    "emotional_goals": [],
+    "domain_tags": []
+  },
+  {
+    "name": "intercom",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\intercom\\DESIGN.md",
+    "industries": [
+      "saas",
+      "enterprise",
+      "ai-ml"
+    ],
+    "color_temperature": "warm",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "warm",
+      "precise",
+      "modern",
+      "confident"
+    ],
+    "geometric_language": "sharp",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "AI-first helpdesk with Saans extreme negative tracking, Fin Orange accent, sharp 4px buttons with scale(1.1) hover, and warm oat-toned borders.",
+    "accent_colors": [
+      "#ffffff",
+      "#fe4c02",
+      "#00da00",
+      "#0007cb",
+      "#313130"
+    ],
+    "primary_colors": [
+      "#faf9f6",
+      "#111111",
+      "#2c6415"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\intercom\\DESIGN.md",
+    "user_scenarios": [
+      "professional_growth"
+    ],
+    "emotional_goals": [
+      "trust",
+      "clarity"
+    ],
+    "domain_tags": [
+      "ai",
+      "assistant",
+      "support",
+      "chat",
+      "automation"
+    ]
+  },
+  {
+    "name": "kraken",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\kraken\\DESIGN.md",
+    "industries": [
+      "fintech",
+      "cryptocurrency"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "professional",
+      "trustworthy",
+      "modern",
+      "clean"
+    ],
+    "geometric_language": "moderate",
+    "complexity": "low",
+    "typography_style": "custom-font",
+    "one_line": "Trustworthy crypto exchange with commanding purple brand, Kraken-Brand display font, 12px rounded buttons, and whisper-level shadow system.",
+    "accent_colors": [
+      "#7132f5",
+      "#101114",
+      "#149e61",
+      "#686b82",
+      "#9497a9",
+      "#ffffff",
+      "#dedee5"
+    ],
+    "primary_colors": [
+      "#5741d8",
+      "#5b1ecf"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\kraken\\DESIGN.md",
+    "user_scenarios": [],
+    "emotional_goals": [],
+    "domain_tags": []
+  },
+  {
+    "name": "lamborghini",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\lamborghini\\DESIGN.md",
+    "industries": [
+      "automotive",
+      "luxury"
+    ],
+    "color_temperature": "warm",
+    "mode_preference": "dark-first",
+    "brand_personality": [
+      "dramatic",
+      "luxurious",
+      "confident",
+      "serious"
+    ],
+    "geometric_language": "sharp",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Cathedral of darkness with LamboType 12-degree angled terminals, gold CTA exclusivity, hexagonal brand DNA, and all-caps 120px display headlines.",
+    "accent_colors": [
+      "#FFFFFF",
+      "#917300",
+      "#29ABE2",
+      "#3860BE",
+      "#202020",
+      "#F5F5F5"
+    ],
+    "primary_colors": [
+      "#181818",
+      "#F8F8F8",
+      "#E6E6E6",
+      "#494949",
+      "#7D7D7D",
+      "#313131",
+      "#1EAEDB"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\lamborghini\\DESIGN.md",
+    "user_scenarios": [],
+    "emotional_goals": [],
+    "domain_tags": []
+  },
+  {
+    "name": "linear.app",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\linear.app\\DESIGN.md",
+    "industries": [
+      "developer-tools",
+      "productivity",
+      "saas"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "dark-first",
+    "brand_personality": [
+      "minimal",
+      "precise",
+      "technical",
+      "modern"
+    ],
+    "geometric_language": "moderate",
+    "complexity": "high",
+    "typography_style": "system-font",
+    "one_line": "Dark-mode-native precision instrument with Inter Variable cv01/ss03, signature weight 510, semi-transparent white borders, and indigo-violet as sole chromatic accent.",
+    "accent_colors": [
+      "#5e6ad2",
+      "#7170ff",
+      "#828fff",
+      "#7a7fad",
+      "#23252a",
+      "#ffffff"
+    ],
+    "primary_colors": [
+      "#08090a",
+      "#0f1011",
+      "#191a1b",
+      "#010102",
+      "#28282c",
+      "#d0d6e0",
+      "#f3f4f5",
+      "#f5f6f7",
+      "#e2e4e7"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\linear.app\\DESIGN.md",
+    "user_scenarios": [
+      "professional_growth",
+      "self_improvement"
+    ],
+    "emotional_goals": [
+      "clarity",
+      "trust"
+    ],
+    "domain_tags": [
+      "productivity",
+      "progress",
+      "workflow",
+      "task"
+    ]
+  },
+  {
+    "name": "lovable",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\lovable\\DESIGN.md",
+    "industries": [
+      "developer-tools",
+      "ai-ml"
+    ],
+    "color_temperature": "warm",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "warm",
+      "approachable",
+      "minimal",
+      "clean"
+    ],
+    "geometric_language": "mixed",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Warm cream notebook with Camera Plain Variable humanist font, opacity-driven color system, inset shadow buttons, and pill-shaped action elements.",
+    "accent_colors": [],
+    "primary_colors": [
+      "#f7f4ed",
+      "#fcfbf8",
+      "#3b82f6",
+      "#ffffff"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\lovable\\DESIGN.md",
+    "user_scenarios": [
+      "professional_growth",
+      "self_improvement"
+    ],
+    "emotional_goals": [
+      "delight",
+      "trust",
+      "clarity"
+    ],
+    "domain_tags": [
+      "ai",
+      "assistant",
+      "generation",
+      "intelligent",
+      "automation"
+    ]
+  },
+  {
+    "name": "minimax",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\minimax\\DESIGN.md",
+    "industries": [
+      "ai-ml",
+      "entertainment",
+      "consumer"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "friendly",
+      "modern",
+      "vibrant",
+      "approachable"
+    ],
+    "geometric_language": "rounded",
+    "complexity": "medium",
+    "typography_style": "system-font",
+    "one_line": "Apple-meets-playground AI showcase with multi-font system, pill navigation, colorful product cards, and brand blue/pink accents on white canvas.",
+    "accent_colors": [
+      "#1456f0",
+      "#3b82f6",
+      "#60a5fa",
+      "#ea5ec1",
+      "#222222",
+      "#18181b",
+      "#181e25",
+      "#3daeff",
+      "#bfdbfe",
+      "#2563eb"
+    ],
+    "primary_colors": [
+      "#ffffff",
+      "#45515e",
+      "#e5e7eb",
+      "#e8ffea",
+      "#333333"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\minimax\\DESIGN.md",
+    "user_scenarios": [
+      "playful_learning",
+      "self_improvement"
+    ],
+    "emotional_goals": [
+      "delight",
+      "motivation"
+    ],
+    "domain_tags": [
+      "ai",
+      "assistant",
+      "creative",
+      "intelligent",
+      "entertainment"
+    ]
+  },
+  {
+    "name": "mintlify",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\mintlify\\DESIGN.md",
+    "industries": [
+      "developer-tools",
+      "productivity",
+      "saas"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "clean",
+      "minimal",
+      "modern",
+      "precise"
+    ],
+    "geometric_language": "rounded",
+    "complexity": "low",
+    "typography_style": "system-font",
+    "one_line": "Documentation-as-product with Inter tight tracking, Geist Mono uppercase labels, brand green atmospheric gradient hero, and ultra-round 24px card corners.",
+    "accent_colors": [
+      "#ffffff",
+      "#0d0d0d",
+      "#18E299",
+      "#d4fae8",
+      "#0fa76e",
+      "#c37d0d",
+      "#333333",
+      "#ededed",
+      "#a0a0a0"
+    ],
+    "primary_colors": [
+      "#3772cf",
+      "#d45656",
+      "#f5f5f5",
+      "#fafafa",
+      "#141414"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\mintlify\\DESIGN.md",
+    "user_scenarios": [
+      "calm_focus",
+      "professional_growth"
+    ],
+    "emotional_goals": [
+      "clarity",
+      "trust",
+      "calm"
+    ],
+    "domain_tags": [
+      "documentation",
+      "learning",
+      "knowledge",
+      "education",
+      "reference"
+    ]
+  },
+  {
+    "name": "miro",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\miro\\DESIGN.md",
+    "industries": [
+      "productivity",
+      "saas",
+      "design"
+    ],
+    "color_temperature": "neutral",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "friendly",
+      "playful",
+      "approachable",
+      "vibrant"
+    ],
+    "geometric_language": "mixed",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Visual thinking platform with Roobert PRO OpenType variants, pastel coral/rose/teal palette, Blue 450 interactive, and generous 8-50px radius range.",
+    "accent_colors": [
+      "#5b76fe",
+      "#00b473",
+      "#ffffff",
+      "#2a41b6",
+      "#ffc6c6",
+      "#600000",
+      "#555a6a"
+    ],
+    "primary_colors": [
+      "#1c1c1e",
+      "#746019",
+      "#fde0f0",
+      "#fbd4d4",
+      "#e3c5c5",
+      "#e9eaef"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\miro\\DESIGN.md",
+    "user_scenarios": [
+      "social_collaboration",
+      "professional_growth"
+    ],
+    "emotional_goals": [
+      "delight",
+      "clarity"
+    ],
+    "domain_tags": [
+      "collaboration",
+      "learning",
+      "visual",
+      "brainstorm",
+      "education"
+    ]
+  },
+  {
+    "name": "mistral.ai",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\mistral.ai\\DESIGN.md",
+    "industries": [
+      "ai-ml",
+      "infrastructure"
+    ],
+    "color_temperature": "warm",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "confident",
+      "bold",
+      "warm",
+      "dramatic"
+    ],
+    "geometric_language": "sharp",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Sun-drenched European AI with golden-amber gradient block identity, 82px billboard headlines, warm golden shadows, and dramatic landscape photography.",
+    "accent_colors": [
+      "#fa520f",
+      "#fb6424",
+      "#ff8105",
+      "#ff8a00",
+      "#ffb83e",
+      "#ffe295",
+      "#fff0c2",
+      "#1f1f1f"
+    ],
+    "primary_colors": [
+      "#ffd06a",
+      "#ffffff",
+      "#000"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\mistral.ai\\DESIGN.md",
+    "user_scenarios": [],
+    "emotional_goals": [],
+    "domain_tags": []
+  },
+  {
+    "name": "mongodb",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\mongodb\\DESIGN.md",
+    "industries": [
+      "infrastructure",
+      "database",
+      "developer-tools"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "dual-mode",
+    "brand_personality": [
+      "technical",
+      "modern",
+      "confident",
+      "editorial"
+    ],
+    "geometric_language": "pill",
+    "complexity": "high",
+    "typography_style": "custom-font",
+    "one_line": "Forest-dark terminal with neon MongoDB Green, Value Serif editorial headlines, Source Code Pro wide-tracked labels, and teal-tinted forest shadows.",
+    "accent_colors": [
+      "#00ed64",
+      "#b8c4c2",
+      "#3860be"
+    ],
+    "primary_colors": [
+      "#1eaedb",
+      "#1c2d38",
+      "#3d4f58",
+      "#21313c",
+      "#5c6c75",
+      "#e8edeb",
+      "#ffffff",
+      "#000000"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\mongodb\\DESIGN.md",
+    "user_scenarios": [],
+    "emotional_goals": [],
+    "domain_tags": []
+  },
+  {
+    "name": "notion",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\notion\\DESIGN.md",
+    "industries": [
+      "productivity",
+      "saas",
+      "education"
+    ],
+    "color_temperature": "warm",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "warm",
+      "minimal",
+      "clean",
+      "approachable"
+    ],
+    "geometric_language": "mixed",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Warm blank canvas with NotionInter negative tracking, whisper-weight rgba borders, ultra-thin 0.1 opacity division lines, and Notion Blue singular accent.",
+    "accent_colors": [
+      "#0075de",
+      "#213183",
+      "#2a9d99",
+      "#ff64c8",
+      "#391c57",
+      "#523410",
+      "#62aef0",
+      "#000000"
+    ],
+    "primary_colors": [
+      "#ffffff",
+      "#097fe8",
+      "#f2f9ff",
+      "#dddddd"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\notion\\DESIGN.md",
+    "user_scenarios": [
+      "calm_focus",
+      "self_improvement",
+      "professional_growth"
+    ],
+    "emotional_goals": [
+      "trust",
+      "calm",
+      "clarity"
+    ],
+    "domain_tags": [
+      "education",
+      "learning",
+      "study",
+      "notes",
+      "knowledge",
+      "productivity"
+    ]
+  },
+  {
+    "name": "nvidia",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\nvidia\\DESIGN.md",
+    "industries": [
+      "technology",
+      "infrastructure",
+      "ai-ml"
+    ],
+    "color_temperature": "neutral",
+    "mode_preference": "dark-first",
+    "brand_personality": [
+      "technical",
+      "precise",
+      "confident",
+      "serious"
+    ],
+    "geometric_language": "sharp",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "GPU-rendered precision with NVIDIA Green signal borders, NVIDIA-EMEA industrial font, 1-2px sharp radius, and Font Awesome 900 sharp iconography.",
+    "accent_colors": [
+      "#76b900",
+      "#bff230",
+      "#df6500",
+      "#ef9100",
+      "#feeeb2",
+      "#3f8500",
+      "#0046a4",
+      "#4d1368",
+      "#f9d4ff",
+      "#8c1c55"
+    ],
+    "primary_colors": [
+      "#000000",
+      "#ffffff",
+      "#e52020",
+      "#650b0b",
+      "#1a1a1a",
+      "#3860be",
+      "#003eff",
+      "#666666"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\nvidia\\DESIGN.md",
+    "user_scenarios": [],
+    "emotional_goals": [],
+    "domain_tags": []
+  },
+  {
+    "name": "ollama",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\ollama\\DESIGN.md",
+    "industries": [
+      "ai-ml",
+      "developer-tools",
+      "infrastructure"
+    ],
+    "color_temperature": "neutral",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "minimal",
+      "clean",
+      "friendly",
+      "approachable"
+    ],
+    "geometric_language": "pill",
+    "complexity": "low",
+    "typography_style": "system-font",
+    "one_line": "Radical grayscale minimalism with SF Pro Rounded softness, 9999px pill everything, zero shadows, zero chromatic color, and monochrome llama mascot.",
+    "accent_colors": [
+      "#e5e5e5",
+      "#525252",
+      "#404040",
+      "#3b82f6"
+    ],
+    "primary_colors": [
+      "#262626",
+      "#090909",
+      "#fafafa",
+      "#d4d4d4"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\ollama\\DESIGN.md",
+    "user_scenarios": [
+      "professional_growth"
+    ],
+    "emotional_goals": [
+      "clarity",
+      "calm"
+    ],
+    "domain_tags": [
+      "ai",
+      "llm",
+      "model",
+      "local",
+      "intelligent"
+    ]
+  },
+  {
+    "name": "opencode.ai",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\opencode.ai\\DESIGN.md",
+    "industries": [
+      "developer-tools",
+      "ai-ml"
+    ],
+    "color_temperature": "warm",
+    "mode_preference": "dark-first",
+    "brand_personality": [
+      "technical",
+      "minimal",
+      "precise",
+      "warm"
+    ],
+    "geometric_language": "sharp",
+    "complexity": "low",
+    "typography_style": "custom-font",
+    "one_line": "Terminal-native monospace identity with Berkeley Mono everywhere, warm near-black reddish-brown canvas, 4px sharp radius, and Apple HIG semantic colors.",
+    "accent_colors": [
+      "#007aff",
+      "#ff3b30",
+      "#30d158",
+      "#302c2c",
+      "#f1eeee",
+      "#0056b3",
+      "#004085",
+      "#f8f7f7"
+    ],
+    "primary_colors": [
+      "#201d1d",
+      "#fdfcfc",
+      "#646262",
+      "#424245",
+      "#000000"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\opencode.ai\\DESIGN.md",
+    "user_scenarios": [],
+    "emotional_goals": [],
+    "domain_tags": []
+  },
+  {
+    "name": "pinterest",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\pinterest\\DESIGN.md",
+    "industries": [
+      "social-media",
+      "e-commerce",
+      "entertainment"
+    ],
+    "color_temperature": "warm",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "warm",
+      "approachable",
+      "vibrant",
+      "friendly"
+    ],
+    "geometric_language": "rounded",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Warm inspiration canvas with olive/sand neutrals, Pinterest Red bold accent, Pin Sans global font stack, 16-40px generous radius, and photography-first content.",
+    "accent_colors": [
+      "#e60023",
+      "#211922",
+      "#103c25",
+      "#0b2819",
+      "#000000"
+    ],
+    "primary_colors": [
+      "#ffffff",
+      "#435ee5",
+      "#0866ff",
+      "#617bff",
+      "#e0e0d9",
+      "#f6f6f3",
+      "#c8c8c1",
+      "#bcbcb3",
+      "#33332e",
+      "#9e0a0a"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\pinterest\\DESIGN.md",
+    "user_scenarios": [],
+    "emotional_goals": [],
+    "domain_tags": []
+  },
+  {
+    "name": "posthog",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\posthog\\DESIGN.md",
+    "industries": [
+      "saas",
+      "developer-tools",
+      "analytics"
+    ],
+    "color_temperature": "warm",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "warm",
+      "approachable",
+      "playful",
+      "irreverent"
+    ],
+    "geometric_language": "moderate",
+    "complexity": "low",
+    "typography_style": "system-font",
+    "one_line": "Anti-corporate startup wiki with sage-olive warmth, IBM Plex Sans bold headings, hidden orange hover surprise, hand-drawn hedgehog illustrations, and content-heavy editorial layout.",
+    "accent_colors": [
+      "#F54E00",
+      "#eeefe9",
+      "#4d4f46",
+      "#F7A501",
+      "#b17816",
+      "#3b82f6",
+      "#65675e",
+      "#b6b7af",
+      "#374151",
+      "#ffffff"
+    ],
+    "primary_colors": [
+      "#fdfdf8",
+      "#e5e7e0",
+      "#d4c9b8",
+      "#f4f4f4",
+      "#9ea096"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\posthog\\DESIGN.md",
+    "user_scenarios": [],
+    "emotional_goals": [],
+    "domain_tags": []
+  },
+  {
+    "name": "raycast",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\raycast\\DESIGN.md",
+    "industries": [
+      "productivity",
+      "developer-tools"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "dark-first",
+    "brand_personality": [
+      "precise",
+      "minimal",
+      "technical",
+      "modern"
+    ],
+    "geometric_language": "mixed",
+    "complexity": "high",
+    "typography_style": "system-font",
+    "one_line": "Swiss-watch obsidian instrument with macOS-native inset shadow system, Raycast Red hero stripes, Inter positive tracking, and Radix UI primitives.",
+    "accent_colors": [
+      "#ffffff",
+      "#55b3ff",
+      "#ffbc33",
+      "#f9f9f9",
+      "#cecece",
+      "#cdcdce",
+      "#2f3031"
+    ],
+    "primary_colors": [
+      "#07080a",
+      "#101111",
+      "#121212",
+      "#0d0d0d",
+      "#1b1c1e",
+      "#18191a",
+      "#000000"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\raycast\\DESIGN.md",
+    "user_scenarios": [],
+    "emotional_goals": [],
+    "domain_tags": []
+  },
+  {
+    "name": "renault",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\renault\\DESIGN.md",
+    "industries": [
+      "automotive",
+      "luxury"
+    ],
+    "color_temperature": "warm",
+    "mode_preference": "dual-mode",
+    "brand_personality": [
+      "energetic",
+      "bold",
+      "precise",
+      "modern"
+    ],
+    "geometric_language": "sharp",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Vibrant French automotive showroom with aurora gradient heroes, NouvelR proprietary geometric sans at bold weight, zero-radius buttons, and Renault Yellow super-primary CTAs.",
+    "accent_colors": [
+      "#EFDF00",
+      "#000000",
+      "#FFFFFF",
+      "#F8EB4C",
+      "#D9D9D6",
+      "#D1D1D1",
+      "#8DC572"
+    ],
+    "primary_colors": [
+      "#222222",
+      "#F2F2F2"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\renault\\DESIGN.md",
+    "user_scenarios": [],
+    "emotional_goals": [],
+    "domain_tags": []
+  },
+  {
+    "name": "replicate",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\replicate\\DESIGN.md",
+    "industries": [
+      "ai-ml",
+      "developer-tools"
+    ],
+    "color_temperature": "warm",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "bold",
+      "playful",
+      "creative",
+      "energetic"
+    ],
+    "geometric_language": "pill",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Explosive developer playground with orange-red-magenta gradient hero, massive 128px display type in rb-freigeist-neue, exclusively pill-shaped geometry, and community-powered creative energy.",
+    "accent_colors": [
+      "#ea2804",
+      "#202020",
+      "#000",
+      "#dd4425",
+      "#ffffff",
+      "#fcfcfc"
+    ],
+    "primary_colors": [
+      "#24292e"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\replicate\\DESIGN.md",
+    "user_scenarios": [],
+    "emotional_goals": [],
+    "domain_tags": []
+  },
+  {
+    "name": "resend",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\resend\\DESIGN.md",
+    "industries": [
+      "developer-tools",
+      "infrastructure",
+      "saas"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "dark-first",
+    "brand_personality": [
+      "premium",
+      "precise",
+      "modern",
+      "editorial"
+    ],
+    "geometric_language": "pill",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Cinematic email infrastructure with Domaine Display 96px serif hero, icy blue-tinted borders, multi-color accent system, and pill-shaped transparent buttons.",
+    "accent_colors": [
+      "#ffffff",
+      "#ff5900",
+      "#ff801f",
+      "#ffa057",
+      "#22ff99",
+      "#0075ff",
+      "#0081fd",
+      "#ffc53d",
+      "#e5e6e6",
+      "#fcfdff"
+    ],
+    "primary_colors": [
+      "#000000",
+      "#f0f0f0",
+      "#494949",
+      "#f8f8f8",
+      "#eaeaea",
+      "#ececec",
+      "#dedfdf"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\resend\\DESIGN.md",
+    "user_scenarios": [],
+    "emotional_goals": [],
+    "domain_tags": []
+  },
+  {
+    "name": "revolut",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\revolut\\DESIGN.md",
+    "industries": [
+      "fintech"
+    ],
+    "color_temperature": "neutral",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "confident",
+      "modern",
+      "professional",
+      "precise"
+    ],
+    "geometric_language": "pill",
+    "complexity": "low",
+    "typography_style": "custom-font",
+    "one_line": "Stadium-scale fintech with Aeonik Pro 136px display, universal 9999px pill buttons, comprehensive --rui-* semantic tokens, and zero shadows.",
+    "accent_colors": [
+      "#f4f4f4",
+      "#4f55f1",
+      "#376cd5",
+      "#936d62",
+      "#8b0000"
+    ],
+    "primary_colors": [
+      "#494fdf",
+      "#e61e49",
+      "#191c1f",
+      "#000000"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\revolut\\DESIGN.md",
+    "user_scenarios": [],
+    "emotional_goals": [],
+    "domain_tags": []
+  },
+  {
+    "name": "runwayml",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\runwayml\\DESIGN.md",
+    "industries": [
+      "ai-ml",
+      "entertainment",
+      "creative-tools"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "dark-first",
+    "brand_personality": [
+      "immersive",
+      "editorial",
+      "dramatic",
+      "modern"
+    ],
+    "geometric_language": "sharp",
+    "complexity": "low",
+    "typography_style": "custom-font",
+    "one_line": "Cinematic AI film reel with full-bleed photography as primary UI, single abcNormal font, zero shadows, invisible interface, and editorial magazine layout.",
+    "accent_colors": [
+      "#000000",
+      "#030303",
+      "#ffffff",
+      "#404040",
+      "#3f3f3f"
+    ],
+    "primary_colors": [
+      "#1a1a1a",
+      "#fefefe",
+      "#e9ecf2",
+      "#27272a"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\runwayml\\DESIGN.md",
+    "user_scenarios": [],
+    "emotional_goals": [],
+    "domain_tags": []
+  },
+  {
+    "name": "sanity",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\sanity\\DESIGN.md",
+    "industries": [
+      "developer-tools",
+      "infrastructure",
+      "content"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "dark-first",
+    "brand_personality": [
+      "technical",
+      "precise",
+      "modern",
+      "confident"
+    ],
+    "geometric_language": "mixed",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Nocturnal command center with waldenburgNormal extreme -4.48px tracking, pure achromatic grays, neon green and electric blue accent punctuation against the dark field.",
+    "accent_colors": [
+      "#0052ef",
+      "#f36458",
+      "#55beff",
+      "#afe3ff",
+      "#19d600",
+      "#dd0000"
+    ],
+    "primary_colors": [
+      "#0b0b0b",
+      "#072227"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\sanity\\DESIGN.md",
+    "user_scenarios": [],
+    "emotional_goals": [],
+    "domain_tags": []
+  },
+  {
+    "name": "sentry",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\sentry\\DESIGN.md",
+    "industries": [
+      "developer-tools",
+      "infrastructure",
+      "saas"
+    ],
+    "color_temperature": "warm",
+    "mode_preference": "dark-first",
+    "brand_personality": [
+      "playful",
+      "technical",
+      "vibrant",
+      "irreverent"
+    ],
+    "geometric_language": "mixed",
+    "complexity": "high",
+    "typography_style": "custom-font",
+    "one_line": "Dark purple IDE aesthetic with Dammit Sans personality font, lime-green CTA, warm purple spectrum, frosted glass effects, and inset tactile button depth.",
+    "accent_colors": [
+      "#c2ef4e",
+      "#362d59",
+      "#6a5fc1",
+      "#422082",
+      "#ffb287",
+      "#fa7faa",
+      "#ffffff",
+      "#e5e7eb",
+      "#000000"
+    ],
+    "primary_colors": [
+      "#1f1633",
+      "#150f23",
+      "#79628c",
+      "#dcdcaa",
+      "#cfcfdb"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\sentry\\DESIGN.md",
+    "user_scenarios": [],
+    "emotional_goals": [],
+    "domain_tags": []
+  },
+  {
+    "name": "spacex",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\spacex\\DESIGN.md",
+    "industries": [
+      "aerospace",
+      "automotive"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "dark-first",
+    "brand_personality": [
+      "dramatic",
+      "precise",
+      "serious",
+      "minimal"
+    ],
+    "geometric_language": "sharp",
+    "complexity": "low",
+    "typography_style": "custom-font",
+    "one_line": "Full-screen cinematic aerospace with pure black canvas, D-DIN universal uppercase + positive tracking, spectral near-white text, and zero UI decoration.",
+    "accent_colors": [],
+    "primary_colors": [],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\spacex\\DESIGN.md",
+    "user_scenarios": [],
+    "emotional_goals": [],
+    "domain_tags": []
+  },
+  {
+    "name": "spotify",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\spotify\\DESIGN.md",
+    "industries": [
+      "entertainment",
+      "social-media"
+    ],
+    "color_temperature": "neutral",
+    "mode_preference": "dark-first",
+    "brand_personality": [
+      "immersive",
+      "modern",
+      "clean",
+      "friendly"
+    ],
+    "geometric_language": "pill",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Content-first dark theater with Spotify Green play button, CircularSp font family, pill/circle geometry, heavy 0.5-opacity shadows, and album art as primary color.",
+    "accent_colors": [
+      "#121212",
+      "#181818",
+      "#1f1f1f",
+      "#ffa42b",
+      "#539df5",
+      "#ffffff",
+      "#b3b3b3",
+      "#1db954"
+    ],
+    "primary_colors": [
+      "#252525",
+      "#272727",
+      "#4d4d4d",
+      "#eeeeee"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\spotify\\DESIGN.md",
+    "user_scenarios": [],
+    "emotional_goals": [],
+    "domain_tags": []
+  },
+  {
+    "name": "stripe",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\stripe\\DESIGN.md",
+    "industries": [
+      "fintech",
+      "saas",
+      "developer-tools"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "premium",
+      "precise",
+      "technical",
+      "modern"
+    ],
+    "geometric_language": "moderate",
+    "complexity": "high",
+    "typography_style": "custom-font",
+    "one_line": "Gold-standard fintech with sohne-var ss01 at weight 300, blue-tinted multi-layer shadows, deep navy headings, and conservative 4-8px radius.",
+    "accent_colors": [
+      "#061b31",
+      "#533afd",
+      "#ea2261",
+      "#f96bee",
+      "#1c1e54",
+      "#0d253d",
+      "#ffd7ef",
+      "#4434d4",
+      "#2e2b8c",
+      "#273951"
+    ],
+    "primary_colors": [
+      "#ffffff",
+      "#665efd",
+      "#15be53",
+      "#108c3d",
+      "#2874ad",
+      "#000000",
+      "#f6f9fc"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\stripe\\DESIGN.md",
+    "user_scenarios": [],
+    "emotional_goals": [],
+    "domain_tags": []
+  },
+  {
+    "name": "supabase",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\supabase\\DESIGN.md",
+    "industries": [
+      "infrastructure",
+      "developer-tools",
+      "database"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "dark-first",
+    "brand_personality": [
+      "technical",
+      "modern",
+      "clean",
+      "precise"
+    ],
+    "geometric_language": "mixed",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Dark-mode-native code editor with Circular rounded-terminal font, emerald green brand accent, HSL translucent layering, and pill CTAs contrasting 6px secondary radius.",
+    "accent_colors": [
+      "#0f0f0f",
+      "#171717",
+      "#3ecf8e",
+      "#00c573",
+      "#898989",
+      "#242424",
+      "#434343",
+      "#4d4d4d",
+      "#efefef"
+    ],
+    "primary_colors": [],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\supabase\\DESIGN.md",
+    "user_scenarios": [],
+    "emotional_goals": [],
+    "domain_tags": []
+  },
+  {
+    "name": "superhuman",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\superhuman\\DESIGN.md",
+    "industries": [
+      "productivity",
+      "saas"
+    ],
+    "color_temperature": "warm",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "luxurious",
+      "minimal",
+      "precise",
+      "premium"
+    ],
+    "geometric_language": "moderate",
+    "complexity": "low",
+    "typography_style": "custom-font",
+    "one_line": "Luxury envelope with Super Sans VF non-standard weights, 0.96 ultra-tight display, warm cream buttons, lavender accent, and cinematic purple gradient hero.",
+    "accent_colors": [
+      "#e9e5dd",
+      "#cbb7fb",
+      "#292827",
+      "#714cb6",
+      "#ffffff"
+    ],
+    "primary_colors": [],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\superhuman\\DESIGN.md",
+    "user_scenarios": [],
+    "emotional_goals": [],
+    "domain_tags": []
+  },
+  {
+    "name": "tesla",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\tesla\\DESIGN.md",
+    "industries": [
+      "automotive",
+      "consumer-electronics"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "minimal",
+      "precise",
+      "confident",
+      "dramatic"
+    ],
+    "geometric_language": "sharp",
+    "complexity": "low",
+    "typography_style": "custom-font",
+    "one_line": "Radical subtraction digital showroom with Universal Sans Display, single Electric Blue CTA, full-viewport car photography, and near-zero UI decoration.",
+    "accent_colors": [
+      "#3E6AE1",
+      "#FFFFFF"
+    ],
+    "primary_colors": [
+      "#F4F4F4",
+      "#171A20",
+      "#393C41"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\tesla\\DESIGN.md",
+    "user_scenarios": [],
+    "emotional_goals": [],
+    "domain_tags": []
+  },
+  {
+    "name": "together.ai",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\together.ai\\DESIGN.md",
+    "industries": [
+      "ai-ml",
+      "infrastructure",
+      "enterprise"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "dual-mode",
+    "brand_personality": [
+      "modern",
+      "clean",
+      "precise",
+      "optimistic"
+    ],
+    "geometric_language": "sharp",
+    "complexity": "low",
+    "typography_style": "custom-font",
+    "one_line": "Pastel-gradient AI dreamscape with soft pink-blue-lavender hero, midnight-blue research sections, The Future font aggressive tracking, and sharp 4-8px geometry.",
+    "accent_colors": [
+      "#ef2cc1",
+      "#fc4c02",
+      "#bdbbff",
+      "#ffffff",
+      "#000000"
+    ],
+    "primary_colors": [],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\together.ai\\DESIGN.md",
+    "user_scenarios": [
+      "professional_growth"
+    ],
+    "emotional_goals": [
+      "trust",
+      "clarity"
+    ],
+    "domain_tags": [
+      "ai",
+      "model",
+      "infrastructure",
+      "research",
+      "intelligent"
+    ]
+  },
+  {
+    "name": "uber",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\uber\\DESIGN.md",
+    "industries": [
+      "saas",
+      "transportation",
+      "logistics"
+    ],
+    "color_temperature": "neutral",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "minimal",
+      "confident",
+      "clean",
+      "modern"
+    ],
+    "geometric_language": "pill",
+    "complexity": "low",
+    "typography_style": "custom-font",
+    "one_line": "Confident black-and-white minimalism with UberMove proprietary font, pill-shaped everything, warm human illustrations, and whisper-soft 0.12 opacity shadows.",
+    "accent_colors": [],
+    "primary_colors": [
+      "#efefef"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\uber\\DESIGN.md",
+    "user_scenarios": [],
+    "emotional_goals": [],
+    "domain_tags": []
+  },
+  {
+    "name": "vercel",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\vercel\\DESIGN.md",
+    "industries": [
+      "infrastructure",
+      "developer-tools"
+    ],
+    "color_temperature": "neutral",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "minimal",
+      "precise",
+      "technical",
+      "modern"
+    ],
+    "geometric_language": "mixed",
+    "complexity": "high",
+    "typography_style": "custom-font",
+    "one_line": "Minimalist-as-engineering-principle with Geist Sans extreme -2.88px tracking, shadow-as-border philosophy, multi-layer shadow stacks, and workflow-specific accent colors.",
+    "accent_colors": [
+      "#ff5b4f",
+      "#de1d8d",
+      "#0a72ef",
+      "#0072f5",
+      "#4d4d4d"
+    ],
+    "primary_colors": [
+      "#ffffff",
+      "#171717",
+      "#000000",
+      "#fafafa",
+      "#ebf5ff",
+      "#0068d6"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\vercel\\DESIGN.md",
+    "user_scenarios": [],
+    "emotional_goals": [],
+    "domain_tags": []
+  },
+  {
+    "name": "voltagent",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\voltagent\\DESIGN.md",
+    "industries": [
+      "ai-ml",
+      "developer-tools",
+      "infrastructure"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "dark-first",
+    "brand_personality": [
+      "technical",
+      "precise",
+      "dramatic",
+      "modern"
+    ],
+    "geometric_language": "sharp",
+    "complexity": "medium",
+    "typography_style": "system-font",
+    "one_line": "Deep-space command terminal with emerald green signal glow, warm-neutral grays preventing clinical coldness, system-ui headings and Inter body, and SFMono code credibility.",
+    "accent_colors": [
+      "#00d992",
+      "#2fd6a1",
+      "#10b981",
+      "#818cf8",
+      "#306cce",
+      "#2554a0",
+      "#101010",
+      "#f2f2f2",
+      "#ffffff",
+      "#008b00"
+    ],
+    "primary_colors": [
+      "#050507",
+      "#80d280",
+      "#ffba00",
+      "#ffdd80",
+      "#fb565b",
+      "#fd9c9f",
+      "#4cb3d4"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\voltagent\\DESIGN.md",
+    "user_scenarios": [
+      "professional_growth"
+    ],
+    "emotional_goals": [
+      "trust",
+      "clarity"
+    ],
+    "domain_tags": [
+      "ai",
+      "agent",
+      "assistant",
+      "intelligent",
+      "automation"
+    ]
+  },
+  {
+    "name": "warp",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\warp\\DESIGN.md",
+    "industries": [
+      "developer-tools",
+      "infrastructure"
+    ],
+    "color_temperature": "warm",
+    "mode_preference": "dark-first",
+    "brand_personality": [
+      "warm",
+      "approachable",
+      "minimal",
+      "immersive"
+    ],
+    "geometric_language": "mixed",
+    "complexity": "low",
+    "typography_style": "custom-font",
+    "one_line": "Campfire-in-a-forest terminal with Matter geometric font, warm parchment text, nature photography interleaved with product shots, and almost monochromatic warm gray palette.",
+    "accent_colors": [
+      "#353534",
+      "#868584",
+      "#454545",
+      "#ffffff"
+    ],
+    "primary_colors": [],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\warp\\DESIGN.md",
+    "user_scenarios": [],
+    "emotional_goals": [],
+    "domain_tags": []
+  },
+  {
+    "name": "webflow",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\webflow\\DESIGN.md",
+    "industries": [
+      "design",
+      "developer-tools",
+      "saas"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "vibrant",
+      "precise",
+      "modern",
+      "confident"
+    ],
+    "geometric_language": "sharp",
+    "complexity": "high",
+    "typography_style": "custom-font",
+    "one_line": "Tool-forward design platform with WF Visual Sans Variable, signature Webflow Blue, rich six-color secondary palette, 5-layer cascading shadows, and translate(6px) hover animations.",
+    "accent_colors": [
+      "#080808",
+      "#3b89ff",
+      "#006acc",
+      "#0055d4",
+      "#ffffff"
+    ],
+    "primary_colors": [
+      "#146ef5"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\webflow\\DESIGN.md",
+    "user_scenarios": [],
+    "emotional_goals": [],
+    "domain_tags": []
+  },
+  {
+    "name": "wise",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\wise\\DESIGN.md",
+    "industries": [
+      "fintech"
+    ],
+    "color_temperature": "warm",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "confident",
+      "bold",
+      "friendly",
+      "modern"
+    ],
+    "geometric_language": "pill",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Bold fintech with Wise Sans 900 at 126px and 0.85 ultra-tight line-height, lime-green nature-inspired CTAs, pill buttons, and scale(1.05) growing hover animations.",
+    "accent_colors": [
+      "#0e0f0c",
+      "#163300",
+      "#e2f6d5",
+      "#cdffad",
+      "#054d28",
+      "#d03238",
+      "#ffc091",
+      "#454745",
+      "#ffffff"
+    ],
+    "primary_colors": [
+      "#9fe870",
+      "#ffd11a",
+      "#868685",
+      "#e8ebe6"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\wise\\DESIGN.md",
+    "user_scenarios": [],
+    "emotional_goals": [],
+    "domain_tags": []
+  },
+  {
+    "name": "x.ai",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\x.ai\\DESIGN.md",
+    "industries": [
+      "ai-ml",
+      "infrastructure"
+    ],
+    "color_temperature": "cool",
+    "mode_preference": "dark-first",
+    "brand_personality": [
+      "minimal",
+      "technical",
+      "precise",
+      "dramatic"
+    ],
+    "geometric_language": "sharp",
+    "complexity": "low",
+    "typography_style": "custom-font",
+    "one_line": "Brutalist monospace minimalism with GeistMono at extraordinary 320px display, pure white-on-dark binary, zero decorative elements, and uppercase tracked button labels.",
+    "accent_colors": [],
+    "primary_colors": [
+      "#1f2228",
+      "#ffffff"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\x.ai\\DESIGN.md",
+    "user_scenarios": [],
+    "emotional_goals": [],
+    "domain_tags": []
+  },
+  {
+    "name": "zapier",
+    "source_file": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\zapier\\DESIGN.md",
+    "industries": [
+      "saas",
+      "productivity",
+      "automation"
+    ],
+    "color_temperature": "warm",
+    "mode_preference": "light-first",
+    "brand_personality": [
+      "warm",
+      "approachable",
+      "friendly",
+      "confident"
+    ],
+    "geometric_language": "moderate",
+    "complexity": "medium",
+    "typography_style": "custom-font",
+    "one_line": "Warm paper-notebook with Degular Display 0.90 compressed headlines, cream canvas, Zapier Orange accent, Inter workhorse body, and GT Alpina editorial moments.",
+    "accent_colors": [
+      "#ff4f00",
+      "#c5c0b1",
+      "#eceae3"
+    ],
+    "primary_colors": [
+      "#fffefb",
+      "#939084",
+      "#fffdf9",
+      "#b5b2aa",
+      "#2d2d2e"
+    ],
+    "design_md_path": "C:\\D\\CAIE_tool\\MyAIProduct\\codedb\\awesome-design-md\\design-md\\zapier\\DESIGN.md",
+    "user_scenarios": [
+      "self_improvement",
+      "professional_growth"
+    ],
+    "emotional_goals": [
+      "clarity",
+      "motivation"
+    ],
+    "domain_tags": [
+      "automation",
+      "workflow",
+      "productivity",
+      "integration"
+    ]
+  }
+]

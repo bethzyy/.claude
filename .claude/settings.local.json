@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(python:*)",
+      "Bash(rm:*)",
+      "Bash(\"C:\\\\Users\\\\yingy\\\\AppData\\\\Local\\\\Microsoft\\\\WindowsApps\\\\python.exe\":*)",
+      "mcp__zread__search_doc",
+      "mcp__zread__read_file",
+      "mcp__zread__get_repo_structure",
+      "Bash(PYTHONPATH=\".\" python:*)",
+      "Bash(PYTHONPATH=\".\" PYTHONUTF8=1 python:*)",
+      "Bash(where claude:*)",
+      "Bash(claude:*)"
+    ]
+  }
+}

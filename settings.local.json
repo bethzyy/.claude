@@ -70,48 +70,32 @@
       "Bash(mv md_transcript.txt \"/c/Users/yingy/Desktop/tmp/\")",
       "Read(//c/Users/yingy/Desktop/tmp/**)",
       "mcp__web-search-prime__web_search_prime",
-      "Bash(xargs wc:*)"
+      "Bash(xargs wc:*)",
+      "Bash(\"C:\\\\Users\\\\yingy\\\\AppData\\\\Local\\\\Microsoft\\\\WindowsApps\\\\python.exe\":*)",
+      "Bash(ffprobe:*)",
+      "Bash(ffmpeg:*)",
+      "Bash(\"C:/D/CAIE_tool/MyAIProduct/gethtml/ffmpeg_temp/ffmpeg-8.0.1-essentials_build/bin/ffmpeg.exe\":*)",
+      "Bash(claude:*)",
+      "Bash(source ~/.bashrc)",
+      "Bash(alias claude-bypass:*)",
+      "Bash(claude-bypass:*)",
+      "Bash(xargs dirname:*)",
+      "Bash(mv .claude/skills/web-search .claude/skills/free-search)",
+      "Bash(mv multicc/.claude/skills/web-search multicc/.claude/skills/free-search)",
+      "Bash(cp -r .claude/skills/web-search .claude/skills/free-search)",
+      "Bash(rm -rf .claude/skills/web-search)",
+      "Bash(cp -r multicc/.claude/skills/web-search multicc/.claude/skills/free-search)",
+      "Bash(rm -rf multicc/.claude/skills/web-search)"
     ]
   },
   "hooks": {
     "Stop": [
       {
-        "matcher": "os == 'windows'",
+        "matcher": "",
         "hooks": [
           {
             "type": "command",
-            "command": "\"C:\\Users\\yingy\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\D\\CAIE_tool\\MyAIProduct\\.claude\\scripts\\notify.py\" \"【会话结束】可以继续了\""
-          }
-        ]
-      }
-    ],
-    "PostToolUse": [
-      {
-        "matcher": "os == 'windows'",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "\"C:\\Users\\yingy\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\D\\CAIE_tool\\MyAIProduct\\.claude\\scripts\\notify.py\" \"【任务完成】已完成操作\""
-          }
-        ]
-      }
-    ],
-    "Notification": [
-      {
-        "matcher": "idle_prompt",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "\"C:\\Users\\yingy\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\D\\CAIE_tool\\MyAIProduct\\.claude\\scripts\\notify.py\" \"【等待输入】请告诉我下一步做什么\""
-          }
-        ]
-      },
-      {
-        "matcher": "message contains 'Do you want to proceed?' || message contains '请选择' || message contains '是否继续'",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "\"C:\\Users\\yingy\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\D\\CAIE_tool\\MyAIProduct\\.claude\\scripts\\notify.py\" \"【权限确认】需要您批准才能继续\""
+            "command": "\"C:\\Users\\yingy\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" \"C:\\D\\CAIE_tool\\MyAIProduct\\.claude\\scripts\\notify.py\" \"【会话结束】\""
           }
         ]
       }

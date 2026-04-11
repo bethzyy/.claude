@@ -1,9 +1,9 @@
 {
-  "total_reviews": 6,
-  "total_issues_found": 770,
-  "avg_issues_per_review": 128.33333333333334,
-  "last_review_date": "2026-04-11 11:11",
-  "last_review_project": "",
+  "total_reviews": 8,
+  "total_issues_found": 974,
+  "avg_issues_per_review": 121.75,
+  "last_review_date": "2026-04-11 13:41",
+  "last_review_project": "hotel",
   "baseline": {
     "issues_found": 276
   },
@@ -150,7 +150,7 @@
       "description": "检查 reliability 类问题: Database operations without er",
       "category": "reliability",
       "internalized_date": "2026-04-11",
-      "occurrence_count": 3
+      "occurrence_count": 13
     },
     {
       "description": "检查 reliability 类问题: missing finally: with open(con",
@@ -197,9 +197,9 @@
   ],
   "anti_patterns": [],
   "project_knowledge": {
-    "project_name": "package",
+    "project_name": "hotel",
     "test_command": "pytest tests/ -v",
-    "framework": "React"
+    "framework": "Flask"
   },
   "prompt_deltas_applied": []
 }

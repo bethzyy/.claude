@@ -1,0 +1,280 @@
+{
+  "skill_name": "requirement-trace",
+  "version": "2.0.0",
+  "description": "Trigger rate evaluation test cases for requirement-trace skill",
+  "target_trigger_rate": 0.85,
+  "test_cases": [
+    {
+      "id": 1,
+      "input": "记录一下这个需求：用户登录功能",
+      "should_trigger": true,
+      "category": "core_trigger",
+      "notes": "Core trigger: '记录一下' + requirement"
+    },
+    {
+      "id": 2,
+      "input": "把这个需求记下来",
+      "should_trigger": true,
+      "category": "core_trigger",
+      "notes": "Core trigger: '把需求记下来'"
+    },
+    {
+      "id": 3,
+      "input": "追踪一下这个功能的变更",
+      "should_trigger": true,
+      "category": "core_trigger",
+      "notes": "Core trigger: '追踪' + '功能变更'"
+    },
+    {
+      "id": 4,
+      "input": "需要添加一个新功能：深色模式",
+      "should_trigger": true,
+      "category": "conversation_trigger",
+      "notes": "Conversation trigger: '需要添加' + '新功能'"
+    },
+    {
+      "id": 5,
+      "input": "这个功能要做",
+      "should_trigger": true,
+      "category": "conversation_trigger",
+      "notes": "Conversation trigger: '这个功能要做'"
+    },
+    {
+      "id": 6,
+      "input": "接下来要实现用户认证",
+      "should_trigger": true,
+      "category": "conversation_trigger",
+      "notes": "Conversation trigger: '接下来要实现'"
+    },
+    {
+      "id": 7,
+      "input": "TODO: 完成API接口开发",
+      "should_trigger": true,
+      "category": "conversation_trigger",
+      "notes": "Conversation trigger: 'TODO'"
+    },
+    {
+      "id": 8,
+      "input": "备忘一下这个需求",
+      "should_trigger": true,
+      "category": "conversation_trigger",
+      "notes": "Conversation trigger: '备忘一下'"
+    },
+    {
+      "id": 9,
+      "input": "mark this requirement",
+      "should_trigger": true,
+      "category": "conversation_trigger",
+      "notes": "Conversation trigger: 'mark this requirement'"
+    },
+    {
+      "id": 10,
+      "input": "note down this feature request",
+      "should_trigger": true,
+      "category": "conversation_trigger",
+      "notes": "Conversation trigger: 'note down' + 'feature request'"
+    },
+    {
+      "id": 11,
+      "input": "改需求：登录功能要支持手机号",
+      "should_trigger": true,
+      "category": "change_management",
+      "notes": "Change trigger: '改需求'"
+    },
+    {
+      "id": 12,
+      "input": "需求变了，优先级要提高",
+      "should_trigger": true,
+      "category": "change_management",
+      "notes": "Change trigger: '需求变了'"
+    },
+    {
+      "id": 13,
+      "input": "功能调整：把搜索改成模糊匹配",
+      "should_trigger": true,
+      "category": "change_management",
+      "notes": "Change trigger: '功能调整'"
+    },
+    {
+      "id": 14,
+      "input": "change request: update the login flow",
+      "should_trigger": true,
+      "category": "change_management",
+      "notes": "Change trigger: 'change request'"
+    },
+    {
+      "id": 15,
+      "input": "把需求写成文档",
+      "should_trigger": true,
+      "category": "document_trigger",
+      "notes": "Document trigger: '把需求写成文档'"
+    },
+    {
+      "id": 16,
+      "input": "把功能列表整理一下",
+      "should_trigger": true,
+      "category": "document_trigger",
+      "notes": "Document trigger: '把功能列表整理'"
+    },
+    {
+      "id": 17,
+      "input": "需求管理",
+      "should_trigger": true,
+      "category": "document_trigger",
+      "notes": "Document trigger: '需求管理'"
+    },
+    {
+      "id": 18,
+      "input": "backlog",
+      "should_trigger": true,
+      "category": "document_trigger",
+      "notes": "Document trigger: 'backlog'"
+    },
+    {
+      "id": 19,
+      "input": "需求清单",
+      "should_trigger": true,
+      "category": "document_trigger",
+      "notes": "Document trigger: '需求清单'"
+    },
+    {
+      "id": 20,
+      "input": "feature list",
+      "should_trigger": true,
+      "category": "document_trigger",
+      "notes": "Document trigger: 'feature list'"
+    },
+    {
+      "id": 21,
+      "input": "product requirements",
+      "should_trigger": true,
+      "category": "document_trigger",
+      "notes": "Document trigger: 'product requirements'"
+    },
+    {
+      "id": 22,
+      "input": "PRD",
+      "should_trigger": true,
+      "category": "document_trigger",
+      "notes": "Document trigger: 'PRD'"
+    },
+    {
+      "id": 23,
+      "input": "需求文档",
+      "should_trigger": true,
+      "category": "document_trigger",
+      "notes": "Document trigger: '需求文档'"
+    },
+    {
+      "id": 24,
+      "input": "REQ-001 依赖 REQ-002",
+      "should_trigger": true,
+      "category": "dependency_trigger",
+      "notes": "Dependency trigger: requirement ID + '依赖'"
+    },
+    {
+      "id": 25,
+      "input": "REQ-001 blocks REQ-002",
+      "should_trigger": true,
+      "category": "dependency_trigger",
+      "notes": "Dependency trigger: requirement ID + 'blocks'"
+    },
+    {
+      "id": 26,
+      "input": "需求统计",
+      "should_trigger": true,
+      "category": "stats_trigger",
+      "notes": "Stats trigger: '需求统计'"
+    },
+    {
+      "id": 27,
+      "input": "blocked requirements report",
+      "should_trigger": true,
+      "category": "stats_trigger",
+      "notes": "Stats trigger: 'blocked requirements'"
+    },
+    {
+      "id": 28,
+      "input": "帮我写一个函数",
+      "should_trigger": false,
+      "category": "negative_case",
+      "notes": "Negative: just asking for code"
+    },
+    {
+      "id": 29,
+      "input": "解释这段代码",
+      "should_trigger": false,
+      "category": "negative_case",
+      "notes": "Negative: code explanation request"
+    },
+    {
+      "id": 30,
+      "input": "调试一下这个bug",
+      "should_trigger": false,
+      "category": "negative_case",
+      "notes": "Negative: debugging request (not requirement tracking)"
+    },
+    {
+      "id": 31,
+      "input": "运行测试",
+      "should_trigger": false,
+      "category": "negative_case",
+      "notes": "Negative: test execution request"
+    },
+    {
+      "id": 32,
+      "input": "格式化代码",
+      "should_trigger": false,
+      "category": "negative_case",
+      "notes": "Negative: code formatting request"
+    },
+    {
+      "id": 33,
+      "input": "这个bug要修复",
+      "should_trigger": true,
+      "category": "edge_case",
+      "notes": "Edge case: 'bug要修复' could be a requirement"
+    },
+    {
+      "id": 34,
+      "input": "记住这个功能",
+      "should_trigger": true,
+      "category": "conversation_trigger",
+      "notes": "Conversation trigger: '记住' + '功能'"
+    },
+    {
+      "id": 35,
+      "input": "log this requirement",
+      "should_trigger": true,
+      "category": "core_trigger",
+      "notes": "Core trigger: 'log this requirement'"
+    }
+  ],
+  "categories": {
+    "core_trigger": "Basic trigger patterns from SKILL.md",
+    "conversation_trigger": "Natural language variations",
+    "change_management": "Requirement change related",
+    "document_trigger": "Document and list related",
+    "dependency_trigger": "Dependency management",
+    "stats_trigger": "Statistics and reports",
+    "negative_case": "Should NOT trigger",
+    "edge_case": "Borderline cases"
+  },
+  "evaluation_instructions": {
+    "setup": "Ensure requirement-trace skill is properly installed and SKILL.md is loaded",
+    "procedure": [
+      "For each test case, present the input to Claude Code",
+      "Record whether the skill was triggered or not",
+      "Compare with expected 'should_trigger' value",
+      "Calculate trigger rate = (correct predictions / total cases)"
+    ],
+    "passing_criteria": "Trigger rate >= 85% (30+ correct out of 35 cases)",
+    "notes": [
+      "Edge cases may be subjective - document reasoning",
+      "Negative cases are equally important as positive cases",
+      "Record any unexpected trigger patterns for improvement"
+    ]
+  },
+  "last_updated": "2026-03-11",
+  "created_by": "requirement-trace skill enhancement plan"
+}

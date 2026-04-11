@@ -1,0 +1,142 @@
+[
+  {
+    "query": "记录一下这个需求：用户登录功能",
+    "should_trigger": true
+  },
+  {
+    "query": "把这个需求记下来",
+    "should_trigger": true
+  },
+  {
+    "query": "追踪一下这个功能的变更",
+    "should_trigger": true
+  },
+  {
+    "query": "需要添加一个新功能：深色模式",
+    "should_trigger": true
+  },
+  {
+    "query": "这个功能要做",
+    "should_trigger": true
+  },
+  {
+    "query": "接下来要实现用户认证",
+    "should_trigger": true
+  },
+  {
+    "query": "TODO: 完成API接口开发",
+    "should_trigger": true
+  },
+  {
+    "query": "备忘一下这个需求",
+    "should_trigger": true
+  },
+  {
+    "query": "mark this requirement",
+    "should_trigger": true
+  },
+  {
+    "query": "note down this feature request",
+    "should_trigger": true
+  },
+  {
+    "query": "改需求：登录功能要支持手机号",
+    "should_trigger": true
+  },
+  {
+    "query": "需求变了，优先级要提高",
+    "should_trigger": true
+  },
+  {
+    "query": "功能调整：把搜索改成模糊匹配",
+    "should_trigger": true
+  },
+  {
+    "query": "change request: update the login flow",
+    "should_trigger": true
+  },
+  {
+    "query": "把需求写成文档",
+    "should_trigger": true
+  },
+  {
+    "query": "把功能列表整理一下",
+    "should_trigger": true
+  },
+  {
+    "query": "需求管理",
+    "should_trigger": true
+  },
+  {
+    "query": "backlog",
+    "should_trigger": true
+  },
+  {
+    "query": "需求清单",
+    "should_trigger": true
+  },
+  {
+    "query": "feature list",
+    "should_trigger": true
+  },
+  {
+    "query": "product requirements",
+    "should_trigger": true
+  },
+  {
+    "query": "PRD",
+    "should_trigger": true
+  },
+  {
+    "query": "需求文档",
+    "should_trigger": true
+  },
+  {
+    "query": "REQ-001 依赖 REQ-002",
+    "should_trigger": true
+  },
+  {
+    "query": "REQ-001 blocks REQ-002",
+    "should_trigger": true
+  },
+  {
+    "query": "需求统计",
+    "should_trigger": true
+  },
+  {
+    "query": "blocked requirements report",
+    "should_trigger": true
+  },
+  {
+    "query": "帮我写一个函数",
+    "should_trigger": false
+  },
+  {
+    "query": "解释这段代码",
+    "should_trigger": false
+  },
+  {
+    "query": "调试一下这个bug",
+    "should_trigger": false
+  },
+  {
+    "query": "运行测试",
+    "should_trigger": false
+  },
+  {
+    "query": "格式化代码",
+    "should_trigger": false
+  },
+  {
+    "query": "这个bug要修复",
+    "should_trigger": true
+  },
+  {
+    "query": "记住这个功能",
+    "should_trigger": true
+  },
+  {
+    "query": "log this requirement",
+    "should_trigger": true
+  }
+]
