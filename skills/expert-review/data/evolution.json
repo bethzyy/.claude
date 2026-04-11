@@ -1,9 +1,9 @@
 {
-  "total_reviews": 2,
-  "total_issues_found": 505,
-  "avg_issues_per_review": 252.5,
-  "last_review_date": "2026-04-11 07:20",
-  "last_review_project": "package",
+  "total_reviews": 6,
+  "total_issues_found": 770,
+  "avg_issues_per_review": 128.33333333333334,
+  "last_review_date": "2026-04-11 11:11",
+  "last_review_project": "",
   "baseline": {
     "issues_found": 276
   },
@@ -78,7 +78,7 @@
       "description": "检查 bug 类问题: bare except: except:",
       "category": "bug",
       "internalized_date": "2026-04-11",
-      "occurrence_count": 3
+      "occurrence_count": 5
     },
     {
       "description": "检查 maintainability 类问题: Long function (54 lines)",
@@ -144,20 +144,62 @@
       "description": "检查 reliability 类问题: Bare except clause",
       "category": "reliability",
       "internalized_date": "2026-04-11",
-      "occurrence_count": 3
+      "occurrence_count": 5
     },
     {
       "description": "检查 reliability 类问题: Database operations without er",
       "category": "reliability",
       "internalized_date": "2026-04-11",
       "occurrence_count": 3
+    },
+    {
+      "description": "检查 reliability 类问题: missing finally: with open(con",
+      "category": "reliability",
+      "internalized_date": "2026-04-11",
+      "occurrence_count": 18
+    },
+    {
+      "description": "检查 reliability 类问题: missing finally: with open(env",
+      "category": "reliability",
+      "internalized_date": "2026-04-11",
+      "occurrence_count": 5
+    },
+    {
+      "description": "检查 reliability 类问题: missing finally: with open(out",
+      "category": "reliability",
+      "internalized_date": "2026-04-11",
+      "occurrence_count": 7
+    },
+    {
+      "description": "检查 reliability 类问题: missing finally: with open(dat",
+      "category": "reliability",
+      "internalized_date": "2026-04-11",
+      "occurrence_count": 3
+    },
+    {
+      "description": "检查 testing 类问题: Missing tests for critical mod",
+      "category": "testing",
+      "internalized_date": "2026-04-11",
+      "occurrence_count": 7
+    },
+    {
+      "description": "检查 testing 类问题: Missing tests: baidu_crawler_v",
+      "category": "testing",
+      "internalized_date": "2026-04-11",
+      "occurrence_count": 3
+    },
+    {
+      "description": "检查 reliability 类问题: Using print() instead of loggi",
+      "category": "reliability",
+      "internalized_date": "2026-04-11",
+      "occurrence_count": 56
     }
   ],
   "anti_patterns": [],
   "project_knowledge": {
     "project_name": "package",
     "test_command": "pytest tests/ -v",
-    "framework": "Flask"
+    "framework": "React"
   },
   "prompt_deltas_applied": []
 }

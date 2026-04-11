@@ -20,7 +20,7 @@ from core._paths import SKILL_DIR, ensure_skill_path
 ensure_skill_path()
 
 SKILL_NAME = "expert-review"
-SKILL_VERSION = "2.2.0"
+SKILL_VERSION = "3.1.0"
 
 # === 兼容性检查 ===
 
@@ -106,32 +106,39 @@ def _check_compatibility(context) -> dict:
 
     py_count = dist.get(".py", 0)
 
-    if limited_count > 0 and py_count == 0:
-        # 纯 TS/JS 项目，没有 Python
-        limited_ratio = limited_count / total
+    # TS/JS 文件占比判断
+    limited_ratio = limited_count / total if total > 0 else 0
+    py_ratio = py_count / total if total > 0 else 0
+
+    if limited_count > 0 and limited_ratio > 0.5:
+        # TS/JS 占主导（>50%）— 使用 TypeScript 审查分支（由 Claude Code 驱动）
+        extra = ""
+        if py_count > 0:
+            extra = f"（含 {py_count} 个 Python 文件，不单独审查）"
         if limited_ratio > 0.8:
             return {
-                "compatible": False,
+                "compatible": True,
+                "project_type": "typescript",
                 "reason": (
-                    f"项目是纯 {', '.join(sorted(limited_names))} 项目，"
-                    f"专家复盘 Skill 对 TypeScript/JavaScript 的覆盖非常有限"
-                    f"（仅 1/6 的数据流专家支持，其余 5 个专家只支持 Python）。"
+                    f"TypeScript/JavaScript 项目（{', '.join(sorted(limited_names))}），"
+                    f"使用 TypeScript 审查分支（Claude Code 驱动）。{extra}"
                 ),
-                "suggestions": [
-                    "建议同时使用 ESLint 进行代码质量检查",
-                    "建议使用 npm audit 检查依赖安全漏洞",
-                    "如果项目包含 Python 后端，可以继续使用专家复盘",
-                ],
             }
         return {
             "compatible": True,
+            "project_type": "typescript",
             "warning": (
-                f"项目包含 {', '.join(sorted(limited_names))} 代码"
-                f"（{limited_count} 个文件），仅数据流专家支持，覆盖有限。"
+                f"混合项目以 {', '.join(sorted(limited_names))} 为主"
+                f"（{limited_count}/{total} 个文件，{limited_ratio:.0%}），"
+                f"使用 TypeScript 审查分支。{extra}"
             ),
         }
 
-    return {"compatible": True}
+    # Python 占主导或纯 Python 项目
+    if py_count > 0:
+        return {"compatible": True, "project_type": "python"}
+
+    return {"compatible": True, "project_type": "python"}
 
 
 def get_skill_info():
@@ -146,6 +153,26 @@ def get_skill_info():
             "代码体检", "code health check", "技术债清理",
         ],
     }
+
+
+def _add_finding_safe(findings_list, finding_list_obj, **kwargs):
+    """安全地添加 Finding 到两个列表"""
+    from core.finding import Finding, Severity, Category
+    sev_map = {"critical": Severity.CRITICAL, "high": Severity.HIGH,
+               "medium": Severity.MEDIUM, "low": Severity.LOW}
+    cat_map = {
+        "security": Category.SECURITY, "bug": Category.BUG,
+        "performance": Category.PERFORMANCE, "maintainability": Category.MAINTAINABILITY,
+        "architecture": Category.ARCHITECTURE, "testing": Category.TESTING,
+        "documentation": Category.DOCUMENTATION, "configuration": Category.CONFIGURATION,
+        "reliability": Category.RELIABILITY, "style": Category.STYLE,
+        "data_flow": Category.DATA_FLOW, "behavioral": Category.BEHAVIORAL,
+    }
+    severity = sev_map.get(kwargs.pop("severity", "medium"), Severity.MEDIUM)
+    category = cat_map.get(kwargs.pop("category", "maintainability"), Category.MAINTAINABILITY)
+    finding = Finding(severity=severity, category=category, **kwargs)
+    findings_list.append(finding)
+    finding_list_obj.add(finding)
 
 
 def run_review(project_dir: str = ".", mode: str = "full", focus_areas: list = None, no_evolve: bool = False):
@@ -178,6 +205,7 @@ def run_review(project_dir: str = ".", mode: str = "full", focus_areas: list = N
     from experts.testing_expert import TestingExpert
     from experts.security_expert import SecurityExpert
     from experts.devops_expert import DevOpsExpert
+    from experts.data_flow_expert import DataFlowExpert
 
     print(f"\n{'='*60}")
     print(f"  专家复盘 Expert Review v{SKILL_VERSION}")
@@ -228,8 +256,8 @@ def run_review(project_dir: str = ".", mode: str = "full", focus_areas: list = N
             print(f"    {ext}: {cnt} 个文件")
         print(f"\n  专家复盘 Skill 当前支持:")
         print(f"    ✅ Python (.py) — 5/6 专家完整支持")
-        print(f"    ⚠️  TypeScript/JavaScript (.ts/.tsx/.js/.jsx) — 仅数据流专家支持")
-        print(f"\n  建议:")
+        print(f"    ✅ TypeScript/JavaScript (.ts/.tsx/.js/.jsx) — Claude Code 驱动审查")
+        print(f"    ❌ Java, Go, Rust, C#, Ruby, PHP 等 — 不支持\n")
         for suggestion in compatibility.get("suggestions", []):
             print(f"    - {suggestion}")
         print(f"\n{'!'*60}")
@@ -237,6 +265,49 @@ def run_review(project_dir: str = ".", mode: str = "full", focus_areas: list = N
         print(f"{'!'*60}\n")
         return {"findings_count": 0, "message": compatibility["reason"]}
 
+    # === TypeScript 项目 → 混合审查或 TS 专用分支 ===
+    if compatibility.get("project_type") == "typescript":
+        py_count = context.language_distribution.get(".py", 0)
+        limited_count = sum(
+            context.language_distribution.get(ext, 0)
+            for ext in [".ts", ".tsx", ".js", ".jsx"]
+        )
+
+        if py_count > 0:
+            # 混合项目：对 .py 文件执行完整 Python 专家审查
+            print(f"\n{'='*60}")
+            print(f"  混合项目: {py_count} Python + {limited_count} TypeScript/JS 文件")
+            print(f"{'='*60}")
+            print(f"\n  Python 专家审查: 对 {py_count} 个 .py 文件执行六人专家审查")
+            print(f"  TypeScript 审查: DataFlowExpert 对 TS/JS 文件执行数据流检查")
+            print(f"  （完整 TS 审查请按 SKILL.md Section A 手动执行）\n")
+
+            # 过滤 source_files 只保留 .py 文件给 Python 专家
+            source_files = [f for f in source_files if f.endswith(".py")]
+            # 跳过 TS early return，继续下面的 Python 审查流程
+        else:
+            # 纯 TypeScript 项目
+            print(f"\n{'='*60}")
+            print(f"  TypeScript/JavaScript 项目检测到")
+            print(f"  框架: {context.framework or '未知'}")
+            print(f"  技术栈: {', '.join(context.tech_stack) or '未检测到'}")
+            print(f"  源文件: {context.total_files} 个 ({context.total_lines} 行)")
+            print(f"  审查模式: {mode}")
+            print(f"{'='*60}")
+            if compatibility.get("warning"):
+                print(f"\n  ⚠️  {compatibility['warning']}")
+            print(f"\n  ⚡ TypeScript 项目使用 Claude Code 驱动审查")
+            print(f"  请按照 SKILL.md 中「Section A: TypeScript/Electron Review」")
+            print(f"  的审查流程执行 6 阶段审查。")
+            print(f"  审查完成后，将发现保存到 reports/ 目录。\n")
+            return {
+                "project_type": "typescript",
+                "framework": context.framework,
+                "total_files": context.total_files,
+                "total_lines": context.total_lines,
+            }
+
+    # === 以下为 Python 项目流程（不变）===
     if compatibility.get("warning"):
         print(f"\n  ⚠️  {compatibility['warning']}")
 
@@ -250,8 +321,17 @@ def run_review(project_dir: str = ".", mode: str = "full", focus_areas: list = N
     collector = MetricsCollector(str(SKILL_DIR))
     collector.start_review(context.project_name, mode=mode)
 
+    # === 外部集成状态 ===
+    from integrations.skill_integrator import SkillIntegrator
+    integrator = SkillIntegrator()
+    integration_status = integrator.get_integration_status()
+    available_integrations = [k for k, v in integration_status.items() if v.get("available")]
+    if available_integrations:
+        print(f"  外部集成: {', '.join(available_integrations)}")
+    print()
+
     # === Phase 1: 并行专家审查 ===
-    print("[Phase 1] 五人专家团队并行审查...")
+    print("[Phase 1] 六人专家团队并行审查...")
 
     # 加载经验库（自动注入到专家 prompt）
     exp_collector = BugExperienceCollector(str(SKILL_DIR))
@@ -266,6 +346,7 @@ def run_review(project_dir: str = ".", mode: str = "full", focus_areas: list = N
         TestingExpert(context, evolution, prompt_deltas, experience_data),
         SecurityExpert(context, evolution, prompt_deltas, experience_data),
         DevOpsExpert(context, evolution, prompt_deltas, experience_data),
+        DataFlowExpert(context, evolution, prompt_deltas, experience_data),
     ]
 
     all_findings_list = []
@@ -295,6 +376,22 @@ def run_review(project_dir: str = ".", mode: str = "full", focus_areas: list = N
     print(f"    🟢 Low: {stats['by_severity'].get('low', 0)}")
     print(f"    可操作性: {stats['actionability_score']}%")
     print()
+
+    # === Phase 1.1: 混合项目 TS/JS 数据流审查 ===
+    ts_js_files = [f for f in context.source_files if f.endswith((".ts", ".tsx", ".js", ".jsx"))]
+    if ts_js_files:
+        print(f"[Phase 1.1] 数据流审查 (TS/JS): {len(ts_js_files)} 个文件...")
+        try:
+            from experts.data_flow_expert import DataFlowExpert as TSDataFlowExpert
+            ts_flow_expert = TSDataFlowExpert(context, evolution, prompt_deltas, experience_data)
+            ts_findings = ts_flow_expert.review(ts_js_files)
+            if ts_findings.findings:
+                all_findings_list.extend(ts_findings.findings)
+                print(f"    TS/JS 发现: {len(ts_findings.findings)} 个问题")
+            else:
+                print(f"    TS/JS 发现: 0 个问题")
+        except Exception as e:
+            print(f"    TS/JS 审查跳过: {e}")
 
     # === Phase 1.5: 安全阻断检查 ===
     security_blockers = [
@@ -356,6 +453,57 @@ def run_review(project_dir: str = ".", mode: str = "full", focus_areas: list = N
             "message": "安全阻断：必须先修复安全问题才能继续",
         }
 
+    # === Phase 1.6: 修复方案数据流安全审查 ===
+    print("[Phase 1.6] 修复方案数据流安全审查...")
+    critical_high = all_findings.critical_and_high()
+    df_risks_found = 0
+    for finding in critical_high:
+        if not finding.fix_suggestion:
+            continue
+        fix_text = finding.fix_suggestion.lower()
+        risks = []
+        if any(kw in fix_text for kw in ["copy", "clone", "slice", "spread", "assign"]):
+            risks.append("修复涉及拷贝/赋值 — 验证深浅拷贝正确性")
+        if any(kw in fix_text for kw in ["return", "yield", "async"]):
+            risks.append("修复改变返回值 — 验证调用方是否正确处理")
+        if any(kw in fix_text for kw in ["global", "nonlocal", "class", "self."]):
+            risks.append("修复涉及共享状态 — 验证无副作用传播")
+        if any(kw in fix_text for kw in ["delete", "remove", "pop", "clear"]):
+            risks.append("修复涉及删除操作 — 验证引用方不会访问已删除数据")
+        if risks:
+            _add_finding_safe(
+                all_findings_list, all_findings,
+                title=f"数据流风险: {finding.title}",
+                severity="medium",
+                category="data_flow",
+                expert="data_flow_phase1_6",
+                file_path=finding.file_path,
+                line_range=finding.line_range,
+                description="; ".join(risks),
+                fix_suggestion="验证修复方案不会引入数据流不一致",
+            )
+            df_risks_found += 1
+    if df_risks_found:
+        print(f"  发现 {df_risks_found} 个数据流风险")
+    else:
+        print(f"  未发现数据流风险")
+
+    # === Phase 1.8: 需求交叉引用 ===
+    requirement_context = None
+    try:
+        from integrations.requirement_trace_bridge import RequirementTraceBridge
+        req_bridge = RequirementTraceBridge(project_dir)
+        if req_bridge.has_requirements:
+            print("[Phase 1.8] 需求交叉引用...")
+            findings_dicts = [f.to_dict() for f in all_findings.findings]
+            requirement_context = req_bridge.cross_reference(findings_dicts)
+            if requirement_context.get("has_requirements"):
+                related_count = len(requirement_context.get("related_findings", []))
+                print(f"  需求文档: {requirement_context.get('total_requirements', 0)} 个需求项")
+                print(f"  相关发现: {related_count} 个")
+    except Exception:
+        pass  # 需求追踪不可用时静默跳过
+
     # === Phase 2: 生成报告 ===
     print("[Phase 2] 生成审查报告...")
 
@@ -379,9 +527,29 @@ def run_review(project_dir: str = ".", mode: str = "full", focus_areas: list = N
 
     # 生成报告
     reporter = ReportGenerator(str(SKILL_DIR))
-    report = reporter.generate(all_findings, context, evolution, baseline_result)
+    report = reporter.generate(all_findings, context, evolution, baseline_result,
+                                 requirement_result=requirement_context)
     print(f"  报告已保存到 reports/ 目录")
     print()
+
+    # === Phase 2.5: 反馈收集与反模式校准 ===
+    from evolution.feedback_collector import FeedbackCollector
+    feedback_collector = FeedbackCollector(str(SKILL_DIR))
+    review_id = f"{context.project_name}-{datetime.now().strftime('%Y%m%d-%H%M%S')}"
+    feedback_prompt = feedback_collector.generate_feedback_prompt(review_id)
+    if feedback_prompt:
+        print("[Phase 2.5] 审查反馈校准...")
+        print(f"  {feedback_prompt}")
+        summary = feedback_collector.get_feedback_summary(review_id)
+        if summary["false_positive_rate"] > 30:
+            print(f"  ⚠️ 误报率 {summary['false_positive_rate']}%，自动添加反模式")
+            rejection_reasons = feedback_collector.get_rejection_reasons()
+            for reason in rejection_reasons[:5]:
+                store.add_anti_pattern(
+                    description=reason["reason"],
+                    category="auto_feedback",
+                    reason=f"用户否决 (finding {reason['finding_id']})",
+                )
 
     # === Phase 3: KPI 计算 ===
     print("[Phase 3] KPI 计算...")
@@ -447,6 +615,26 @@ def run_review(project_dir: str = ".", mode: str = "full", focus_areas: list = N
                   f"({universal_count} 通用, {project_count} 项目特有)")
         else:
             print("  未发现新的 bug fix 经验")
+
+        # 审查发现 → bug-retro 四维度经验沉淀（通过共享模块）
+        print("  审查发现→经验沉淀...")
+        from shared.experience_writer import write_experience_cards
+        experience_dicts = exp_collector.findings_to_experience_dicts(
+            all_findings.critical_and_high(),
+            project_dir,
+        )
+        if experience_dicts:
+            # 1. 持久化到 skill data（跨项目注入）
+            exp_collector.persist(
+                exp_collector.extract_from_findings(all_findings.critical_and_high(), project_dir),
+                project_dir,
+            )
+            # 2. 写入项目 memory + 更新 MEMORY.md 索引（通过共享模块）
+            written_paths = write_experience_cards(experience_dicts, project_dir)
+            print(f"  审查发现→经验: {len(experience_dicts)} 条"
+                  f"{f' (含 {len(written_paths)} 条写入项目 memory + 索引)' if written_paths else ''}")
+        else:
+            print("  无 Critical/High 发现需要沉淀")
         print()
 
     # === 输出报告摘要 ===
@@ -585,6 +773,19 @@ def cmd_baseline(args):
             print("尚未建立基线。")
 
 
+def cmd_feedback(args):
+    """记录审查反馈"""
+    from evolution.feedback_collector import FeedbackCollector
+    collector = FeedbackCollector(str(SKILL_DIR))
+    collector.record_feedback(
+        review_id=args.review_id,
+        finding_id=args.finding_id,
+        action=args.action,
+        reason=args.reason or "",
+    )
+    print(f"✅ 反馈已记录: {args.action} for finding {args.finding_id}")
+
+
 def cmd_review(args):
     """执行审查"""
     run_review(
@@ -598,7 +799,7 @@ def cmd_review(args):
 def main():
     parser = argparse.ArgumentParser(
         prog="expert-review",
-        description=f"专家复盘 Expert Review v{SKILL_VERSION} — 五人专家团队智能代码审查"
+        description=f"专家复盘 Expert Review v{SKILL_VERSION} — 六人专家团队智能代码审查"
     )
     subparsers = parser.add_subparsers(dest="command", help="可用命令")
 
@@ -616,6 +817,14 @@ def main():
     sub_baseline.add_argument("--reset", action="store_true", help="重置基线")
     sub_baseline.add_argument("--show", action="store_true", help="显示当前基线")
     sub_baseline.set_defaults(func=cmd_baseline)
+
+    # feedback
+    sub_feedback = subparsers.add_parser("feedback", help="记录审查反馈")
+    sub_feedback.add_argument("--review-id", required=True, help="审查 ID")
+    sub_feedback.add_argument("--finding-id", required=True, help="Finding ID")
+    sub_feedback.add_argument("--action", required=True, choices=["confirm", "reject", "wont_fix"], help="反馈动作")
+    sub_feedback.add_argument("--reason", default="", help="原因说明")
+    sub_feedback.set_defaults(func=cmd_feedback)
 
     # review
     sub_review = subparsers.add_parser("review", help="执行代码审查")
@@ -638,6 +847,7 @@ def main():
         print("Commands:")
         print("  status              查看进化状态和趋势")
         print("  profile <dir>       对项目生成画像")
+        print("  feedback            记录审查反馈")
         print("  review <dir>        执行代码审查")
         print("    --mode full|incremental|targeted")
         print("    --focus security,testing")

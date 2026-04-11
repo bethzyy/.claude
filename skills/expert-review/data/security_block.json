@@ -1,19 +1,43 @@
 {
   "blocked": true,
-  "blockers": 2,
-  "critical": 1,
-  "key_issues": 1,
+  "blockers": 4,
+  "critical": 2,
+  "key_issues": 2,
   "details": [
     {
-      "id": "FND-18D6FF",
+      "id": "FND-997F7B",
       "severity": "critical",
       "category": "security",
       "expert": "security",
-      "title": "OWASP A07-Auth Failures: session['user_id'] = result['user_id']",
-      "description": "OWASP A07-Auth Failures 在 apps\\simple_app.py:550",
-      "file_path": "apps\\simple_app.py",
-      "line_range": "550",
-      "code_snippet": "session['user_id'] = result['user_id']",
+      "title": "OWASP A03-Injection: \"suggestion\": \"避免使用 eval()，存在代码注入风险\",",
+      "description": "OWASP A03-Injection 在 experts\\code_quality_expert.py:68",
+      "file_path": "experts\\code_quality_expert.py",
+      "line_range": "68",
+      "code_snippet": "\"suggestion\": \"避免使用 eval()，存在代码注入风险\",",
+      "fix_suggestion": "使用参数化查询/白名单验证，避免动态代码执行",
+      "fix_code_example": null,
+      "effort": null,
+      "references": [
+        "OWASP A03-Injection"
+      ],
+      "status": "open",
+      "resolution": null,
+      "resolved_at": null,
+      "is_new_pattern": false,
+      "pattern_occurrence_count": 1,
+      "was_suppressed_by_anti_pattern": false,
+      "discovered_at": "2026-04-11T11:10:59.175057"
+    },
+    {
+      "id": "FND-862C40",
+      "severity": "critical",
+      "category": "security",
+      "expert": "security",
+      "title": "OWASP A07-Auth Failures: if \"password ==\" in content or \"password =\" in content:",
+      "description": "OWASP A07-Auth Failures 在 experts\\security_expert.py:250",
+      "file_path": "experts\\security_expert.py",
+      "line_range": "250",
+      "code_snippet": "if \"password ==\" in content or \"password =\" in content:",
       "fix_suggestion": "使用安全的 session 管理、密码哈希、JWT 验证",
       "fix_code_example": null,
       "effort": null,
@@ -26,23 +50,23 @@
       "is_new_pattern": false,
       "pattern_occurrence_count": 1,
       "was_suppressed_by_anti_pattern": false,
-      "discovered_at": "2026-04-11T08:08:12.377928"
+      "discovered_at": "2026-04-11T11:10:59.182072"
     },
     {
-      "id": "FND-26603F",
-      "severity": "high",
+      "id": "FND-AF83C0",
+      "severity": "medium",
       "category": "security",
       "expert": "security",
-      "title": "OWASP A01-Broken Access Control: @app.route('/api/config/<key>', methods=['DELETE'])",
-      "description": "OWASP A01-Broken Access Control 在 app.py:780",
-      "file_path": "app.py",
-      "line_range": "780",
-      "code_snippet": "@app.route('/api/config/<key>', methods=['DELETE'])",
-      "fix_suggestion": "确保所有路由都有适当的访问控制",
+      "title": "OWASP A04-Insecure Design: (r\"TODO.*security|FIXME.*auth|HACK.*password\", \"security_todo\"),",
+      "description": "OWASP A04-Insecure Design 在 experts\\security_expert.py:63",
+      "file_path": "experts\\security_expert.py",
+      "line_range": "63",
+      "code_snippet": "(r\"TODO.*security|FIXME.*auth|HACK.*password\", \"security_todo\"),",
+      "fix_suggestion": "解决安全相关的 TODO/FIXME",
       "fix_code_example": null,
       "effort": null,
       "references": [
-        "OWASP A01-Broken Access Control"
+        "OWASP A04-Insecure Design"
       ],
       "status": "open",
       "resolution": null,
@@ -50,7 +74,31 @@
       "is_new_pattern": false,
       "pattern_occurrence_count": 1,
       "was_suppressed_by_anti_pattern": false,
-      "discovered_at": "2026-04-11T08:08:12.219277"
+      "discovered_at": "2026-04-11T11:10:59.181073"
+    },
+    {
+      "id": "FND-862C40",
+      "severity": "critical",
+      "category": "security",
+      "expert": "security",
+      "title": "OWASP A07-Auth Failures: if \"password ==\" in content or \"password =\" in content:",
+      "description": "OWASP A07-Auth Failures 在 experts\\security_expert.py:250",
+      "file_path": "experts\\security_expert.py",
+      "line_range": "250",
+      "code_snippet": "if \"password ==\" in content or \"password =\" in content:",
+      "fix_suggestion": "使用安全的 session 管理、密码哈希、JWT 验证",
+      "fix_code_example": null,
+      "effort": null,
+      "references": [
+        "OWASP A07-Auth Failures"
+      ],
+      "status": "open",
+      "resolution": null,
+      "resolved_at": null,
+      "is_new_pattern": false,
+      "pattern_occurrence_count": 1,
+      "was_suppressed_by_anti_pattern": false,
+      "discovered_at": "2026-04-11T11:10:59.182072"
     }
   ]
 }

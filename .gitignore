@@ -34,5 +34,11 @@ build/
 *.pem
 credentials.json
 
+# 运行时数据（expert-review 等技能生成）
+skills/*/reports/
+skills/*/data/metrics/review-*.json
+skills/*/data/prompt_deltas/
+skills/*/data/trusted_hashes.json
+
 #其它
 *.wav

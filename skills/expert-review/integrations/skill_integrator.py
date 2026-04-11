@@ -82,6 +82,13 @@ class SkillIntegrator:
         from integrations.requirement_trace_bridge import RequirementTraceBridge
         return RequirementTraceBridge(project_dir)
 
+    def get_free_search_bridge(self):
+        """获取 free-search 桥接（单例缓存）"""
+        if not hasattr(self, '_fs_bridge') or self._fs_bridge is None:
+            from integrations.free_search_bridge import FreeSearchBridge
+            self._fs_bridge = FreeSearchBridge()
+        return self._fs_bridge
+
     def get_integration_status(self) -> Dict:
         """获取所有集成的状态"""
         status = {}
@@ -106,6 +113,13 @@ class SkillIntegrator:
         status["requirement_trace"] = {
             "available": rt_path.exists(),
             "path": str(rt_path),
+        }
+
+        # free-search
+        fs = self.get_free_search_bridge()
+        status["free_search"] = {
+            "available": fs.available,
+            "error": fs.get_error(),
         }
 
         return status

@@ -41,6 +41,7 @@ class ReportGenerator:
         evolution: Optional[EvolutionState] = None,
         baseline_result: Optional[Dict] = None,
         regression_result: Optional[Dict] = None,
+        requirement_result: Optional[Dict] = None,
     ) -> str:
         """生成完整审查报告"""
         parts = []
@@ -142,6 +143,20 @@ class ReportGenerator:
                 parts.append("- 基线保持不变（达到标准）")
             elif baseline_result.get("status") == "below":
                 parts.append("- ⚠️ 基线保持不变（未达到标准，不降低）")
+            parts.append("")
+
+        # 需求交叉引用
+        if requirement_result and requirement_result.get("has_requirements"):
+            parts.append("## 需求交叉引用")
+            req_stats = requirement_result.get("statistics", {})
+            parts.append(f"- 总需求: {requirement_result.get('total_requirements', 0)}")
+            parts.append(f"- 已完成: {req_stats.get('completed', 0)}")
+            parts.append(f"- 待完成: {req_stats.get('pending', 0)}")
+            related = requirement_result.get("related_findings", [])
+            if related:
+                parts.append(f"- 与审查发现相关的需求: {len(related)}")
+                for rf in related[:10]:
+                    parts.append(f"  - Finding {rf['finding']}: {rf['requirement'][:60]}")
             parts.append("")
 
         report = "\n".join(parts)

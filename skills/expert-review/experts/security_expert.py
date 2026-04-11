@@ -146,6 +146,9 @@ class SecurityExpert(BaseExpert):
         # 尝试委托 quality-reviewer
         self._delegate_to_quality_reviewer(py_files)
 
+        # 实时 CVE 搜索（通过 free-search）
+        self._search_dependency_cves()
+
         return self.findings
 
     def _check_owasp(self, files: List[str]):
@@ -402,3 +405,50 @@ class SecurityExpert(BaseExpert):
         if len(set(value_lower)) <= 2:
             return True
         return False
+
+    def _search_dependency_cves(self):
+        """通过 free-search 实时搜索依赖包的 CVE 漏洞（限 5 次搜索/审查）"""
+        try:
+            from integrations.free_search_bridge import FreeSearchBridge
+            bridge = FreeSearchBridge()
+            if not bridge.available:
+                return
+        except Exception:
+            return
+
+        # 提取 requirements.txt 中的依赖
+        req_files = self.filter_by_extension(
+            self.scan_all_files(), [".txt", ".toml"]
+        )
+        if not req_files:
+            return
+
+        packages = []
+        for req_file in req_files:
+            content = self.read_file(req_file)
+            if not content:
+                continue
+            for line in content.split("\n"):
+                line = line.strip()
+                if not line or line.startswith("#"):
+                    continue
+                # 解析 package==version 或 package>=version
+                match = re.match(r'^([a-zA-Z0-9_-]+)[=<>!~]+([\d.]+)', line)
+                if match:
+                    packages.append((match.group(1), match.group(2)))
+                elif re.match(r'^[a-zA-Z0-9_-]+$', line):
+                    packages.append((line, ""))
+
+        # 限制搜索次数
+        for pkg_name, pkg_version in packages[:5]:
+            cve_info = bridge.search_cve(pkg_name, pkg_version)
+            if cve_info:
+                self.add_finding(
+                    title=f"依赖 CVE 检查: {pkg_name}",
+                    severity=Severity.HIGH,
+                    category=Category.SECURITY,
+                    file_path=req_files[0],
+                    description=f"搜索结果:\n{cve_info}",
+                    fix_suggestion=f"更新 {pkg_name} 到最新安全版本",
+                    references=[f"CVE: {pkg_name}"],
+                )

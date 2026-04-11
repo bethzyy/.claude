@@ -1066,3 +1066,252 @@ class BugExperienceCollector:
             if os.path.exists(tmp_path):
                 os.unlink(tmp_path)
             raise
+
+    # ============ bug-retro 集成：审查发现 → 四维度经验 ============
+
+    # 根因分类映射：审查 category → 更具体的根因描述
+    ROOT_CAUSE_MAP = {
+        "security": "安全漏洞 — 输入验证、认证授权或加密实现缺陷",
+        "bug": "逻辑缺陷 — 代码行为与预期不符",
+        "reliability": "可靠性问题 — 错误处理不完整或资源管理缺陷",
+        "performance": "性能瓶颈 — 算法效率或资源使用不当",
+        "architecture": "架构问题 — 模块耦合或职责划分不当",
+        "testing": "测试缺失 — 关键路径缺少测试覆盖",
+        "maintainability": "可维护性 — 代码复杂或规范不一致",
+        "data_flow": "数据流问题 — 跨模块状态同步或引用传递错误",
+        "configuration": "配置问题 — 环境变量或配置管理不当",
+        "behavioral": "行为正确性 — 业务逻辑与需求预期不符",
+    }
+
+    def extract_from_findings(self, findings: list, project_dir: str) -> list:
+        """
+        将审查发现（Critical/High）转化为 ExperienceCard。
+        """
+        cards = []
+        project_name = Path(project_dir).name
+
+        for finding in findings:
+            sev_val = self._get_field(finding, "severity")
+            if sev_val not in ("critical", "high"):
+                continue
+
+            fix_suggestion = self._get_field(finding, "fix_suggestion")
+            if not fix_suggestion:
+                continue
+
+            card = ExperienceCard(
+                bug_pattern=self._get_field(finding, "title"),
+                bug_description=self._get_field(finding, "description") or self._get_field(finding, "code_snippet"),
+                fix_technique=fix_suggestion,
+                fix_type=self._infer_fix_type_from_category(self._get_field(finding, "category")),
+                fix_code_example=fix_suggestion,
+                before_code=(self._get_field(finding, "code_snippet") or "")[:200],
+                after_code=fix_suggestion[:200],
+                file_path=self._get_field(finding, "file_path"),
+                line_range=self._get_field(finding, "line_range"),
+                category=self._get_field(finding, "category"),
+                severity=sev_val,
+                project=project_name,
+                confidence=0.7,
+            )
+            cards.append(card)
+
+        return self._deduplicate(cards)
+
+    def findings_to_experience_dicts(self, findings: list, project_dir: str) -> list:
+        """
+        将审查发现转为标准化的经验字典列表，供 shared.experience_writer 使用。
+
+        增强四维度分析：
+        - 问题模式：category + title + code_snippet 综合描述
+        - 根因分类：从 category 映射到具体根因描述
+        - 解决技巧：从 fix_suggestion 拆解为步骤列表
+        - 可复用洞察：提炼为 "下次遇到 X，先检查 Y" 的 heuristic
+        """
+        dicts = []
+
+        for finding in findings:
+            sev_val = self._get_field(finding, "severity")
+            if sev_val not in ("critical", "high"):
+                continue
+
+            fix_suggestion = self._get_field(finding, "fix_suggestion")
+            if not fix_suggestion:
+                continue
+
+            title = self._get_field(finding, "title")
+            category = self._get_field(finding, "category")
+            description = self._get_field(finding, "description")
+            code_snippet = self._get_field(finding, "code_snippet")
+            file_path = self._get_field(finding, "file_path")
+            expert = self._get_field(finding, "expert")
+
+            # 四维度分析
+            problem_pattern = self._analyze_problem_pattern(category, title, code_snippet, file_path)
+            root_cause = self._analyze_root_cause(category, description, code_snippet)
+            techniques = self._analyze_solution_techniques(fix_suggestion, category)
+            insight = self._synthesize_reusable_insight(category, title, fix_suggestion, file_path)
+            keywords = self._extract_keywords(category, title, file_path)
+
+            card_dict = {
+                "problem_pattern": problem_pattern,
+                "root_cause": root_cause,
+                "solution_techniques": techniques,
+                "reusable_insight": insight,
+                "keywords": keywords,
+                "date": datetime.now().strftime("%Y-%m-%d"),
+                "source": f"expert-review:{expert or 'unknown'}",
+                "file_path": file_path or "",
+                "cwe_id": self._map_category_to_cwe(category),
+            }
+            dicts.append(card_dict)
+
+        return dicts
+
+    def _analyze_problem_pattern(self, category: str, title: str, code_snippet: str, file_path: str) -> str:
+        """分析问题模式：综合多个维度描述问题的特征"""
+        parts = []
+        if category:
+            parts.append(f"[{category}]")
+        if title:
+            parts.append(title)
+        if code_snippet and len(code_snippet) > 10:
+            snippet_preview = code_snippet[:60].replace("\n", " ")
+            parts.append(f"代码: `{snippet_preview}`")
+        elif file_path:
+            parts.append(f"文件: {file_path}")
+        return " ".join(parts) if parts else "未描述的问题"
+
+    def _analyze_root_cause(self, category: str, description: str, code_snippet: str) -> str:
+        """分析根因：从 category 映射到具体根因，结合描述推断"""
+        mapped = self.ROOT_CAUSE_MAP.get(category, "")
+        if not mapped:
+            mapped = f"{category} — 代码实现问题"
+
+        # 从描述中提取额外信息
+        if description and len(description) > 10:
+            desc_preview = description[:50].replace("\n", " ")
+            return f"{mapped}\n上下文: {desc_preview}"
+        return mapped
+
+    def _analyze_solution_techniques(self, fix_suggestion: str, category: str) -> list:
+        """分析解决技巧：将 fix_suggestion 拆解为步骤列表"""
+        if not fix_suggestion:
+            return ["根据审查建议修复"]
+
+        # 尝试按分号、句号拆分
+        parts = re.split(r'[;。]', fix_suggestion)
+
+        # 如果拆分结果只有一个，尝试按动词开头拆分
+        if len(parts) <= 1:
+            verb_patterns = [
+                (r'(?:添加|增加|新增|使用|确保|修改|替换|移除|删除|验证|检查|配置)', '添加/修改/删除类'),
+                (r'(?:避免|防止|禁止|不要)', '防护类'),
+                (r'(?:改为|替换为|重构为)', '重构类'),
+            ]
+            for pattern, _ in verb_patterns:
+                matches = list(re.finditer(pattern, fix_suggestion))
+                if matches:
+                    parts = []
+                    for i, m in enumerate(matches):
+                        start = m.start()
+                        end = matches[i + 1].start() if i + 1 < len(matches) else len(fix_suggestion)
+                        parts.append(fix_suggestion[start:end].strip())
+                    break
+
+        # 清理和去重
+        techniques = []
+        for p in parts:
+            p = p.strip()
+            if len(p) > 5:
+                techniques.append(p)
+
+        if not techniques:
+            techniques = [fix_suggestion[:100]]
+
+        return techniques[:5]  # 最多 5 个技巧
+
+    def _synthesize_reusable_insight(self, category: str, title: str, fix_suggestion: str, file_path: str) -> str:
+        """
+        合成可复用洞察：提炼为 "下次遇到 X，先检查 Y" 的 heuristic。
+        """
+        # 提取文件名中的模块名
+        module_name = "相关模块"
+        if file_path:
+            basename = file_path.split("/")[-1].split(".")[0] if "." in file_path else file_path.split("/")[-1]
+            module_name = basename
+
+        # 提取问题核心关键词
+        title_clean = title.replace("OWASP ", "").replace("检查", "").replace("Missing", "").strip()
+        if len(title_clean) > 30:
+            title_clean = title_clean[:30]
+
+        # 根据分类生成不同的 heuristic
+        insight_templates = {
+            "security": f"在 {module_name} 中发现安全问题，优先检查所有入口点的输入验证和认证装饰器",
+            "reliability": f"涉及 {module_name} 中的资源操作，优先检查异常处理是否覆盖所有失败路径和资源释放",
+            "performance": f"审查 {module_name} 时，检查是否存在 N+1 查询、不必要的循环或内存泄漏",
+            "testing": f"修改 {module_name} 后，确认对应的测试用例已覆盖新增的边界条件",
+            "data_flow": f"涉及 {module_name} 中的共享状态修改时，验证所有引用方是否正确同步",
+            "architecture": f"在 {module_name} 中新增依赖时，检查是否存在循环引用和职责越界",
+            "bug": f"遇到 {title_clean} 类问题时，优先检查边界条件和空值处理",
+        }
+
+        template = insight_templates.get(category, insight_templates["bug"])
+        return template
+
+    def _extract_keywords(self, category: str, title: str, file_path: str) -> list:
+        """提取搜索关键词"""
+        keywords = [category]
+        if title:
+            # 提取有意义的词
+            words = re.findall(r'[a-zA-Z_-]{3,}', title)
+            keywords.extend(words[:5])
+        if file_path:
+            ext = file_path.split(".")[-1] if "." in file_path else ""
+            if ext:
+                keywords.append(ext)
+        # 去重
+        seen = set()
+        unique = []
+        for kw in keywords:
+            if kw.lower() not in seen:
+                seen.add(kw.lower())
+                unique.append(kw)
+        return unique[:8]
+
+    def _map_category_to_cwe(self, category: str) -> str:
+        """将审查分类映射到 CWE ID"""
+        cwe_map = {
+            "security": "CWE-79/CWE-89",
+            "reliability": "CWE-755/CWE-404",
+            "performance": "CWE-1049/CWE-401",
+            "testing": "CWE-1004",
+            "data_flow": "CWE-843",
+        }
+        return cwe_map.get(category, "")
+
+    @staticmethod
+    def _get_field(obj, field_name: str) -> str:
+        """安全获取对象的字段值（兼容 dict 和对象）"""
+        if isinstance(obj, dict):
+            return obj.get(field_name, "")
+        return getattr(obj, field_name, "")
+
+    def _infer_fix_type_from_category(self, category: str) -> str:
+        """从审查分类推断修复类型"""
+        category_lower = (category or "").lower()
+        if category_lower == "security":
+            return "auth"
+        elif category_lower == "reliability":
+            return "guard"
+        elif category_lower == "performance":
+            return "replace"
+        elif category_lower == "testing":
+            return "validate"
+        elif category_lower == "data_flow":
+            return "restructure"
+        return "guard"
+
+    # write_to_project_memory 和 _card_to_bug_retro_format 已迁移到
+    # shared/experience_writer.py，此处不再重复实现。
