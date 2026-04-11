@@ -1,0 +1,285 @@
+{
+  "total_reviews": 5,
+  "projects_reviewed": [
+    "food",
+    "package"
+  ],
+  "total_issues_found": 1256,
+  "avg_issues_per_review": 251.2,
+  "avg_duration": 0.6,
+  "latest_reviews": [
+    {
+      "review_id": "review-20260411-070513",
+      "timestamp": "2026-04-11T07:05:13.027007",
+      "project": "food",
+      "review_mode": "full",
+      "experts_used": [
+        "code_quality",
+        "architecture",
+        "testing",
+        "security",
+        "devops"
+      ],
+      "phase_timings": {
+        "code_quality": 0.1,
+        "architecture": 0.0,
+        "testing": 0.0,
+        "security": 0.4,
+        "devops": 0.1
+      },
+      "files_scanned": 88,
+      "lines_of_code": 30957,
+      "findings": {
+        "total": 229,
+        "by_severity": {
+          "critical": 0,
+          "high": 26,
+          "medium": 48,
+          "low": 155
+        },
+        "by_category": {
+          "bug": 5,
+          "security": 10,
+          "maintainability": 31,
+          "architecture": 12,
+          "testing": 44,
+          "configuration": 3,
+          "reliability": 124
+        },
+        "by_expert": {
+          "code_quality": 100,
+          "architecture": 12,
+          "testing": 44,
+          "security": 9,
+          "devops": 64
+        }
+      },
+      "actionability": {
+        "actionable": 229,
+        "actionability_score": 100.0
+      },
+      "new_patterns": 229,
+      "evolution": {
+        "baseline_met": true,
+        "new_patterns_found": 229,
+        "anti_patterns_triggered": 0
+      },
+      "duration_seconds": 0.7
+    },
+    {
+      "review_id": "review-20260411-070523",
+      "timestamp": "2026-04-11T07:05:23.019741",
+      "project": "food",
+      "review_mode": "full",
+      "experts_used": [
+        "code_quality",
+        "architecture",
+        "testing",
+        "security",
+        "devops"
+      ],
+      "phase_timings": {
+        "code_quality": 0.1,
+        "architecture": 0.0,
+        "testing": 0.0,
+        "security": 0.5,
+        "devops": 0.1
+      },
+      "files_scanned": 88,
+      "lines_of_code": 30957,
+      "findings": {
+        "total": 229,
+        "by_severity": {
+          "critical": 0,
+          "high": 26,
+          "medium": 48,
+          "low": 155
+        },
+        "by_category": {
+          "bug": 5,
+          "security": 10,
+          "maintainability": 31,
+          "architecture": 12,
+          "testing": 44,
+          "configuration": 3,
+          "reliability": 124
+        },
+        "by_expert": {
+          "code_quality": 100,
+          "architecture": 12,
+          "testing": 44,
+          "security": 9,
+          "devops": 64
+        }
+      },
+      "actionability": {
+        "actionable": 229,
+        "actionability_score": 100.0
+      },
+      "new_patterns": 229,
+      "evolution": {
+        "baseline_met": true,
+        "new_patterns_found": 229,
+        "anti_patterns_triggered": 0
+      },
+      "duration_seconds": 0.7
+    },
+    {
+      "review_id": "review-20260411-071958",
+      "timestamp": "2026-04-11T07:19:58.952809",
+      "project": "package",
+      "review_mode": "full",
+      "experts_used": [
+        "code_quality",
+        "architecture",
+        "testing",
+        "security",
+        "devops"
+      ],
+      "phase_timings": {
+        "code_quality": 0.2,
+        "architecture": 0.0,
+        "testing": 0.0,
+        "security": 0.5,
+        "devops": 0.1
+      },
+      "files_scanned": 39,
+      "lines_of_code": 16825,
+      "findings": {
+        "total": 276,
+        "by_severity": {
+          "critical": 3,
+          "high": 169,
+          "medium": 70,
+          "low": 34
+        },
+        "by_category": {
+          "bug": 3,
+          "security": 108,
+          "maintainability": 44,
+          "architecture": 65,
+          "testing": 30,
+          "configuration": 3,
+          "reliability": 23
+        },
+        "by_expert": {
+          "code_quality": 69,
+          "architecture": 65,
+          "testing": 30,
+          "security": 101,
+          "devops": 11
+        }
+      },
+      "actionability": {
+        "actionable": 276,
+        "actionability_score": 100.0
+      },
+      "new_patterns": 276,
+      "evolution": {
+        "baseline_met": true,
+        "new_patterns_found": 276,
+        "anti_patterns_triggered": 0
+      },
+      "duration_seconds": 0.8
+    },
+    {
+      "review_id": "review-20260411-072901",
+      "timestamp": "2026-04-11T07:29:01.692260",
+      "project": "package",
+      "review_mode": "full",
+      "experts_used": [
+        "code_quality",
+        "architecture",
+        "testing",
+        "security",
+        "devops"
+      ],
+      "phase_timings": {
+        "code_quality": 0.2,
+        "architecture": 0.0,
+        "testing": 0.0,
+        "security": 0.5,
+        "devops": 0.2
+      },
+      "files_scanned": 39,
+      "lines_of_code": 16825,
+      "findings": {
+        "total": 261,
+        "by_severity": {
+          "critical": 1,
+          "high": 164,
+          "medium": 69,
+          "low": 27
+        },
+        "by_category": {
+          "bug": 2,
+          "security": 101,
+          "maintainability": 44,
+          "architecture": 65,
+          "testing": 30,
+          "configuration": 3,
+          "reliability": 16
+        },
+        "by_expert": {
+          "code_quality": 54,
+          "architecture": 65,
+          "testing": 30,
+          "security": 101,
+          "devops": 11
+        }
+      },
+      "actionability": {
+        "actionable": 261,
+        "actionability_score": 100.0
+      },
+      "new_patterns": 261,
+      "evolution": {
+        "baseline_met": false,
+        "new_patterns_found": 261,
+        "anti_patterns_triggered": 0
+      },
+      "duration_seconds": 0.9
+    },
+    {
+      "review_id": "review-20260411-074924",
+      "timestamp": "2026-04-11T07:49:24.475886",
+      "project": "package",
+      "review_mode": "full",
+      "experts_used": [],
+      "phase_timings": {},
+      "files_scanned": 39,
+      "lines_of_code": 16825,
+      "findings": {
+        "total": 261,
+        "by_severity": {
+          "critical": 1,
+          "high": 164,
+          "medium": 69,
+          "low": 27
+        },
+        "by_category": {
+          "bug": 2,
+          "security": 101,
+          "maintainability": 44,
+          "architecture": 65,
+          "testing": 30,
+          "configuration": 3,
+          "reliability": 16
+        },
+        "by_expert": {
+          "code_quality": 54,
+          "architecture": 65,
+          "testing": 30,
+          "security": 101,
+          "devops": 11
+        }
+      },
+      "actionability": {
+        "actionable": 261,
+        "actionability_score": 100.0
+      },
+      "new_patterns": 261,
+      "duration_seconds": 0.0
+    }
+  ]
+}

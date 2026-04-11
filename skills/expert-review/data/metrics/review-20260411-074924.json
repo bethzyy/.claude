@@ -1,0 +1,41 @@
+{
+  "review_id": "review-20260411-074924",
+  "timestamp": "2026-04-11T07:49:24.475886",
+  "project": "package",
+  "review_mode": "full",
+  "experts_used": [],
+  "phase_timings": {},
+  "files_scanned": 39,
+  "lines_of_code": 16825,
+  "findings": {
+    "total": 261,
+    "by_severity": {
+      "critical": 1,
+      "high": 164,
+      "medium": 69,
+      "low": 27
+    },
+    "by_category": {
+      "bug": 2,
+      "security": 101,
+      "maintainability": 44,
+      "architecture": 65,
+      "testing": 30,
+      "configuration": 3,
+      "reliability": 16
+    },
+    "by_expert": {
+      "code_quality": 54,
+      "architecture": 65,
+      "testing": 30,
+      "security": 101,
+      "devops": 11
+    }
+  },
+  "actionability": {
+    "actionable": 261,
+    "actionability_score": 100.0
+  },
+  "new_patterns": 261,
+  "duration_seconds": 0.0
+}

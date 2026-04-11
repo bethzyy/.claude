@@ -1,0 +1,58 @@
+{
+  "review_id": "review-20260411-070513",
+  "timestamp": "2026-04-11T07:05:13.027007",
+  "project": "food",
+  "review_mode": "full",
+  "experts_used": [
+    "code_quality",
+    "architecture",
+    "testing",
+    "security",
+    "devops"
+  ],
+  "phase_timings": {
+    "code_quality": 0.1,
+    "architecture": 0.0,
+    "testing": 0.0,
+    "security": 0.4,
+    "devops": 0.1
+  },
+  "files_scanned": 88,
+  "lines_of_code": 30957,
+  "findings": {
+    "total": 229,
+    "by_severity": {
+      "critical": 0,
+      "high": 26,
+      "medium": 48,
+      "low": 155
+    },
+    "by_category": {
+      "bug": 5,
+      "security": 10,
+      "maintainability": 31,
+      "architecture": 12,
+      "testing": 44,
+      "configuration": 3,
+      "reliability": 124
+    },
+    "by_expert": {
+      "code_quality": 100,
+      "architecture": 12,
+      "testing": 44,
+      "security": 9,
+      "devops": 64
+    }
+  },
+  "actionability": {
+    "actionable": 229,
+    "actionability_score": 100.0
+  },
+  "new_patterns": 229,
+  "evolution": {
+    "baseline_met": true,
+    "new_patterns_found": 229,
+    "anti_patterns_triggered": 0
+  },
+  "duration_seconds": 0.7
+}

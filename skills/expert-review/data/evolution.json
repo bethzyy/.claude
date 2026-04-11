@@ -1,0 +1,163 @@
+{
+  "total_reviews": 2,
+  "total_issues_found": 505,
+  "avg_issues_per_review": 252.5,
+  "last_review_date": "2026-04-11 07:20",
+  "last_review_project": "package",
+  "baseline": {
+    "issues_found": 276
+  },
+  "internalized_patterns": [
+    {
+      "description": "[?] [reliability] 检查 reliability 类问题: missing finally: with open(con",
+      "category": "reliability",
+      "internalized_date": "2026-04-11",
+      "occurrence_count": 18
+    },
+    {
+      "description": "[?] [maintainability] 检查 maintainability 类问题: Long function (54 lines)",
+      "category": "maintainability",
+      "internalized_date": "2026-04-11",
+      "occurrence_count": 3
+    },
+    {
+      "description": "[?] [bug] 检查 bug 类问题: bare except: except:",
+      "category": "bug",
+      "internalized_date": "2026-04-11",
+      "occurrence_count": 5
+    },
+    {
+      "description": "[?] [testing] 检查 testing 类问题: Missing tests for critical mod",
+      "category": "testing",
+      "internalized_date": "2026-04-11",
+      "occurrence_count": 7
+    },
+    {
+      "description": "[?] [testing] 检查 testing 类问题: Missing tests: baidu_crawler_v",
+      "category": "testing",
+      "internalized_date": "2026-04-11",
+      "occurrence_count": 3
+    },
+    {
+      "description": "[?] [security] 检查 security 类问题: OWASP A05-Security Misconfigur",
+      "category": "security",
+      "internalized_date": "2026-04-11",
+      "occurrence_count": 4
+    },
+    {
+      "description": "[?] [security] 检查 security 类问题: OWASP A01-Broken Access Contro",
+      "category": "security",
+      "internalized_date": "2026-04-11",
+      "occurrence_count": 3
+    },
+    {
+      "description": "[?] [reliability] 检查 reliability 类问题: Bare except clause",
+      "category": "reliability",
+      "internalized_date": "2026-04-11",
+      "occurrence_count": 5
+    },
+    {
+      "description": "[?] [reliability] 检查 reliability 类问题: Using print() instead of loggi",
+      "category": "reliability",
+      "internalized_date": "2026-04-11",
+      "occurrence_count": 56
+    },
+    {
+      "description": "检查 security 类问题: debug mode: app.run(host='0.0.",
+      "category": "security",
+      "internalized_date": "2026-04-11",
+      "occurrence_count": 5
+    },
+    {
+      "description": "检查 reliability 类问题: missing finally: with open(fil",
+      "category": "reliability",
+      "internalized_date": "2026-04-11",
+      "occurrence_count": 9
+    },
+    {
+      "description": "检查 bug 类问题: bare except: except:",
+      "category": "bug",
+      "internalized_date": "2026-04-11",
+      "occurrence_count": 3
+    },
+    {
+      "description": "检查 maintainability 类问题: Long function (54 lines)",
+      "category": "maintainability",
+      "internalized_date": "2026-04-11",
+      "occurrence_count": 3
+    },
+    {
+      "description": "检查 maintainability 类问题: Long function (51 lines)",
+      "category": "maintainability",
+      "internalized_date": "2026-04-11",
+      "occurrence_count": 4
+    },
+    {
+      "description": "检查 architecture 类问题: Circular import: core\\template",
+      "category": "architecture",
+      "internalized_date": "2026-04-11",
+      "occurrence_count": 4
+    },
+    {
+      "description": "检查 architecture 类问题: Circular import: core\\payment\\",
+      "category": "architecture",
+      "internalized_date": "2026-04-11",
+      "occurrence_count": 4
+    },
+    {
+      "description": "检查 architecture 类问题: Circular import: core\\provider",
+      "category": "architecture",
+      "internalized_date": "2026-04-11",
+      "occurrence_count": 4
+    },
+    {
+      "description": "检查 testing 类问题: No assertions in test file: te",
+      "category": "testing",
+      "internalized_date": "2026-04-11",
+      "occurrence_count": 11
+    },
+    {
+      "description": "检查 testing 类问题: No error/edge case tests in te",
+      "category": "testing",
+      "internalized_date": "2026-04-11",
+      "occurrence_count": 3
+    },
+    {
+      "description": "检查 security 类问题: OWASP A01-Broken Access Contro",
+      "category": "security",
+      "internalized_date": "2026-04-11",
+      "occurrence_count": 76
+    },
+    {
+      "description": "检查 security 类问题: OWASP A02-Cryptographic Failur",
+      "category": "security",
+      "internalized_date": "2026-04-11",
+      "occurrence_count": 16
+    },
+    {
+      "description": "检查 security 类问题: OWASP A05-Security Misconfigur",
+      "category": "security",
+      "internalized_date": "2026-04-11",
+      "occurrence_count": 5
+    },
+    {
+      "description": "检查 reliability 类问题: Bare except clause",
+      "category": "reliability",
+      "internalized_date": "2026-04-11",
+      "occurrence_count": 3
+    },
+    {
+      "description": "检查 reliability 类问题: Database operations without er",
+      "category": "reliability",
+      "internalized_date": "2026-04-11",
+      "occurrence_count": 3
+    }
+  ],
+  "anti_patterns": [],
+  "project_knowledge": {
+    "project_name": "package",
+    "test_command": "pytest tests/ -v",
+    "framework": "Flask"
+  },
+  "prompt_deltas_applied": []
+}
